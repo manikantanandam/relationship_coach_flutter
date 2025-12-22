@@ -8,6 +8,17 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   final List<ChatType> options = maleHomeScreenOptions;
 
+  void goToChatOptionsScreen(ChatType type, BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return ChatOptionScreen(option: type);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,14 +31,21 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return ChatOptionScreen(option: options[index]);
-                        },
-                      ),
-                    );
+                    final option = options[index];
+                    switch (option) {
+                      case ChatType.hisFault:
+                      case ChatType.myFault:
+                      case ChatType.toxicChat:
+                      case ChatType.receivingTalk:
+                      case ChatType.sweetTalk:
+                        goToChatOptionsScreen(option, context);
+                      case ChatType.instagram:
+                        // TODO: Handle this case.
+                        throw UnimplementedError();
+                      case ChatType.share:
+                        // TODO: Handle this case.
+                        throw UnimplementedError();
+                    }
                   },
                   child: RCCard(
                     cardWidget: Row(
