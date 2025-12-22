@@ -1,22 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 import 'package:relationship_coach_flutter/screens/home_screen.dart';
 import 'package:relationship_coach_flutter/screens/settings_screen.dart';
+import 'package:relationship_coach_flutter/providers/iap_provider.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      home: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          bottomNavigationBar: BottomAppBar(
-            child: TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.home)),
-                Tab(icon: Icon(Icons.settings)),
-              ],
+    MultiProvider(
+      providers: [
+        // 1. In-App Purchase Provider
+        ChangeNotifierProvider(create: (_) => IAPProvider()),
+
+        // 2. User Settings Provider
+        ChangeNotifierProvider(create: (_) => UserSettingsProvider()),
+      ],
+      child: MaterialApp(
+        home: DefaultTabController(
+          length: 2,
+          child: Scaffold(
+            bottomNavigationBar: BottomAppBar(
+              child: TabBar(
+                tabs: [
+                  Tab(icon: Icon(Icons.home)),
+                  Tab(icon: Icon(Icons.settings)),
+                ],
+              ),
             ),
+            body: TabBarView(children: [const HomeScreen(), SettingsScreen()]),
           ),
-          body: TabBarView(children: [const HomeScreen(), SettingsScreen()]),
         ),
       ),
     ),

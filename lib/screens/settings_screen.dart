@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:relationship_coach_flutter/components/gender_toggle.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
+import 'package:relationship_coach_flutter/enum/gender.dart';
+import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 
 enum SettingsSection { user, coach, legal }
 
@@ -28,6 +32,24 @@ class RCSettingSection extends StatelessWidget {
   const RCSettingSection({super.key, required this.section});
   final SettingsSection section;
 
+  Widget rightWidget(SettingsSecionItem item, BuildContext context) {
+    final userSettingsProvider = Provider.of<UserSettingsProvider>(context);
+
+    switch (item) {
+      case SettingsSecionItem.gender:
+        return GenderToggle(
+          selectedGender: userSettingsProvider.gender,
+          onChanged: (newValue) {
+            userSettingsProvider.setGender(newValue);
+          },
+        );
+      case SettingsSecionItem.coach:
+      case SettingsSecionItem.privacyPolicy:
+      case SettingsSecionItem.termsAndConditions:
+        return userSettingsProvider.gender.arrowIcon;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,7 +60,15 @@ class RCSettingSection extends StatelessWidget {
           color: Colors.red,
           child: Text(section.name),
         ),
-        for (var item in section.items) RCCard(cardWidget: Text(item.name)),
+        for (var item in section.items)
+          RCCard(
+            cardWidget: Row(
+              children: [
+                Expanded(child: Text(item.name)),
+                rightWidget(item, context),
+              ],
+            ),
+          ),
       ],
     );
   }
