@@ -16,7 +16,7 @@ void main() {
               ],
             ),
           ),
-          body: const TabBarView(children: [HomeScreen(), SettingsScreen()]),
+          body: TabBarView(children: [const HomeScreen(), SettingsScreen()]),
         ),
       ),
     ),

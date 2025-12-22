@@ -10,6 +10,7 @@ class RCCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(8),
       padding: EdgeInsets.all(8),
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white, // Container background color
         borderRadius: BorderRadius.circular(
