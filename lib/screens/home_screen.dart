@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/components/local_video_player_screen.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/enum/gender.dart';
+import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 import 'package:relationship_coach_flutter/screens/chat_options_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
@@ -50,6 +53,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Gender gender = Provider.of<UserSettingsProvider>(context).gender;
     return Scaffold(
       body: Column(
         children: [
@@ -86,11 +90,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 8),
-                          child: Image.asset(
-                            'lib/assets/ic_arrow_female.png',
-                            width: 40,
-                            height: 40,
-                          ),
+                          child: gender.arrowIcon,
                         ),
                       ],
                     ),

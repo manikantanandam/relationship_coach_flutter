@@ -4,7 +4,9 @@ import 'package:relationship_coach_flutter/components/rc_icon_widget.dart';
 import 'package:relationship_coach_flutter/enum/chat_option.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:provider/provider.dart';
+import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/iap_provider.dart';
+import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 
 class ChatOptionScreen extends StatelessWidget {
   ChatOptionScreen({super.key, required this.option});
@@ -18,17 +20,18 @@ class ChatOptionScreen extends StatelessWidget {
     .doItYourself,
   ];
 
-  Widget chatOptionStatusWidget(bool subscribed) {
+  Widget chatOptionStatusWidget(bool subscribed, Gender gender) {
     if (!subscribed) {
       return RCIconWidget(iconImage: Icon(Icons.lock));
     } else {
-      return Image.asset(height: 40, 'lib/assets/ic_arrow_female.png');
+      return gender.arrowIcon;
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final iapProvider = Provider.of<IAPProvider>(context);
+    final gender = Provider.of<UserSettingsProvider>(context).gender;
 
     return Scaffold(
       appBar: AppBar(title: Text(option.title)),
@@ -47,7 +50,7 @@ class ChatOptionScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                chatOptionStatusWidget(iapProvider.purchases.isEmpty),
+                chatOptionStatusWidget(iapProvider.purchases.isEmpty, gender),
                 // RCIconWidget(iconImage: Icon(Icons.lock)),
                 // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
               ],
