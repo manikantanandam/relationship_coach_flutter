@@ -4,6 +4,7 @@ import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/screens/chat_options_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -41,6 +42,12 @@ class HomeScreen extends StatelessWidget {
     }
   }
 
+  void shareApp(BuildContext context) {
+    SharePlus.instance.share(
+      ShareParams(text: 'check out my website https://example.com'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,8 +71,7 @@ class HomeScreen extends StatelessWidget {
                       case ChatType.instagram:
                         openInstagram('relationshipcoachcamille');
                       case ChatType.share:
-                        // TODO: Handle this case.
-                        throw UnimplementedError();
+                        shareApp(context);
                     }
                   },
                   child: RCCard(
