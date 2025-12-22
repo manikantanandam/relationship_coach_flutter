@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_icon_widget.dart';
 
-enum HomeScreenOption {
+enum ChatType {
   hisFault,
   myFault,
   toxicChat,
@@ -11,18 +11,18 @@ enum HomeScreenOption {
   share,
 }
 
-extension HomeScreenOptionExtension on HomeScreenOption {
+extension HomeScreenOptionExtension on ChatType {
   String get title {
     switch (this) {
-      case HomeScreenOption.hisFault:
+      case ChatType.hisFault:
         return 'His Fault Love Chat';
-      case HomeScreenOption.myFault:
+      case ChatType.myFault:
         return 'My Fault Love Chat';
-      case HomeScreenOption.toxicChat:
+      case ChatType.toxicChat:
         return 'Toxic Chat';
-      case HomeScreenOption.receivingTalk:
+      case ChatType.receivingTalk:
         return 'Receiving Talk';
-      case HomeScreenOption.sweetTalk:
+      case ChatType.sweetTalk:
         return 'Sweet Talk';
       case .instagram:
         return 'Instagram';
@@ -35,13 +35,13 @@ extension HomeScreenOptionExtension on HomeScreenOption {
     switch (this) {
       case .hisFault:
         return 'lib/assets/ic_female.png';
-      case HomeScreenOption.myFault:
+      case ChatType.myFault:
         return 'lib/assets/ic_male.png';
-      case HomeScreenOption.toxicChat:
+      case ChatType.toxicChat:
         return 'lib/assets/ic_flask.png';
-      case HomeScreenOption.receivingTalk:
+      case ChatType.receivingTalk:
         return 'lib/assets/ic_sms.png';
-      case HomeScreenOption.sweetTalk:
+      case ChatType.sweetTalk:
         return 'lib/assets/ic_gift.png';
       case .instagram:
         return 'lib/assets/ic_instagram.png';
@@ -67,7 +67,7 @@ extension HomeScreenOptionExtension on HomeScreenOption {
   }
 }
 
-const List<HomeScreenOption> maleHomeScreenOptions = [
+const List<ChatType> maleHomeScreenOptions = [
   .hisFault,
   .myFault,
   .toxicChat,
@@ -77,4 +77,4 @@ const List<HomeScreenOption> maleHomeScreenOptions = [
   .share,
 ];
 
-const List<HomeScreenOption> rcHomeScreenOptions = [.instagram, .share];
+const List<ChatType> rcHomeScreenOptions = [.instagram, .share];

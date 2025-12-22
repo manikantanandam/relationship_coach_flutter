@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/local_video_player_screen.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
-import 'package:relationship_coach_flutter/enum/home_screen_option.dart';
+import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/screens/chat_options_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-  final List<HomeScreenOption> options = maleHomeScreenOptions;
+  final List<ChatType> options = maleHomeScreenOptions;
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +18,37 @@ class HomeScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: maleHomeScreenOptions.length,
               itemBuilder: (BuildContext context, int index) {
-                return RCCard(
-                  cardWidget: Row(
-                    children: [
-                      options[index].iconWiget,
-                      Text(options[index].title),
-                      Image.asset(
-                        'lib/assets/ic_arrow_female.png',
-                        width: 40,
-                        height: 40,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return ChatOptionScreen(option: options[index]);
+                        },
                       ),
-                    ],
+                    );
+                  },
+                  child: RCCard(
+                    cardWidget: Row(
+                      children: [
+                        options[index].iconWiget,
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(options[index].title),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Image.asset(
+                            'lib/assets/ic_arrow_female.png',
+                            width: 40,
+                            height: 40,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
