@@ -3,6 +3,7 @@ import 'package:relationship_coach_flutter/components/local_video_player_screen.
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/screens/chat_options_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,6 +18,27 @@ class HomeScreen extends StatelessWidget {
         },
       ),
     );
+  }
+
+  Future<void> openInstagram(String username) async {
+    // 1. The Native App URL Scheme
+    final Uri appUrl = Uri.parse("instagram://user?username=$username");
+
+    // 2. The Web Browser Fallback
+    final Uri webUrl = Uri.parse("https://www.instagram.com/$username");
+
+    try {
+      // Attempt to launch the app
+      if (await canLaunchUrl(appUrl)) {
+        await launchUrl(appUrl, mode: LaunchMode.externalApplication);
+      } else {
+        // If app isn't installed, launch in browser
+        await launchUrl(webUrl, mode: LaunchMode.externalApplication);
+      }
+    } catch (e) {
+      // Handle error (e.g., invalid URL)
+      print("Could not launch Instagram: $e");
+    }
   }
 
   @override
@@ -40,8 +62,7 @@ class HomeScreen extends StatelessWidget {
                       case ChatType.sweetTalk:
                         goToChatOptionsScreen(option, context);
                       case ChatType.instagram:
-                        // TODO: Handle this case.
-                        throw UnimplementedError();
+                        openInstagram('relationshipcoachcamille');
                       case ChatType.share:
                         // TODO: Handle this case.
                         throw UnimplementedError();
