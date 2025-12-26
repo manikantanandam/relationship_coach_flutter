@@ -1,5 +1,238 @@
 {
-    "male": {},
+    "male": {
+        "real_life_examples": [
+            {
+                "id": 1,
+                "title": "Real Life Example 1:",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I'm irritated that I have to pick you up because your car broke down and you're never ready when I get here.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're right. I haven't been ready on time. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "admit"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I'm sorry. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "apologize"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Thank you for coming to pick me up. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I commit to being ready next time. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "commit-to-change"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Please forgive me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "ask forgiveness"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, I don't know what you do in there, but it's not working. You look awful!\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"That feels bad to hear.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, you're just a slob and I can't stand you anymore.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My stomach is in knots hearing that. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I don't like feeling this way.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "negative self-feeling statement"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, you're just a piece of trash!\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You can talk to me any way you want, "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "give permission"
+                            },
+                            {
+                                "type": "text",
+                                "content": " but hearing that makes me need to leave.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "take your feelings for a walk"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Real Life Example 2:",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You didn't get the kids to school on time this morning.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're right. I admit that I didn't get the kids to school on time this morning.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "admit"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You always mess things up.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I'm sorry I didn't get the kids to school on time. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "apologize"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I appreciate you wanting them to be on time.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I don't know how you get anything done.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I commit to getting the kids to school on time. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "commit-to-change"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Please forgive me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "ask forgiveness"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
     "female": {
         "real_life_examples": [
             {

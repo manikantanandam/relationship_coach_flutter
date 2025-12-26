@@ -1,234 +1,230 @@
 {
     "male": {
-        "her_fault": {
-            "real_life_examples": [
-                {
-                    "id": 1,
-                    "header": "Real Life Example 1:",
-                    "scenario": "She made fun of his haircut in front of his friends.",
-                    "dialogue": [
-                        {
-                            "speaker": "He",
-                            "parts": [
-                                {
-                                    "type": "text",
-                                    "content": "I felt funny "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "content": "heart feeling"
-                                },
-                                {
-                                    "type": "text",
-                                    "content": " when the comment was made about my hair. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "content": "fact"
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "She",
-                            "parts": [
-                                {
-                                    "type": "text",
-                                    "content": "Well, it wasn't that big of a deal."
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "He",
-                            "parts": [
-                                {
-                                    "type": "text",
-                                    "content": "That makes my stomach tighten up to hear that. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "content": "body feeling"
-                                },
-                                {
-                                    "type": "text",
-                                    "content": " I don't like feeling this way. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "content": "negative self-feeling statement"
-                                },
-                                {
-                                    "type": "text",
-                                    "content": " How do you think we can make this better? "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "content": "call-to-action"
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "She",
-                            "parts": [
-                                {
-                                    "type": "text",
-                                    "content": "Well, I'm sorry. I won't say things like that anymore."
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "He",
-                            "parts": [
-                                {
-                                    "type": "text",
-                                    "content": "Help me understand a little more what you mean by that. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "content": "clarification"
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "She",
-                            "parts": [
-                                {
-                                    "type": "text",
-                                    "content": "I am deciding right now to only say nice and respectful things about you in front of other people and in private too."
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "He",
-                            "parts": [
-                                {
-                                    "type": "text",
-                                    "content": "Thank you. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "content": "appreciation"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "example_id": 2,
-                    "title": "Real Life Example 2:",
-                    "scenario": "She left you out of the conversation at the company party:",
-                    "dialogue": [
-                        {
-                            "speaker": "He",
-                            "components": [
-                                {
-                                    "type": "text",
-                                    "value": "I felt left out "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "value": "heart feeling"
-                                },
-                                {
-                                    "type": "text",
-                                    "value": " at the party. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "value": "fact"
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "She",
-                            "components": [
-                                {
-                                    "type": "text",
-                                    "value": "Well, I was just talking business to my co-worker."
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "He",
-                            "components": [
-                                {
-                                    "type": "text",
-                                    "value": "I felt embarrassed and my chest tightened up. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "value": "heart feeling"
-                                },
-                                {
-                                    "type": "text",
-                                    "value": " I don't like that uncomfortable feeling. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "value": "negative self-feeling statement"
-                                },
-                                {
-                                    "type": "text",
-                                    "value": " How do you think we can keep this from happening again? "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "value": "call-to-action"
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "She",
-                            "components": [
-                                {
-                                    "type": "text",
-                                    "value": "You're right. I'm sorry you were left out. I am committing to include you next time."
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "He",
-                            "components": [
-                                {
-                                    "type": "text",
-                                    "value": "Help me understand what you mean by that. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "value": "clarification"
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "She",
-                            "components": [
-                                {
-                                    "type": "text",
-                                    "value": "You have interesting things to say and I'm proud to be with you, so I'll make a point to enter you into the conversation."
-                                }
-                            ]
-                        },
-                        {
-                            "speaker": "He",
-                            "components": [
-                                {
-                                    "type": "text",
-                                    "value": "Thank you. "
-                                },
-                                {
-                                    "type": "metadata",
-                                    "value": "appreciation"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "steps": {},
-            "conversation_starters": {},
-            "coaching_tips": {}
-        }
+        "real_life_examples": [
+            {
+                "id": 1,
+                "title": "Real Life Example 1:",
+                "scenario": "She made fun of his haircut in front of his friends.",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt funny "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " when the comment was made about my hair. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Well, it wasn't that big of a deal."
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "That makes my stomach tighten up to hear that. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I don't like feeling this way. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "negative self-feeling statement"
+                            },
+                            {
+                                "type": "text",
+                                "content": " How do you think we can make this better? "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "call-to-action"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Well, I'm sorry. I won't say things like that anymore."
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Help me understand a little more what you mean by that. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "clarification"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am deciding right now to only say nice and respectful things about you in front of other people and in private too."
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Real Life Example 2:",
+                "scenario": "She left you out of the conversation at the company party:",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt left out "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " at the party. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Well, I was just talking business to my co-worker."
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt embarrassed and my chest tightened up. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I don't like that uncomfortable feeling. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "negative self-feeling statement"
+                            },
+                            {
+                                "type": "text",
+                                "content": " How do you think we can keep this from happening again? "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "call-to-action"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "You're right. I'm sorry you were left out. I am committing to include you next time."
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Help me understand what you mean by that. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "clarification"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "You have interesting things to say and I'm proud to be with you, so I'll make a point to enter you into the conversation."
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "steps": {},
+        "conversation_starters": {},
+        "coaching_tips": {}
     },
-    "female": {
-        
-    }
+    "female": {}
 }

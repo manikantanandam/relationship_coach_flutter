@@ -2,82 +2,82 @@
     "male": {
         "real_life_examples": [
             {
-                "example_id": 1,
+                "id": 1,
                 "title": "Real Life Example 1:",
                 "dialogue": [
                     {
                         "speaker": "She",
-                        "segments": [
+                        "parts": [
                             {
                                 "type": "text",
-                                "value": "\"You didn't pay any attention to me at the party.\""
+                                "content": "\"You didn't pay any attention to me at the party.\""
                             }
                         ]
                     },
                     {
                         "speaker": "He",
-                        "segments": [
+                        "parts": [
                             {
                                 "type": "text",
-                                "value": "\"You're right. I didn't pay attention to you at the party "
+                                "content": "\"You're right. I didn't pay attention to you at the party "
                             },
                             {
                                 "type": "metadata",
-                                "value": "admit"
+                                "content": "admit"
                             },
                             {
                                 "type": "text",
-                                "value": " and I'm very sorry. "
+                                "content": " and I'm very sorry. "
                             },
                             {
                                 "type": "metadata",
-                                "value": "apologize"
+                                "content": "apologize"
                             },
                             {
                                 "type": "text",
-                                "value": " Thank you for sharing that with me and not hiding your feelings. "
+                                "content": " Thank you for sharing that with me and not hiding your feelings. "
                             },
                             {
                                 "type": "metadata",
-                                "value": "appreciation"
+                                "content": "appreciation"
                             },
                             {
                                 "type": "text",
-                                "value": " I commit to not doing that again. "
+                                "content": " I commit to not doing that again. "
                             },
                             {
                                 "type": "metadata",
-                                "value": "commit-to-change"
+                                "content": "commit-to-change"
                             },
                             {
                                 "type": "text",
-                                "value": " Would you please forgive me?\" "
+                                "content": " Would you please forgive me?\" "
                             },
                             {
                                 "type": "metadata",
-                                "value": "ask forgiveness"
+                                "content": "ask forgiveness"
                             }
                         ]
                     },
                     {
                         "speaker": "She",
-                        "segments": [
+                        "parts": [
                             {
                                 "type": "text",
-                                "value": "\"Ok, I forgive you.\""
+                                "content": "\"Ok, I forgive you.\""
                             }
                         ]
                     },
                     {
                         "speaker": "He",
-                        "segments": [
+                        "parts": [
                             {
                                 "type": "text",
-                                "value": "\"Is there anything else bothering you?\" "
+                                "content": "\"Is there anything else bothering you?\" "
                             },
                             {
                                 "type": "metadata",
-                                "value": "clarification"
+                                "content": "clarification"
                             }
                         ]
                     }
@@ -89,60 +89,60 @@
                 "dialogue": [
                     {
                         "speaker": "She",
-                        "segments": [
+                        "parts": [
                             {
                                 "type": "text",
-                                "value": "\"You leave the house in such a mess and I always have to pick up after you.\""
+                                "content": "\"You leave the house in such a mess and I always have to pick up after you.\""
                             }
                         ]
                     },
                     {
                         "speaker": "He",
-                        "segments": [
+                        "parts": [
                             {
                                 "type": "text",
-                                "value": "\"You're right. "
+                                "content": "\"You're right. "
                             },
                             {
                                 "type": "metadata",
-                                "value": "admit"
+                                "content": "admit"
                             },
                             {
                                 "type": "text",
-                                "value": " I have gotten sloppy and I apologize.\" "
+                                "content": " I have gotten sloppy and I apologize.\" "
                             },
                             {
                                 "type": "metadata",
-                                "value": "apologize"
+                                "content": "apologize"
                             }
                         ]
                     },
                     {
                         "speaker": "He",
-                        "segments": [
+                        "parts": [
                             {
                                 "type": "text",
-                                "value": "\"Thank you for telling me how much it bothers you. "
+                                "content": "\"Thank you for telling me how much it bothers you. "
                             },
                             {
                                 "type": "metadata",
-                                "value": "appreciation"
+                                "content": "appreciation"
                             },
                             {
                                 "type": "text",
-                                "value": " I commit to picking up my mess. "
+                                "content": " I commit to picking up my mess. "
                             },
                             {
                                 "type": "metadata",
-                                "value": "commit-to-change"
+                                "content": "commit-to-change"
                             },
                             {
                                 "type": "text",
-                                "value": " Would you please forgive me?\" "
+                                "content": " Would you please forgive me?\" "
                             },
                             {
                                 "type": "metadata",
-                                "value": "ask forgiveness"
+                                "content": "ask forgiveness"
                             }
                         ]
                     }

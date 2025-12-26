@@ -1,5 +1,104 @@
 {
-    "male": {},
+    "male": {
+        "real_life_examples": [
+            {
+                "id": 1,
+                "title": "Real Life Example 1:",
+                "scenario": "She took care of you when you were sick.",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"It felt so good to have you take care of me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My heart felt light and happy.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I loved the smell of your body as you stood close to me and took care of me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "sense of smell"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Real Life Example 2:",
+                "scenario": "She picked up your dry cleaning and gave you a hug.",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you for picking up my dry cleaning. It makes me feel so loved "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " when you do things like that for me.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I love feeling your hug.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "sense of touch"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I also like seeing your beautiful blue eyes looking up at me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "sense of sight"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
     "female": {
         "real_life_examples": [
             {

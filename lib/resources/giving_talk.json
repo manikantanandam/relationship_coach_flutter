@@ -1,31 +1,55 @@
 {
-  "male": {"real_life_examples": [
-    {
-      "example_id": 1,
-      "title": "Real Life Example 1:",
-      "scenario": "She lost her job.",
-      "action": [
-        { "type": "text", "value": "\"He brings flowers to her house and helps her look online for a new job\"" }
-      ]
-    },
-    {
-      "example_id": 2,
-      "title": "Real Life Example 2:",
-      "scenario": "She loves old movies with Jennifer Lopez",
-      "action": [
-        { "type": "text", "value": "\"He searches to find a special series of Jennifer Lopez movies and download them for her birthday.\"" }
-      ]
-    },
-    {
-      "example_id": 3,
-      "title": "Real Life Example 3:",
-      "scenario": "Her sink is stopping up",
-      "action": [
-        { "type": "text", "value": "\"He comes over early for a date, brings his tools and repairs the sink before going on the date.\"" }
-      ]
-    }
-  ]},
-  "female": {
-    
-  }
+  "male": {
+    "real_life_examples": [
+      {
+        "id": 1,
+        "title": "Real Life Example 1:",
+        "scenario": "She lost her job.",
+        "dialogue": [
+          {
+            "speaker": "",
+            "parts": [
+              {
+                "type": "text",
+                "content": "\"He brings flowers to her house and helps her look online for a new job\""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Real Life Example 2:",
+        "scenario": "She loves old movies with Jennifer Lopez",
+        "dialogue": [
+          {
+            "speaker": "",
+            "parts": [
+              {
+                "type": "text",
+                "content": "\"He searches to find a special series of Jennifer Lopez movies and download them for her birthday.\""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Real Life Example 3:",
+        "scenario": "Her sink is stopping up",
+        "dialogue": [
+          {
+            "speaker": "",
+            "parts": [
+              {
+                "type": "text",
+                "content": "\"He comes over early for a date, brings his tools and repairs the sink before going on the date.\""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "female": {}
 }
