@@ -151,6 +151,163 @@
         ]
     },
     "female": {
-        
+        "real_life_examples": [
+            {
+                "id": 1,
+                "title": "Real Life Example 1:",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You didn't pay any attention to me at the party.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're right. I didn't pay attention to you at the party "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "admit"
+                            },
+                            {
+                                "type": "text",
+                                "content": " and I'm very sorry. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "apologize"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Thank you for sharing that with me and not hiding your feelings. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I commit to not doing that again. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "commit-to-change"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Would you please forgive me?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "ask forgiveness"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Ok, I forgive you.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Is there anything else bothering you?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "clarification"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Real Life Example 2:",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You leave the house in such a mess and I always have to pick up after you.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're right. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "admit"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I have gotten sloppy and I apologize.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "apologize"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you for telling me how much it bothers you. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I commit to picking up my mess. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "commit-to-change"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Would you please forgive me?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "ask forgiveness"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Yes, I forgive you.\""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }

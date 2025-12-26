@@ -1,5 +1,6 @@
 {
-    "male": {
+    "male": {},
+    "female": {
         "real_life_examples": [
             {
                 "id": 1,
@@ -230,6 +231,5 @@
                 ]
             }
         ]
-    },
-    "female": {}
+    }
 }

@@ -1,4 +1,175 @@
 {
     "male": {},
-    "female": {}
+    "female": {
+        "real_life_examples": [
+            {
+                "id": 1,
+                "title": "Real Life Example 1:",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You look great.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You make me feel close to you when you say those things.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Real Life Example 2:",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"He opened the car door.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You make me feel giddy inside.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Real Life Example 3:",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're the best thing that's ever happened to me.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "thank you message - without the \"false sense of urgency\" to return the compliment"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Real Life Example 4:",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"He touched my hand.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you. I appreciate you touching my hand.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation message"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Real Life Example 5:",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I want to take care of that situation for you!\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I admire you for wanting to take care of me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "admiration message"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "title": "Real Life Example 6:",
+                "dialogue": [
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"He stood up for me in front of everyone.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I respect you for doing that.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "respect message"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }

@@ -1,4 +1,111 @@
 {
     "male": {},
-    "female": {}
+    "female": {
+        "real_life_examples": [
+            {
+                "id": 1,
+                "title": "Real Life Example 1:",
+                "scenario": "He held her tight during the loud thunderstorm.",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"It felt so good to have you hold me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My heart felt relaxed and safe.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I love seeing your beautiful eyes as you smile at me, "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "sense of sight"
+                            },
+                            {
+                                "type": "text",
+                                "content": " your sweet smell, "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "sense of smell"
+                            },
+                            {
+                                "type": "text",
+                                "content": " and the touch of your hand.\""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Real Life Example 2:",
+                "scenario": "He picked her up in his new car.",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"It feels so good to be here with you.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I love the feel of the leather seats in your new car.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "sense of touch"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"The car is beautiful, just like you.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "sense of sight"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }

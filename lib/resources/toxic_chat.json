@@ -1,4 +1,211 @@
 {
     "male": {},
-    "female": {}
+    "female": {
+        "real_life_examples": [
+            {
+                "id": 1,
+                "title": "Real Life Example 1:",
+                "scenario": "You're never ready when I come to pick you up.",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're never ready when I come to pick you up.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're right. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "admit"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I'm sorry. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "apologize"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Thank you for coming to pick me up. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I commit to being ready next time. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "commit-to-change"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Please forgive me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "ask forgiveness"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, I don't know what you do in there, but it's not working. You look awful!\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"That feels horrible to hear.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, Joey's girlfriend always looks great. Why can't you look like her?\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My stomach is in knots hearing that. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I don't like feeling this way.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "negative self-feeling statement"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, you're just a piece of trash!\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You can talk to me any way you want, "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "give permission"
+                            },
+                            {
+                                "type": "text",
+                                "content": " but hearing that makes me need to leave.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "take your feelings for a walk"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Real Life Example 2:",
+                "scenario": "You didn't call me back yesterday.",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You didn't call me back yesterday.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I know. You're right. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "admit"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I apologize for not calling you back. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "apologize"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I appreciate you taking the time to call me when you want to talk. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I commit to returning your calls. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "commit-to-change"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I'd like to ask you to forgive me.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "ask forgiveness"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }

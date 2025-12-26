@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/screens/coaching_tips_screen.dart';
 import 'package:relationship_coach_flutter/screens/conversation_starters_screen.dart';
 import 'package:relationship_coach_flutter/screens/real_life_examples_screen.dart';
@@ -44,10 +45,10 @@ extension ChatOptionTypeExtention on ChatOptionType {
     }
   }
 
-  Widget chatDetailsScreen(ChatType type) {
+  Widget chatDetailsScreen(ChatType type, Gender gender) {
     switch (this) {
       case ChatOptionType.realLifeExamples:
-        return RealLifeExamplesScreen(option: type);
+        return RealLifeExamplesScreen(option: type, gender: gender);
       case ChatOptionType.steps:
         return StepsScreen();
       case ChatOptionType.conversationStarters:

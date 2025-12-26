@@ -7,8 +7,13 @@ import 'package:relationship_coach_flutter/providers/user_settings_provider.dart
 import 'package:relationship_coach_flutter/utils/json_utils.dart';
 
 class RealLifeExamplesScreen extends StatefulWidget {
-  const RealLifeExamplesScreen({super.key, required this.option});
+  const RealLifeExamplesScreen({
+    super.key,
+    required this.option,
+    required this.gender,
+  });
   final ChatType option;
+  final Gender gender;
 
   @override
   State<RealLifeExamplesScreen> createState() => _RealLifeExamplesScreenState();
@@ -30,7 +35,7 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
       var json = await JSONUtils.loadJsonData(
         'lib/resources/${widget.option.key}.json',
       );
-      var realLifeExamplesJSON = json['male']['real_life_examples'];
+      var realLifeExamplesJSON = json[widget.gender.name]['real_life_examples'];
       var objects = RealLifeExample.fromList(realLifeExamplesJSON);
 
       setState(() {

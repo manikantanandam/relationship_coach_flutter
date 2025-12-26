@@ -45,7 +45,7 @@ class ChatOptionScreen extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     final option = options[index];
-                    return option.chatDetailsScreen(this.option);
+                    return option.chatDetailsScreen(this.option, gender);
                   },
                 ),
               );
