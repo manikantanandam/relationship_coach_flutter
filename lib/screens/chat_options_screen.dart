@@ -38,22 +38,35 @@ class ChatOptionScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: options.length,
         itemBuilder: (context, index) {
-          return RCCard(
-            cardWidget: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: .start,
-                    children: [
-                      Text(options[index].title),
-                      Text(options[index].subTitle),
-                    ],
-                  ),
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    final option = options[index];
+                    return option.chatDetailsScreen(this.option);
+                  },
                 ),
-                chatOptionStatusWidget(iapProvider.purchases.isEmpty, gender),
-                // RCIconWidget(iconImage: Icon(Icons.lock)),
-                // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
-              ],
+              );
+            },
+            child: RCCard(
+              cardWidget: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: .start,
+                      children: [
+                        Text(options[index].title),
+                        Text(options[index].subTitle),
+                      ],
+                    ),
+                  ),
+                  chatOptionStatusWidget(iapProvider.purchases.isEmpty, gender),
+                  // RCIconWidget(iconImage: Icon(Icons.lock)),
+                  // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
+                ],
+              ),
             ),
           );
         },

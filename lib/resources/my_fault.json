@@ -1,0 +1,156 @@
+{
+    "male": {
+        "real_life_examples": [
+            {
+                "example_id": 1,
+                "title": "Real Life Example 1:",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "segments": [
+                            {
+                                "type": "text",
+                                "value": "\"You didn't pay any attention to me at the party.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "segments": [
+                            {
+                                "type": "text",
+                                "value": "\"You're right. I didn't pay attention to you at the party "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "admit"
+                            },
+                            {
+                                "type": "text",
+                                "value": " and I'm very sorry. "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "apologize"
+                            },
+                            {
+                                "type": "text",
+                                "value": " Thank you for sharing that with me and not hiding your feelings. "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "appreciation"
+                            },
+                            {
+                                "type": "text",
+                                "value": " I commit to not doing that again. "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "commit-to-change"
+                            },
+                            {
+                                "type": "text",
+                                "value": " Would you please forgive me?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "ask forgiveness"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "segments": [
+                            {
+                                "type": "text",
+                                "value": "\"Ok, I forgive you.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "segments": [
+                            {
+                                "type": "text",
+                                "value": "\"Is there anything else bothering you?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "clarification"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "example_id": 2,
+                "title": "Real Life Example 2:",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "segments": [
+                            {
+                                "type": "text",
+                                "value": "\"You leave the house in such a mess and I always have to pick up after you.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "segments": [
+                            {
+                                "type": "text",
+                                "value": "\"You're right. "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "admit"
+                            },
+                            {
+                                "type": "text",
+                                "value": " I have gotten sloppy and I apologize.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "apologize"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "segments": [
+                            {
+                                "type": "text",
+                                "value": "\"Thank you for telling me how much it bothers you. "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "appreciation"
+                            },
+                            {
+                                "type": "text",
+                                "value": " I commit to picking up my mess. "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "commit-to-change"
+                            },
+                            {
+                                "type": "text",
+                                "value": " Would you please forgive me?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "value": "ask forgiveness"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "female": {
+        
+    }
+}

@@ -12,6 +12,24 @@ enum ChatType {
 }
 
 extension HomeScreenOptionExtension on ChatType {
+  String get key {
+    switch (this) {
+      case ChatType.hisFault:
+        return 'his_fault';
+      case ChatType.myFault:
+        return 'my_fault';
+      case ChatType.toxicChat:
+        return 'toxic_chat';
+      case ChatType.receivingTalk:
+        return 'receiving_talk';
+      case ChatType.sweetTalk:
+        return 'sweet_talk';
+      case ChatType.instagram:
+      case ChatType.share:
+        return '';
+    }
+  }
+
   String get title {
     switch (this) {
       case ChatType.hisFault:

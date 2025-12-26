@@ -4,6 +4,7 @@ import 'package:relationship_coach_flutter/components/gender_toggle.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 enum SettingsSection { user, coach, legal }
 

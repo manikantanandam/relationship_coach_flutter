@@ -1,0 +1,235 @@
+{
+    "male": {
+        "real_life_examples": [
+            {
+                "id": 1,
+                "title": "Real Life Example 1:",
+                "scenario": "He said he'd call, but didn't",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I felt sad "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " When I didn't get a phone call\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, I had to work late.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Yes, I know, but my chest is tightening up talking about this. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I don't like feeling this way. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "negative self-feeling statement"
+                            },
+                            {
+                                "type": "text",
+                                "content": " How do you think we can make this better?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "call-to-action"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, you're right. I should have called you. I'm sorry. I'll try to be more conscious of it.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Help me understand what you mean when you say that.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "clarification"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, I will call you when I say I will.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you. I appreciate you so much.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Real Life Example 2:",
+                "scenario": "He didn't invite you to the family reunion",
+                "dialogue": [
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I felt icky "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " about not getting invited to the family reunion.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, it wasn't that much fun anyway.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I felt unimportant "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " when I wasn't invited and that doesn't feel good. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "negative self-feeling statement"
+                            },
+                            {
+                                "type": "text",
+                                "content": " My chest feels tight "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " talking to you about this. How do you think we could make this better?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "call-to-action"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, I'll be more considerate of your feelings next time.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Help me understand a little better.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "clarification"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I'll include you in the next family reunion.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "appreciation"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "female": {}
+}

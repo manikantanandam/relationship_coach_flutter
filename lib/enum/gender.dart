@@ -16,4 +16,8 @@ extension GenderExtension on Gender {
 
     return Image.asset(height: 40, icon);
   }
+
+  Color get color {
+    return Colors.red;
+  }
 }

@@ -1,3 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/screens/coaching_tips_screen.dart';
+import 'package:relationship_coach_flutter/screens/conversation_starters_screen.dart';
+import 'package:relationship_coach_flutter/screens/real_life_examples_screen.dart';
+import 'package:relationship_coach_flutter/screens/steps_screen.dart';
+
 enum ChatOptionType {
   realLifeExamples,
   steps,
@@ -34,6 +41,21 @@ extension ChatOptionTypeExtention on ChatOptionType {
         return 'Helpful tips from the expert';
       case ChatOptionType.doItYourself:
         return 'Practice the steps yourself!';
+    }
+  }
+
+  Widget chatDetailsScreen(ChatType type) {
+    switch (this) {
+      case ChatOptionType.realLifeExamples:
+        return RealLifeExamplesScreen(option: type);
+      case ChatOptionType.steps:
+        return StepsScreen();
+      case ChatOptionType.conversationStarters:
+        return ConversationStartersScreen();
+      case ChatOptionType.coachingTips:
+        return CoachingTipsScreen();
+      case ChatOptionType.doItYourself:
+        return Text('DIY');
     }
   }
 }
