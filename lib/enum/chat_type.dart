@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_icon_widget.dart';
+import 'package:relationship_coach_flutter/enum/gender.dart';
 
 enum ChatType {
   hisFault,
+  herFault,
   myFault,
   toxicChat,
+  givingTalk,
   receivingTalk,
   sweetTalk,
   instagram,
@@ -27,6 +30,10 @@ extension HomeScreenOptionExtension on ChatType {
       case ChatType.instagram:
       case ChatType.share:
         return '';
+      case ChatType.herFault:
+        return 'her_fault';
+      case ChatType.givingTalk:
+        return 'giving_talk';
     }
   }
 
@@ -46,6 +53,10 @@ extension HomeScreenOptionExtension on ChatType {
         return 'Instagram';
       case .share:
         return 'Share';
+      case ChatType.herFault:
+        return 'Her Fault Love Chat';
+      case ChatType.givingTalk:
+        return 'Giving Talk';
     }
   }
 
@@ -65,18 +76,25 @@ extension HomeScreenOptionExtension on ChatType {
         return 'lib/assets/ic_instagram.png';
       case .share:
         return 'lib/assets/ic_share.png';
+      case ChatType.herFault:
+        return 'lib/assets/ic_male.png';
+      case ChatType.givingTalk:
+        return 'lib/assets/ic_sms.png';
     }
   }
 
-  Widget get iconWiget {
+  Widget iconWiget(Gender gender) {
     switch (this) {
       case .hisFault:
       case .myFault:
       case .toxicChat:
       case .receivingTalk:
       case .sweetTalk:
+      case .herFault:
+      case .givingTalk:
         return RCIconWidget(
           iconImage: Image.asset(icon, width: 24, height: 24),
+          gender: gender,
         );
       case .instagram:
       case .share:
@@ -86,10 +104,20 @@ extension HomeScreenOptionExtension on ChatType {
 }
 
 const List<ChatType> maleHomeScreenOptions = [
-  .hisFault,
+  .herFault,
   .myFault,
   .toxicChat,
   .receivingTalk,
+  .sweetTalk,
+  .instagram,
+  .share,
+];
+
+const List<ChatType> femaleHomeScreenOption = [
+  .hisFault,
+  .myFault,
+  .toxicChat,
+  .givingTalk,
   .sweetTalk,
   .instagram,
   .share,

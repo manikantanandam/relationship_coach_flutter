@@ -22,7 +22,7 @@ class ChatOptionScreen extends StatelessWidget {
 
   Widget chatOptionStatusWidget(bool subscribed, Gender gender) {
     if (!subscribed) {
-      return RCIconWidget(iconImage: Icon(Icons.lock));
+      return RCIconWidget(iconImage: Icon(Icons.lock), gender: gender);
     } else {
       return gender.arrowIcon;
     }

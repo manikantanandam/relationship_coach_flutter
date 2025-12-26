@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:relationship_coach_flutter/enum/gender.dart';
 
 class RCIconWidget extends StatelessWidget {
   Widget iconImage;
+  Gender gender;
 
-  RCIconWidget({required this.iconImage});
+  RCIconWidget({required this.iconImage, required this.gender});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Stack(
-        alignment: Alignment.center, // Centers the children within the stack
-        children: <Widget>[
-          // Background/Bottom Image
-          Container(
-            width: 40,
-            height: 40,
-            // Replace with your asset image or NetworkImage
-            child: Image.asset(
-              'lib/assets/ic_icon_background_female.png',
-              fit: BoxFit.cover,
-            ),
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        color: gender.color, // The fill color of the circle
+        shape: BoxShape.circle, // Makes the container circular
+        border: Border.all(
+          color: Colors.white, // Color of the circular border
+          width: 2.0, // Width of the border
+        ),
+        boxShadow: [
+          // Optional: adds a shadow
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            blurRadius: 5,
+            offset: Offset(0, 3),
           ),
-          iconImage,
         ],
       ),
+      // Replace with your asset image or NetworkImage
+      child: Center(child: iconImage),
     );
   }
 }

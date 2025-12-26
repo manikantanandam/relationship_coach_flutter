@@ -11,7 +11,7 @@ import 'package:share_plus/share_plus.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-  final List<ChatType> options = maleHomeScreenOptions;
+  // final List<ChatType> options = maleHomeScreenOptions;
 
   void goToChatOptionsScreen(ChatType type, BuildContext context) {
     Navigator.push(
@@ -60,17 +60,19 @@ class HomeScreen extends StatelessWidget {
           LocalVideoPlayerScreen(height: 300),
           Expanded(
             child: ListView.builder(
-              itemCount: maleHomeScreenOptions.length,
+              itemCount: gender.homeScreenOpions.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    final option = options[index];
+                    final option = gender.homeScreenOpions[index];
                     switch (option) {
                       case ChatType.hisFault:
                       case ChatType.myFault:
                       case ChatType.toxicChat:
                       case ChatType.receivingTalk:
                       case ChatType.sweetTalk:
+                      case ChatType.givingTalk:
+                      case ChatType.herFault:
                         goToChatOptionsScreen(option, context);
                       case ChatType.instagram:
                         openInstagram('relationshipcoachcamille');
@@ -81,11 +83,11 @@ class HomeScreen extends StatelessWidget {
                   child: RCCard(
                     cardWidget: Row(
                       children: [
-                        options[index].iconWiget,
+                        gender.homeScreenOpions[index].iconWiget(gender),
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(options[index].title),
+                            child: Text(gender.homeScreenOpions[index].title),
                           ),
                         ),
                         Padding(
