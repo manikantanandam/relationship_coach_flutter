@@ -231,7 +231,52 @@
                     }
                 ]
             }
-        ]
+        ],
+        "steps": {
+            "title": "I say or do something wrong. Use the 10 my-fault toxic chat messages",
+            "steps": [
+                {
+                    "id": 1,
+                    "step": "Admit"
+                },
+                {
+                    "id": 2,
+                    "step": "Apologize"
+                },
+                {
+                    "id": 3,
+                    "step": "Appreciation"
+                },
+                {
+                    "id": 4,
+                    "step": "Commit-to-Change"
+                },
+                {
+                    "id": 5,
+                    "step": "Ask Forgiveness"
+                },
+                {
+                    "id": 6,
+                    "step": "Heart Feeling"
+                },
+                {
+                    "id": 7,
+                    "step": "Body Feeling"
+                },
+                {
+                    "id": 8,
+                    "step": "Negative Self-Feeling Statement"
+                },
+                {
+                    "id": 9,
+                    "step": "Give Permission"
+                },
+                {
+                    "id": 10,
+                    "step": "Take Your Feelings for a Walk"
+                }
+            ]
+        }
     },
     "female": {
         "real_life_examples": [
@@ -439,6 +484,51 @@
                     }
                 ]
             }
-        ]
+        ],
+        "steps": {
+            "title": "I say or do something wrong. Use the 10 my-fault toxic chat messages",
+            "steps": [
+                {
+                    "id": 1,
+                    "step": "Admit"
+                },
+                {
+                    "id": 2,
+                    "step": "Apologize"
+                },
+                {
+                    "id": 3,
+                    "step": "Appreciation"
+                },
+                {
+                    "id": 4,
+                    "step": "Commit-to-Change"
+                },
+                {
+                    "id": 5,
+                    "step": "Ask Forgiveness"
+                },
+                {
+                    "id": 6,
+                    "step": "Heart Feeling"
+                },
+                {
+                    "id": 7,
+                    "step": "Body Feeling"
+                },
+                {
+                    "id": 8,
+                    "step": "Negative Self-Feeling Statement"
+                },
+                {
+                    "id": 9,
+                    "step": "Give Permission"
+                },
+                {
+                    "id": 10,
+                    "step": "Take Your Feelings for a Walk"
+                }
+            ]
+        }
     }
 }

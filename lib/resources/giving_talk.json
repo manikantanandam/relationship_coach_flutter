@@ -49,7 +49,52 @@
           }
         ]
       }
-    ]
+    ],
+    "steps": {
+      "title": "Here are ways for men to give from their heart.",
+      "steps": [
+        {
+          "id": 1,
+          "step": "Court Her"
+        },
+        {
+          "id": 2,
+          "step": "Respect Her"
+        },
+        {
+          "id": 3,
+          "step": "Make Plans"
+        },
+        {
+          "id": 4,
+          "step": "Be On Time"
+        },
+        {
+          "id": 5,
+          "step": "Protect Her"
+        },
+        {
+          "id": 6,
+          "step": "Bring Gifts"
+        },
+        {
+          "id": 7,
+          "step": "Complement Her"
+        },
+        {
+          "id": 8,
+          "step": "Show sincere interest in her family"
+        },
+        {
+          "id": 9,
+          "step": "Help around the house"
+        },
+        {
+          "id": 10,
+          "step": "Spend Time With Her"
+        }
+      ]
+    }
   },
   "female": {}
 }

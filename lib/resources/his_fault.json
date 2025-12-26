@@ -230,6 +230,35 @@
                     }
                 ]
             }
-        ]
+        ],
+        "steps": {
+            "title": "She did or said something wrong. Memorize the 6 steps below to lovingly call him out:",
+            "steps": [
+                {
+                    "id": 1,
+                    "step": "Heart Feeling/Fact"
+                },
+                {
+                    "id": 2,
+                    "step": "Body Feeling"
+                },
+                {
+                    "id": 3,
+                    "step": "Negative Self-Feeling Statement"
+                },
+                {
+                    "id": 4,
+                    "step": "Call to Action"
+                },
+                {
+                    "id": 5,
+                    "step": "Clarification"
+                },
+                {
+                    "id": 6,
+                    "step": "Appreciation"
+                }
+            ]
+        }
     }
 }

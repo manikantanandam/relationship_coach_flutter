@@ -170,6 +170,35 @@
                     }
                 ]
             }
-        ]
+        ],
+        "steps": {
+            "title": "As a woman, you need to be able to receive a compliment or positive action from a man without discounting his compliment tor action.",
+            "steps": [
+                {
+                    "id": 1,
+                    "step": "Heart Feeling"
+                },
+                {
+                    "id": 2,
+                    "step": "Body Feeling"
+                },
+                {
+                    "id": 3,
+                    "step": "Thank You Message"
+                },
+                {
+                    "id": 4,
+                    "step": "Appreciation Message"
+                },
+                {
+                    "id": 5,
+                    "step": "Admiration Message"
+                },
+                {
+                    "id": 6,
+                    "step": "Respect Message"
+                }
+            ]
+        }
     }
 }

@@ -148,7 +148,52 @@
                     }
                 ]
             }
-        ]
+        ],
+        "steps": {
+            "title": "I say or do something wrong. Memorize the 10 steps below to lovingly allow her to call me out:",
+            "steps": [
+                {
+                    "id": 1,
+                    "step": "Admit"
+                },
+                {
+                    "id": 2,
+                    "step": "Apologize"
+                },
+                {
+                    "id": 3,
+                    "step": "Appreciation"
+                },
+                {
+                    "id": 4,
+                    "step": "Commit-to-Change"
+                },
+                {
+                    "id": 5,
+                    "step": "Ask Forgiveness"
+                },
+                {
+                    "id": 6,
+                    "step": "Clarification"
+                },
+                {
+                    "id": 7,
+                    "step": "Soothing Cycle (So-You-Feel)"
+                },
+                {
+                    "id": 8,
+                    "step": "Feel-Felt-Finding-Out"
+                },
+                {
+                    "id": 9,
+                    "step": "Second Appreciation"
+                },
+                {
+                    "id": 10,
+                    "step": "Reconnect"
+                }
+            ]
+        }
     },
     "female": {
         "real_life_examples": [
@@ -308,6 +353,51 @@
                     }
                 ]
             }
-        ]
+        ],
+        "steps": {
+            "title": "I say or do something wrong. Memorize the 10 steps below to lovingly allow him to call me out:",
+            "steps": [
+                {
+                    "id": 1,
+                    "step": "Admit"
+                },
+                {
+                    "id": 2,
+                    "step": "Apologize"
+                },
+                {
+                    "id": 3,
+                    "step": "Appreciation"
+                },
+                {
+                    "id": 4,
+                    "step": "Commit-to-Change"
+                },
+                {
+                    "id": 5,
+                    "step": "Ask Forgiveness"
+                },
+                {
+                    "id": 6,
+                    "step": "Clarification"
+                },
+                {
+                    "id": 7,
+                    "step": "Soothing Cycle (So-You-Feel)"
+                },
+                {
+                    "id": 8,
+                    "step": "Feel-Felt-Finding-Out"
+                },
+                {
+                    "id": 9,
+                    "step": "Second Appreciation"
+                },
+                {
+                    "id": 10,
+                    "step": "Reconnect"
+                }
+            ]
+        }
     }
 }

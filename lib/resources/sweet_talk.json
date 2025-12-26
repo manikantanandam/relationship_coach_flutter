@@ -97,7 +97,40 @@
                     }
                 ]
             }
-        ]
+        ],
+        "steps": {
+            "title": "When sweet talking, speak from your heart, not your mind. Use the heart/body feelings and five-senses steps below:",
+            "steps": [
+                {
+                    "id": 1,
+                    "step": "Heart Feeling"
+                },
+                {
+                    "id": 2,
+                    "step": "Body Feeling"
+                },
+                {
+                    "id": 3,
+                    "step": "Sense of Touch"
+                },
+                {
+                    "id": 4,
+                    "step": "Sense of Taste"
+                },
+                {
+                    "id": 5,
+                    "step": "Sense of Smell"
+                },
+                {
+                    "id": 6,
+                    "step": "Sense of Hearing"
+                },
+                {
+                    "id": 7,
+                    "step": "Sense of Sight"
+                }
+            ]
+        }
     },
     "female": {
         "real_life_examples": [
@@ -205,6 +238,39 @@
                     }
                 ]
             }
-        ]
+        ],
+        "steps": {
+            "title": "When sweet talking, speak from your heart, not your mind. Use the heart/body feelings and five-senses steps below:",
+            "steps": [
+                {
+                    "id": 1,
+                    "step": "Heart Feeling"
+                },
+                {
+                    "id": 2,
+                    "step": "Body Feeling"
+                },
+                {
+                    "id": 3,
+                    "step": "Sense of Touch"
+                },
+                {
+                    "id": 4,
+                    "step": "Sense of Taste"
+                },
+                {
+                    "id": 5,
+                    "step": "Sense of Smell"
+                },
+                {
+                    "id": 6,
+                    "step": "Sense of Hearing"
+                },
+                {
+                    "id": 7,
+                    "step": "Sense of Sight"
+                }
+            ]
+        }
     }
 }
