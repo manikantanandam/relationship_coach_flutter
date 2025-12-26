@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/RealLifeExample.dart';
+import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 import 'package:relationship_coach_flutter/utils/json_utils.dart';
 
 class RealLifeExamplesScreen extends StatefulWidget {
-  RealLifeExamplesScreen({super.key, required this.option});
-  ChatType option;
+  const RealLifeExamplesScreen({super.key, required this.option});
+  final ChatType option;
 
   @override
   State<RealLifeExamplesScreen> createState() => _RealLifeExamplesScreenState();
@@ -67,11 +70,23 @@ class RealLifeExampleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Gender gender = Provider.of<UserSettingsProvider>(context).gender;
+
     return Column(
       crossAxisAlignment: .start,
       children: [
-        Text(example.title),
-        Text(example.scenario),
+        Text(
+          example.title,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: .bold,
+          ),
+        ),
+        Text(
+          example.scenario,
+          style: TextStyle(color: gender.color, fontWeight: .bold, height: 3),
+        ),
         for (var dialog in example.dialogue) dialog.richText,
       ],
     );

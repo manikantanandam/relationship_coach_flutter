@@ -48,24 +48,50 @@ class DialogueEntry {
     );
   }
 
-  RichText get richText {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: '$speaker Said: ',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-          for (var part in parts)
-            TextSpan(
-              text: part.formattedString,
-              style: TextStyle(
-                color: part.color(Gender.male),
-                fontWeight: FontWeight.bold,
-              ),
+  Widget get richText {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 8.0,
+            right: 8.0,
+          ), // Adjust alignment
+          child: Container(
+            height: 8,
+            width: 8,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              shape: BoxShape.circle,
             ),
-        ],
-      ),
+          ),
+        ),
+        Expanded(
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: '$speaker Said: ',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    height: 1.5,
+                  ),
+                ),
+                for (var part in parts)
+                  TextSpan(
+                    text: part.formattedString,
+                    style: TextStyle(
+                      color: part.color(Gender.male),
+                      fontWeight: FontWeight.bold,
+                      height: 1.5,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
