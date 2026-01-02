@@ -271,6 +271,362 @@
                     "step": "Sense of Sight"
                 }
             ]
-        }
+        },
+        "conversation_starters": [
+            {
+                "step_id": 1,
+                "title": "Heart Feeling",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am feeling great."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel exhilarated."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt luscious."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt happy."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt good."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 2,
+                "title": "Body Feeling",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel dizzy."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I'm feeling my stomach fluttering."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt my palms sweating."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel my heart pounding."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel my face soften."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt my arms loosen."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 3,
+                "title": "Sense of Touch",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I felt goosebumps when we held hands."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel your warmth when we touch."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am feeling a warm sensation when you touch me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel loved when we touch."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel alive with your touch."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 4,
+                "title": "Sense of Taste",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can taste your lips on mine."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can taste the sweetness of your skin."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I taste the beauty of your lips"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I taste the elegance of your neck."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can taste the sweetness of your lips."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can taste the essence of who you are."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 5,
+                "title": "Sense of Smell",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can smell the night air in your hair."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can smell the fragrance of flowers on your neck."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can sense the smell of orange blossoms just standing next to you"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I like the way you smell."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I smell your sweetness as you hug me."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 6,
+                "title": "Sense of Hearing",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I hear the mountain breeze in your waving hair."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I hear the lovely sound of a whippoorwill in your voice."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Your voice sounds so sweet when you sing."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I hear your voice in the breeze."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I hear the longing of my soul to be with you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am hearing your sounds of love just by being next to you."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 7,
+                "title": "Sense of Sight",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I see my future in you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I see your lovely eyes looking back at me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I see your beautiful body in the mirror."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can see your love shining through your eyes."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I see the warmth of your heart."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I see the love inside of you."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }

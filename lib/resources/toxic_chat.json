@@ -529,6 +529,524 @@
                     "step": "Take Your Feelings for a Walk"
                 }
             ]
-        }
+        },
+        "conversation_starters": [
+            {
+                "step_id": 1,
+                "title": "Admit",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I admit that I made a mistake."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I agree that it is my fault."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I admit that I caused that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I admit that I did that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Yes, I did that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Yes, that's my fault"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 2,
+                "title": "Apologize",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for acting that way."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for doing that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am so sorry I said that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am really sorry I did that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am sincerely sorry I did that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for that."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 3,
+                "title": "Appreciation",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you sharing that with me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you taking care of that problem for me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate knowing your thoughts."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you taking the time to call me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you helping me with that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you doing that for me."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 4,
+                "title": "Commit-to-Change",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit-to-change my view about that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit-to-change my attitude."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit-to-change the way I act around you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit-to-change the way I say that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit-to-change the way I do that."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 5,
+                "title": "Ask Forgiveness",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I ask you to please forgive me for acting that way."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I ask your forgiveness for doing that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am asking you to forgive me for being that way."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I ask that you please forgive me for saying that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I ask for you to forgive me for that."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 6,
+                "title": "Heart Feeling",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel left out."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I'm feeling abandoned."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I'm feeling sad."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I'm feeling stupid."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I'm feeling embarrassed."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel angry."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 7,
+                "title": "Body Feeling",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "My knees are weak."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "My back hurts."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "My neck is tight."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "My heart is beating faster."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "My palms are sweaty."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "My chest hurts."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 8,
+                "title": "Negative Self-Feeling Statement",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "This feels terrible to feel so mad."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "It doesn't feel good to feel this way."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I don't like feeling this way."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel funny having this feeling."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I don't like this feeling that I'm having."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "It hurts to feel this way."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 9,
+                "title": "Give Permission",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "You can talk to me however you want."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "You have the freedom to talk to me any way you want."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "You can say that to me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "You can say that if you want."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "You can say whatever you want."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 10,
+                "title": "Take Your Feelings for a Walk",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am not going to listen to this anymore."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I will not listen to this anymore."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am not willing to stand here and listen anymore."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I am not listening to this anymore."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I won't listen to this anymore."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I can't listen to it anymore."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }

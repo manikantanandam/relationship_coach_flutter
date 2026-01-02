@@ -398,6 +398,516 @@
                     "step": "Reconnect"
                 }
             ]
-        }
+        },
+        "conversation_starters": [
+            {
+                "step_id": 1,
+                "title": "Admit",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I admit that I said that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I admit that I felt that way."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I admit that I said that about you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I agree with you. I said that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I admit that I did that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I admit that I was wrong."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 2,
+                "title": "Apologize",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for saying that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for speaking to you that way."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for telling my friends that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for embarrassing you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for leaving you out."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I apologize for being late."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 3,
+                "title": "Appreciation",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you for letting me know how you feel."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you for opening up to me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you for being honest with me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you for listening."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you being here for me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you for making me feel safe with you."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 4,
+                "title": "Commit-to-Change",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit-to-change the way I talk about you to other people."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit to be on time"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit-to-change by including you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I commit to call you when I say I will."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I have decided not to say that anymore"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "It's important to me that you feel special, so I commit to not doing that any more."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 5,
+                "title": "Ask Forgiveness",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Please forgive me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Please excuse my behavior."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I'm asking you to forgive me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Please know that I would love your forgiveness."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Please consider forgiving me."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 6,
+                "title": "Clarification",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Is there anything else bothering you?"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Please tell me more."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Help me to understand."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Help me to understand what you're thinking."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Help me to know your feelings better."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 7,
+                "title": "Soothing Cycle (So-You-Feel)",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "So you felt left out and want me to invite you next time?"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "So you felt like I didn't pay any attention to you and want me to include you more?"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "So you felt unloved when I said that and want me to think before I speak?"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "So you felt sad to experience that, and want me to change the way I handle those situations?"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 8,
+                "title": "Feel-Felt-Finding-Out",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I know how you feel, I have felt the same way before, but what I'm finding out is that I'm not very good about remembering birthdays and I..."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I know how you feel, I felt scared at first too, but what I found out was that I just didn't know how to express myself to you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I know how you feel, I have felt unloved before too, but what I'm finding out is that I need to show you that I care."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I know how you must feel, I have felt angry about those things too, but what I'm finding out is that I was just afraid, and I didn't need to be. Neith..."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I understand how you feel. I have felt the same way but what I found out is that we all want the same things."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I gotcha. I am seeing how you feel. I have felt that way too, but what I'm finding out is there is a solution."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 9,
+                "title": "Second Appreciation",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you sharing that."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you for sharing."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you being honest with me."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate you and feel much closer to you now that you shared that with me "
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Thank you for your openness."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I appreciate everything about you."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 10,
+                "title": "Reconnect",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Face each other and match each others' breath while breathing slowly."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Look each other in the eye and hold the gaze for 10 seconds at a time. Repeat 4 times."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Stand and slow dance together."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Give each other a shoulder or back massage."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Share 5 things that each appreciates about the other."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Listen to music that both people enjoy."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }

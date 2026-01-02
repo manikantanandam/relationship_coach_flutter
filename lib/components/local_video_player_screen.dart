@@ -24,6 +24,7 @@ class _LocalVideoPlayerScreenState extends State<LocalVideoPlayerScreen> {
       // Ensure the first frame is shown after the video is initialized
 
       // setState(() {});
+      _controller.setVolume(0);
       _controller.setLooping(true);
       _controller.play();
     });

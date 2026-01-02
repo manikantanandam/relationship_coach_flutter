@@ -199,6 +199,532 @@
                     "step": "Respect Message"
                 }
             ]
-        }
+        },
+        "conversation_starters": [
+            {
+                "step_id": 1,
+                "title": "Court Her",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Open the door."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Gently place your hand on her back to guide her into a room."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Treat her the way you would like someone to treat your sister, mom, or grandmother."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Stand up when she approaches in a public setting."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Stand up when she leaves the table in a public setting."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Be polite (no curse words)."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 2,
+                "title": "Respect Her",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Take time to get to know her likes and dislikes."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Be patient about getting physical."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Treat her with care and honor her in private."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Treat her with care and honor her in front of others."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Genuinely find good things to like about her family."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Ask her permission before making major decisions."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 3,
+                "title": "Make Plans",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Plan dates."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Plan activities that are outside the norm."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Surprise her with a fun activity."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Research before you make a decision on a date."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Take time to call ahead or book reservations online."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Buy tickets for her favorite concert well in advance."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 4,
+                "title": "Be On Time",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Arrive to her place on time so she knows that she is important to you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Leave your house or office early enough to be 5 minutes early to her house."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Set your alarm to notify you when it's time to leave."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Leave work unfinished so you can get to your date on time."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Plan your schedule ahead so that you arrive on time"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Cut something out of your schedule so that you don't run the risk of being late."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 5,
+                "title": "Protect Her",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "If it is raining, cover her up with your jacket."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "If you sense someone trying to make fun of her, come to her rescue."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "If her car is not working properly, offer to take her to work"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "If she appears scared, soothe her."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "If she is not strong enough to lift something, do it for her."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "If she is tired, let her rest."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 6,
+                "title": "Bring Gifts",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Bring flowers."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Bring her favorite candy."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Blindfold her, then present her with one of her favorite things."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Bring her a special card for no special reason."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Bring her your smile."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Bring her something silly to make her laugh."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 7,
+                "title": "Compliment Her",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Tell her she is beautiful."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Tell her she is smart."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Tell her she is sexy."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Tell her she is the best."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Tell her she makes you happy."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Tell her she is charming."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 8,
+                "title": "Show sincere interest in her family",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Wonder, don't judge about any issues happening with her family."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Ask her to share her family history with you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Ask her to share funny stories of her family with you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Ask her who her favorite family members are."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Ask to meet her family."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 9,
+                "title": "Help around the house",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Fix things that break around the house."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Change light bulbs."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Help her with her chores"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Help with the outside."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Help with the vacuuming."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 10,
+                "title": "Spend time with her",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Spend time in the morning before you leave for work by getting up earlier."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Spend time talking to her during the day when you aren't looking at your phone so you can give her your full attention."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Spend time looking at her eyes so you can see how she's feeling."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Spend time listening to what's important to her."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Spend time sharing what's important to both of you."
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "Spend time holding her."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
