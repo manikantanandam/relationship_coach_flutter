@@ -50,7 +50,7 @@ extension ChatOptionTypeExtention on ChatOptionType {
       case ChatOptionType.realLifeExamples:
         return RealLifeExamplesScreen(option: type, gender: gender);
       case ChatOptionType.steps:
-        return StepsScreen();
+        return StepsScreen(option: type, gender: gender);
       case ChatOptionType.conversationStarters:
         return ConversationStartersScreen();
       case ChatOptionType.coachingTips:

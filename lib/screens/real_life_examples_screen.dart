@@ -4,7 +4,7 @@ import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/RealLifeExample.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
-import 'package:relationship_coach_flutter/utils/json_utils.dart';
+import 'package:relationship_coach_flutter/services/ChatService.dart';
 
 class RealLifeExamplesScreen extends StatefulWidget {
   const RealLifeExamplesScreen({
@@ -20,7 +20,7 @@ class RealLifeExamplesScreen extends StatefulWidget {
 }
 
 class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
-  List<RealLifeExample> _examples = [];
+  List<RealLifeExample> _realTimeExamples = [];
   bool _isLoading = true;
 
   @override
@@ -32,14 +32,13 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
   // 2. Added setState to trigger a UI refresh
   Future<void> _loadData() async {
     try {
-      var json = await JSONUtils.loadJsonData(
-        'lib/resources/${widget.option.key}.json',
+      var realTimeExamples = await Chatservice().getRealTimeExamples(
+        widget.option,
+        widget.gender,
       );
-      var realLifeExamplesJSON = json[widget.gender.name]['real_life_examples'];
-      var objects = RealLifeExample.fromList(realLifeExamplesJSON);
 
       setState(() {
-        _examples = objects;
+        _realTimeExamples = realTimeExamples;
         _isLoading = false;
       });
     } catch (e) {
@@ -56,11 +55,14 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
-              itemCount: _examples.length, // Don't forget the itemCount!
+              itemCount:
+                  _realTimeExamples.length, // Don't forget the itemCount!
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: RealLifeExampleWidget(example: _examples[index]),
+                  child: RealLifeExampleWidget(
+                    example: _realTimeExamples[index],
+                  ),
                 );
               },
             ),
