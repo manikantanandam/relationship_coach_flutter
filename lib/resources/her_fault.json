@@ -267,8 +267,404 @@
                 }
             ]
         },
-        "conversation_starters": {},
-        "coaching_tips": {}
+        "conversation_starters": [
+            {
+                "step_id": 1,
+                "title": "1. Heart Feeling/fact",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I felt sad "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": "\" when I was by myself. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I'm feeling angry "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": "\" about being alone. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I felt frustrated "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": "\" when that happened. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I felt unimportant "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": "\" when I was left out. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I felt a little insecure "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": "\" when I saw that. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I'm feeling nervous "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": "\" about this. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "fact"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 2,
+                "title": "2. Body Feeling",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My chest feels tight.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My palms are sweaty.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My stomach is in knots.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My throat gets tight.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My body felt shaky.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My eyes feel teary.\""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 3,
+                "title": "3. Negative self-feeling statement",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"This sad feeling doesn't feel good.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I don't like feeling angry.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"It doesn't feel good to feel frustrated.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I feel bad about feeling overlooked.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I don't like feeling insecure.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I feel funny when I feel nervous like this.\""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 4,
+                "title": "4. Call to Action",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"How do you think we could make this better?\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"What do you think we can do to be closer?\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"How can we understand each other better so we can connect on a deeper level?\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"How can we make this right?\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"What can we do to feel better about this?\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"How can we figure this out together?\""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 5,
+                "title": "5. Clarification",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Help me understand how you feel.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Tell me more.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Help me to clarify what you mean.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Tell me how I can help.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Is there something wrong?\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Are you mad at me?\""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "step_id": 6,
+                "title": "6. Appreciation",
+                "starters": [
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you for sharing. I appreciate you.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you. I appreciate you listening.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you. It means a lot to me to be heard by you.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you. I appreciate you agreeing to invite me next time.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you for being open and honest with me.\""
+                            }
+                        ]
+                    },
+                    {
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you for sharing that with me. I'm so glad to know that.\""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     },
     "female": {}
 }
