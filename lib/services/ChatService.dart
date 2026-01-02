@@ -30,10 +30,6 @@ class Chatservice {
   ) async {
     var json = await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
     var conversationStarters = json[gender.name]['conversation_starters'];
-    debugPrint('while reading');
-    for (var conversationStarter in conversationStarters) {
-      print(conversationStarter);
-    }
     return ConversationStarter.fromList(conversationStarters);
   }
 }

@@ -36,15 +36,6 @@ class _ConversationStartersScreenState
       var localConversationStarters = await Chatservice()
           .getConversationStarters(widget.option, widget.gender);
 
-      for (var starter in localConversationStarters) {
-        print(starter.title);
-        for (var dialog in starter.starters) {
-          for (var part in dialog.parts) {
-            print(part.content);
-          }
-        }
-      }
-
       setState(() {
         conversationStarters = localConversationStarters;
         _isLoading = false;

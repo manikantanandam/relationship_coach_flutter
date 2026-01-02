@@ -108,7 +108,6 @@ class DialoguePart {
   }
 
   String get formattedString {
-    debugPrint('reading formatted string $content');
     if (type == 'text') {
       return content;
     } else {
