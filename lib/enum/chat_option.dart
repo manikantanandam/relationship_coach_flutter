@@ -52,7 +52,7 @@ extension ChatOptionTypeExtention on ChatOptionType {
       case ChatOptionType.steps:
         return StepsScreen(option: type, gender: gender);
       case ChatOptionType.conversationStarters:
-        return ConversationStartersScreen();
+        return ConversationStartersScreen(option: type, gender: gender);
       case ChatOptionType.coachingTips:
         return CoachingTipsScreen();
       case ChatOptionType.doItYourself:

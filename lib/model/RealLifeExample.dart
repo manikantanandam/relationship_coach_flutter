@@ -76,15 +76,7 @@ class DialogueEntry {
                     height: 1.5,
                   ),
                 ),
-                for (var part in parts)
-                  TextSpan(
-                    text: part.formattedString,
-                    style: TextStyle(
-                      color: part.color(Gender.male),
-                      fontWeight: FontWeight.bold,
-                      height: 1.5,
-                    ),
-                  ),
+                for (var part in parts) part.textSpan,
               ],
             ),
           ),
@@ -116,10 +108,22 @@ class DialoguePart {
   }
 
   String get formattedString {
+    debugPrint('reading formatted string $content');
     if (type == 'text') {
       return content;
     } else {
       return '($content)';
     }
+  }
+
+  TextSpan get textSpan {
+    return TextSpan(
+      text: formattedString,
+      style: TextStyle(
+        color: color(Gender.male),
+        fontWeight: FontWeight.bold,
+        height: 1.5,
+      ),
+    );
   }
 }
