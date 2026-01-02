@@ -991,6 +991,76 @@
                     }
                 ]
             }
+        ],
+        "coaching_tips": [
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "Notice that the words "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "\"because, that\""
+                    },
+                    {
+                        "type": "text",
+                        "content": ", or "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "\"think\""
+                    },
+                    {
+                        "type": "text",
+                        "content": " were not used."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "Those words are "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "\"thinking\""
+                    },
+                    {
+                        "type": "text",
+                        "content": " words."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "In this situation, you only want to convey "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "\"feelings\""
+                    },
+                    {
+                        "type": "text",
+                        "content": " and "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "\"senses\""
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "Men need to give and have their gift received. They also need appreciation, admiration, respect and love, but most of all, respect."
+                    }
+                ]
+            }
         ]
     }
 }

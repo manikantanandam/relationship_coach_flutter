@@ -117,7 +117,7 @@ const List<ChatType> femaleHomeScreenOption = [
   .hisFault,
   .myFault,
   .toxicChat,
-  .givingTalk,
+  .receivingTalk,
   .sweetTalk,
   .instagram,
   .share,

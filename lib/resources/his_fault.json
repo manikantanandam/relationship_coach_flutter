@@ -657,6 +657,100 @@
                     }
                 ]
             }
+        ],
+        "coaching_tips": [
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "Omit the words "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "You, Because, Hurt"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "Disappointed"
+                    },
+                    {
+                        "type": "text",
+                        "content": " when you're expressing your feelings about a situation, so he doesn't feel blamed or shamed."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "Take 100% responsibility for yourself and focus only on your feelings."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "To do this, figure out the result from the situation; ex: If he ignored you, figure out the result of being ignored. \"I felt alone when that happened\" "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "(instead of \"you ignored me\")"
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "By following these steps, he won't get the idea that you feel entitled or are defensive. He will feel that you are soft and sensitive and have feelings about the situation because you care."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "By using these specific \"Love Chat\" messages, he will melt in your arms and will not be defensive because you are only expressing your feelings (taking 100% responsibility for your feelings). He will feel safe with you when you express yourself this way. If he's a man worth keeping, he'll step up to the plate and be respectful."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "He will appreciate you for not blaming him, only speaking about your feelings and being brave enough to be honest and open enough to ask what you think the two of you can do to resolve the issue."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "It's always 100% about you and your feelings. You're the only person who can control you! Have that 20 second conversation with him that you dread having...I promise you, it will be worth it."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "Also, notice that any time you have a conversation like this with a man, it brings you closer and he will see you as more \"confident\" than other women."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "He will see the softer, feminine side and he'll want to be with you."
+                    }
+                ]
+            }
         ]
     }
 }

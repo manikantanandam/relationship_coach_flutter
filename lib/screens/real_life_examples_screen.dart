@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
-import 'package:relationship_coach_flutter/model/RealLifeExample.dart';
+import 'package:relationship_coach_flutter/model/real_life_example.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
 
@@ -98,7 +98,7 @@ class RealLifeExampleWidget extends StatelessWidget {
           example.scenario,
           style: TextStyle(color: gender.color, fontWeight: .bold, height: 3),
         ),
-        for (var dialog in example.dialogue) dialog.richText(gender),
+        for (var dialog in example.statements) dialog.richText(gender, true),
       ],
     );
   }
