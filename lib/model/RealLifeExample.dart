@@ -46,7 +46,7 @@ class DialogueEntry {
     );
   }
 
-  Widget get richText {
+  Widget richText(Gender gender) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -76,7 +76,7 @@ class DialogueEntry {
                     height: 1.5,
                   ),
                 ),
-                for (var part in parts) part.textSpan,
+                for (var part in parts) part.textSpan(gender),
               ],
             ),
           ),
@@ -115,11 +115,11 @@ class DialoguePart {
     }
   }
 
-  TextSpan get textSpan {
+  TextSpan textSpan(Gender gender) {
     return TextSpan(
       text: formattedString,
       style: TextStyle(
-        color: color(Gender.male),
+        color: color(gender),
         fontWeight: FontWeight.bold,
         height: 1.5,
       ),

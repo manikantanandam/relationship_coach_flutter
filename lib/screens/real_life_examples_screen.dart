@@ -62,6 +62,7 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
                   padding: const EdgeInsets.all(16.0),
                   child: RealLifeExampleWidget(
                     example: _realTimeExamples[index],
+                    gender: widget.gender,
                   ),
                 );
               },
@@ -71,14 +72,17 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
 }
 
 class RealLifeExampleWidget extends StatelessWidget {
-  const RealLifeExampleWidget({super.key, required this.example});
+  const RealLifeExampleWidget({
+    super.key,
+    required this.example,
+    required this.gender,
+  });
 
   final RealLifeExample example;
+  final Gender gender;
 
   @override
   Widget build(BuildContext context) {
-    Gender gender = Provider.of<UserSettingsProvider>(context).gender;
-
     return Column(
       crossAxisAlignment: .start,
       children: [
@@ -94,7 +98,7 @@ class RealLifeExampleWidget extends StatelessWidget {
           example.scenario,
           style: TextStyle(color: gender.color, fontWeight: .bold, height: 3),
         ),
-        for (var dialog in example.dialogue) dialog.richText,
+        for (var dialog in example.dialogue) dialog.richText(gender),
       ],
     );
   }

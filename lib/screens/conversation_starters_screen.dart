@@ -71,6 +71,7 @@ class _ConversationStartersScreenState
           padding: const EdgeInsets.all(16.0),
           child: ConversationStarterWidget(
             starter: currentConversationStarters[index],
+            gender: widget.gender,
           ),
         );
       },
@@ -79,8 +80,13 @@ class _ConversationStartersScreenState
 }
 
 class ConversationStarterWidget extends StatelessWidget {
-  const ConversationStarterWidget({super.key, required this.starter});
+  const ConversationStarterWidget({
+    super.key,
+    required this.starter,
+    required this.gender,
+  });
   final ConversationStarter starter;
+  final Gender gender;
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +106,7 @@ class ConversationStarterWidget extends StatelessWidget {
           ],
         ),
         for (var starterItem in starter.starters)
-          RCCard(cardWidget: starterItem.richText),
+          RCCard(cardWidget: starterItem.richText(gender)),
         // RichText(text: TextSpan(children: [dialog.textSpan])),
       ],
     );

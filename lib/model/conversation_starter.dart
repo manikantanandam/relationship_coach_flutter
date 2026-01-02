@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/RealLifeExample.dart';
 
 // 3. Category grouping (e.g., "1. Admit" or "2. Body Feeling")
@@ -48,9 +49,9 @@ class ConversationStarterItem {
     return jsonList.map((item) => ConversationStarter.fromJson(item)).toList();
   }
 
-  RichText get richText {
+  RichText richText(Gender gender) {
     return RichText(
-      text: TextSpan(children: [for (var part in parts) part.textSpan]),
+      text: TextSpan(children: [for (var part in parts) part.textSpan(gender)]),
     );
   }
 }
