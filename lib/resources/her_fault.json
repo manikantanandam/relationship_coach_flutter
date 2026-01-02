@@ -664,6 +664,68 @@
                     }
                 ]
             }
+        ],
+        "coaching_tips": [
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "Omit the words "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "You, Because, Hurt"
+                    },
+                    {
+                        "type": "text",
+                        "content": " and "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "Disappointed"
+                    },
+                    {
+                        "type": "text",
+                        "content": " when you're expressing your feelings about a situation, so she doesn't feel blamed or shamed."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "Take 100% responsibility for yourself and focus only on your feelings."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "To do this, figure out the result from the situation; ex: If She ignored you, figure out the result of being ignored. \"I felt alone when that happened\" "
+                    },
+                    {
+                        "type": "highlight",
+                        "content": "(instead of \"you ignored me\")"
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "By following these steps, She won't get the idea that you feel entitled or are defensive. She will feel that you are soft and sensitive and have feelings about the situation because you care."
+                    }
+                ]
+            },
+            {
+                "parts": [
+                    {
+                        "type": "text",
+                        "content": "By using these specific \"Love Chat\" messages, She will melt in your arms and will not be defensive because you are only expressing your feelings (taking 100% responsibility for your feelings). She will feel safe with you when you express yourself this way"
+                    }
+                ]
+            }
         ]
     },
     "female": {}
