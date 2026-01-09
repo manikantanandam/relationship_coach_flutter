@@ -4,6 +4,9 @@ import 'package:relationship_coach_flutter/components/gender_toggle.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
+import 'package:relationship_coach_flutter/screens/about_coach_screen.dart';
+import 'package:relationship_coach_flutter/screens/privacy_policy_screen.dart';
+import 'package:relationship_coach_flutter/screens/terms_and_conditions..dart';
 
 enum SettingsSection { user, coach, legal }
 
@@ -61,12 +64,26 @@ class RCSettingSection extends StatelessWidget {
           child: Text(section.name),
         ),
         for (var item in section.items)
-          RCCard(
-            cardWidget: Row(
-              children: [
-                Expanded(child: Text(item.name)),
-                rightWidget(item, context),
-              ],
+          GestureDetector(
+            onTap: () {
+              if (item.screen != null) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return item.screen!;
+                    },
+                  ),
+                );
+              }
+            },
+            child: RCCard(
+              cardWidget: Row(
+                children: [
+                  Expanded(child: Text(item.name)),
+                  rightWidget(item, context),
+                ],
+              ),
             ),
           ),
       ],
@@ -98,6 +115,19 @@ extension SettingsSectionItemExtension on SettingsSecionItem {
         return 'Privacy Policy';
       case SettingsSecionItem.termsAndConditions:
         return 'Terms and Conditions';
+    }
+  }
+
+  Widget? get screen {
+    switch (this) {
+      case SettingsSecionItem.gender:
+        return null;
+      case SettingsSecionItem.coach:
+        return AboutCoachScreen();
+      case SettingsSecionItem.privacyPolicy:
+        return PrivacyPolicyScreen();
+      case SettingsSecionItem.termsAndConditions:
+        return TermsAndConditionsScreen();
     }
   }
 }
