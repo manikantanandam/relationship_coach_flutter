@@ -38,11 +38,15 @@ class DoItYourselfModel {
   final String title;
   final String subtitle;
   final List<DIYFormField> formFields;
+  final DateTime createdAt;
+  final DateTime updatedAt;
 
   DoItYourselfModel({
     required this.title,
     required this.subtitle,
     required this.formFields,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   factory DoItYourselfModel.fromJson(Map<String, dynamic> json) {
@@ -52,6 +56,12 @@ class DoItYourselfModel {
       formFields: (json['form_fields'] as List)
           .map((field) => DIYFormField.fromJson(field))
           .toList(),
+      createdAt: DateTime.parse(
+        json['created_at'] ?? DateTime.now().toString(),
+      ),
+      updatedAt: DateTime.parse(
+        json['updated_at'] ?? DateTime.now().toString(),
+      ),
     );
   }
 
@@ -60,6 +70,8 @@ class DoItYourselfModel {
       'title': title,
       'subtitle': subtitle,
       'form_fields': formFields.map((e) => e.toJson()).toList(),
+      'created_at': createdAt.toIso8601String(),
+      'updated_at': updatedAt.toIso8601String(),
     };
   }
 }

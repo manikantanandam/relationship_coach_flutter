@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/diy.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
+import 'package:relationship_coach_flutter/services/diy_storage_service.dart';
 
 class AddDIYScreen extends StatefulWidget {
-  const AddDIYScreen({super.key, required this.option, required this.gender});
+  const AddDIYScreen({
+    super.key,
+    required this.option,
+    required this.gender,
+    this.diyModel,
+  });
 
   final ChatType option;
   final Gender gender;
+  final DoItYourselfModel? diyModel;
 
   @override
   State<AddDIYScreen> createState() => _AddDIYScreenState();
@@ -19,13 +24,24 @@ class AddDIYScreen extends StatefulWidget {
 class _AddDIYScreenState extends State<AddDIYScreen> {
   // Map to store controllers using the field ID as the key
   final Map<int, TextEditingController> _controllers = {};
-  DoItYourselfModel? diyModel;
+  DoItYourselfModel? _diyModel;
+  late DIYStorage _storage;
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    _loadData();
+    _storage = DIYStorage(widget.gender, widget.option);
+    if (widget.diyModel == null) {
+      debugPrint('DIY model is not available. load data for empty form');
+      _loadData();
+    } else {
+      debugPrint('DIY available');
+      // var json = widget.diyModel?.toJson();
+      debugPrint(widget.diyModel?.toJson().toString());
+      _diyModel = widget.diyModel;
+      _isLoading = false;
+    }
   }
 
   // 2. Added setState to trigger a UI refresh
@@ -41,7 +57,7 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
       }
 
       setState(() {
-        diyModel = diyModelResponse;
+        _diyModel = diyModelResponse;
         _isLoading = false;
       });
     } catch (e) {
@@ -59,7 +75,7 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
 
   void _handleSubmit() {
     // Collect all data into a simple map
-    final responses = diyModel?.formFields.map((field) {
+    final responses = _diyModel?.formFields.map((field) {
       return {
         "id": field.id,
         "label": field.label,
@@ -68,6 +84,12 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
     }).toList();
 
     print("Submitting Form: $responses");
+
+    if (_diyModel != null) {
+      _storage.addDIYItem(_diyModel!);
+      Navigator.pop(context);
+    }
+
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Form Submitted Successfully!')),
     );
@@ -100,7 +122,7 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    diyModel!.subtitle,
+                    _diyModel!.subtitle,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       color: Colors.grey[700],
                       fontStyle: FontStyle.italic,
@@ -108,7 +130,7 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
                   ),
                   const SizedBox(height: 24),
                   // Build the list of text fields dynamically
-                  ...diyModel!.formFields.map(
+                  ..._diyModel!.formFields.map(
                     (field) => _buildInputField(field),
                   ),
                 ],

@@ -58,8 +58,8 @@ extension ChatOptionTypeExtention on ChatOptionType {
       case ChatOptionType.coachingTips:
         return CoachingTipsScreen(option: type, gender: gender);
       case ChatOptionType.doItYourself:
-        // return DiyListViewScreen(option: type, gender: gender);
-        return AddDIYScreen(option: type, gender: gender);
+        return DiyListViewScreen(option: type, gender: gender);
+      // return AddDIYScreen(option: type, gender: gender);
     }
   }
 }
