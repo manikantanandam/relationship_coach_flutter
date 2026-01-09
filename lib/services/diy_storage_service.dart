@@ -40,16 +40,23 @@ class DIYStorage {
     await prefs.setString(_key, jsonString);
   }
 
-  // --- ADD SINGLE ITEM TO EXISTING LIST ---
-  Future<void> addDIYItem(DoItYourselfModel newItem) async {
-    // 1. Fetch the existing list
-    List<DoItYourselfModel> currentList = await getDIYList();
+  Future<void> addOrUpdateDIYItem(DoItYourselfModel item) async {
+    List<DoItYourselfModel> list = await getDIYList();
 
-    // 2. Add the new item to the local list
-    currentList.add(newItem);
+    // Check if item already exists by ID
+    int index = list.indexWhere(
+      (element) => element.createdAt == item.createdAt,
+    );
 
-    // 3. Save the updated list back to SharedPreferences
-    await saveDIYList(currentList);
+    if (index != -1) {
+      // Update existing
+      list[index] = item;
+    } else {
+      // Add new
+      list.add(item);
+    }
+
+    await saveDIYList(list);
   }
 
   // --- CLEAR ALL ---
