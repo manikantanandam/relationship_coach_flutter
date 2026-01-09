@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
+import 'package:relationship_coach_flutter/screens/add_diy_screen.dart';
 import 'package:relationship_coach_flutter/screens/coaching_tips_screen.dart';
 import 'package:relationship_coach_flutter/screens/conversation_starters_screen.dart';
+import 'package:relationship_coach_flutter/screens/diy_list_view_screen.dart';
 import 'package:relationship_coach_flutter/screens/real_life_examples_screen.dart';
 import 'package:relationship_coach_flutter/screens/steps_screen.dart';
 
@@ -56,7 +58,8 @@ extension ChatOptionTypeExtention on ChatOptionType {
       case ChatOptionType.coachingTips:
         return CoachingTipsScreen(option: type, gender: gender);
       case ChatOptionType.doItYourself:
-        return Text('DIY');
+        // return DiyListViewScreen(option: type, gender: gender);
+        return AddDIYScreen(option: type, gender: gender);
     }
   }
 }

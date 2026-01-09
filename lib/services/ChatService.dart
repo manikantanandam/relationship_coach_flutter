@@ -4,6 +4,7 @@ import 'package:relationship_coach_flutter/enum/chat_option.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/coaching_tips.dart';
+import 'package:relationship_coach_flutter/model/diy.dart';
 import 'package:relationship_coach_flutter/model/real_life_example.dart';
 import 'package:relationship_coach_flutter/model/conversation_starter.dart';
 import 'package:relationship_coach_flutter/model/step.dart';
@@ -37,7 +38,15 @@ class Chatservice {
   Future<CoachingTips> getCoachingTips(ChatType option, Gender gender) async {
     var json = await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
     var conversationStarters = json[gender.name]['coaching_tips'];
-    print('coaching tips from json');
     return CoachingTips.fromJson(conversationStarters);
+  }
+
+  Future<DoItYourselfModel> getDIYFormFields(
+    ChatType option,
+    Gender gender,
+  ) async {
+    var json = await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
+    var diyFormFields = json[gender.name]['diy'];
+    return DoItYourselfModel.fromJson(diyFormFields);
   }
 }

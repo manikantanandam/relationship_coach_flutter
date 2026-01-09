@@ -751,6 +751,64 @@
                     }
                 ]
             }
-        ]
+        ],
+        "diy": {
+            "title": "Do It Yourself",
+            "subtitle": "6 His Fault \"Love Chat\" messages",
+            "form_fields": [
+                {
+                    "id": 1,
+                    "label": "He did or said something wrong:",
+                    "type": "text_input",
+                    "placeholder": "Describe what happened..."
+                },
+                {
+                    "id": 2,
+                    "label": "I said:",
+                    "prompt": "(heart feeling)",
+                    "type": "text_input",
+                    "placeholder": "Enter your heart feeling..."
+                },
+                {
+                    "id": 3,
+                    "label": "He did or said something wrong:",
+                    "type": "text_input",
+                    "placeholder": "Describe the second occurrence..."
+                },
+                {
+                    "id": 4,
+                    "label": "I said:",
+                    "prompt": "(body feeling, negative self-feeling statement, call-to-action)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 5,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter his response..."
+                },
+                {
+                    "id": 6,
+                    "label": "I said:",
+                    "prompt": "(clarification)",
+                    "type": "text_input",
+                    "placeholder": "Enter your clarification..."
+                },
+                {
+                    "id": 7,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter his final response..."
+                },
+                {
+                    "id": 8,
+                    "label": "I said:",
+                    "prompt": "(appreciation)",
+                    "type": "text_input",
+                    "placeholder": "Enter your appreciation..."
+                }
+            ]
+        }
     }
 }
