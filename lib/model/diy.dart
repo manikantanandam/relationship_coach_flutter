@@ -4,6 +4,7 @@ class DIYFormField {
   final String? prompt; // Nullable because not all fields have a prompt
   final String type;
   final String placeholder;
+  final String response;
 
   DIYFormField({
     required this.id,
@@ -11,6 +12,7 @@ class DIYFormField {
     this.prompt,
     required this.type,
     required this.placeholder,
+    this.response = '',
   });
 
   factory DIYFormField.fromJson(Map<String, dynamic> json) {
@@ -20,6 +22,7 @@ class DIYFormField {
       prompt: json['prompt'], // Will be null if key is missing
       type: json['type'],
       placeholder: json['placeholder'],
+      response: json['response'] ?? '',
     );
   }
 
@@ -30,6 +33,7 @@ class DIYFormField {
       'prompt': prompt,
       'type': type,
       'placeholder': placeholder,
+      'response': response,
     };
   }
 }

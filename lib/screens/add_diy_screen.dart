@@ -40,6 +40,9 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
       // var json = widget.diyModel?.toJson();
       debugPrint(widget.diyModel?.toJson().toString());
       _diyModel = widget.diyModel;
+      for (var field in _diyModel!.formFields) {
+        _controllers[field.id] = TextEditingController(text: field.response);
+      }
       _isLoading = false;
     }
   }
@@ -53,7 +56,7 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
       );
 
       for (var field in diyModelResponse.formFields) {
-        _controllers[field.id] = TextEditingController();
+        _controllers[field.id] = TextEditingController(text: field.response);
       }
 
       setState(() {
@@ -73,22 +76,31 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
     super.dispose();
   }
 
-  void _handleSubmit() {
-    // Collect all data into a simple map
-    final responses = _diyModel?.formFields.map((field) {
-      return {
-        "id": field.id,
-        "label": field.label,
-        "response": _controllers[field.id]?.text,
-      };
+  void _handleSubmit() async {
+    if (_diyModel == null) return;
+
+    final updatedFields = _diyModel!.formFields.map((field) {
+      return DIYFormField(
+        id: field.id,
+        label: field.label,
+        prompt: field.prompt,
+        type: field.type,
+        placeholder: field.placeholder, // Keep original placeholder
+        response: _controllers[field.id]?.text ?? '', // Save actual input here
+      );
     }).toList();
 
-    print("Submitting Form: $responses");
+    final modelToSave = DoItYourselfModel(
+      title: _diyModel!.title,
+      subtitle: _diyModel!.subtitle,
+      formFields: updatedFields,
+      createdAt: _diyModel!.createdAt,
+      updatedAt: DateTime.now(),
+    );
 
-    if (_diyModel != null) {
-      _storage.addDIYItem(_diyModel!);
-      Navigator.pop(context);
-    }
+    await _storage.addDIYItem(modelToSave);
+
+    Navigator.pop(context);
 
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Form Submitted Successfully!')),
