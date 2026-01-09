@@ -564,7 +564,104 @@
                     }
                 ]
             }
-        ]
+        ],
+        "diy": {
+            "title": "Do It Yourself",
+            "subtitle": "7 Sweet Talk \"Love Chat\" messages",
+            "form_fields": [
+                {
+                    "id": 1,
+                    "label": "She said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what she said..."
+                },
+                {
+                    "id": 2,
+                    "label": "I said:",
+                    "prompt": "(heart feelings)",
+                    "type": "text_input",
+                    "placeholder": "Enter your heart feelings..."
+                },
+                {
+                    "id": 3,
+                    "label": "She did:",
+                    "type": "text_input",
+                    "placeholder": "Enter what she did..."
+                },
+                {
+                    "id": 4,
+                    "label": "I said:",
+                    "prompt": "(body feelings)",
+                    "type": "text_input",
+                    "placeholder": "Enter your body feelings..."
+                },
+                {
+                    "id": 5,
+                    "label": "She said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what she said..."
+                },
+                {
+                    "id": 6,
+                    "label": "I said:",
+                    "prompt": "(sense of touch)",
+                    "type": "text_input",
+                    "placeholder": "Describe the sense of touch..."
+                },
+                {
+                    "id": 7,
+                    "label": "She did:",
+                    "type": "text_input",
+                    "placeholder": "Enter what she did..."
+                },
+                {
+                    "id": 8,
+                    "label": "I said:",
+                    "prompt": "(sense of taste)",
+                    "type": "text_input",
+                    "placeholder": "Describe the sense of taste..."
+                },
+                {
+                    "id": 9,
+                    "label": "She said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what she said..."
+                },
+                {
+                    "id": 10,
+                    "label": "I said:",
+                    "prompt": "(sense of smell)",
+                    "type": "text_input",
+                    "placeholder": "Describe the sense of smell..."
+                },
+                {
+                    "id": 11,
+                    "label": "She did:",
+                    "type": "text_input",
+                    "placeholder": "Enter what she did..."
+                },
+                {
+                    "id": 12,
+                    "label": "I said:",
+                    "prompt": "(sense of hearing)",
+                    "type": "text_input",
+                    "placeholder": "Describe the sense of hearing..."
+                },
+                {
+                    "id": 13,
+                    "label": "She said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what she said..."
+                },
+                {
+                    "id": 14,
+                    "label": "I said:",
+                    "prompt": "(sense of sight)",
+                    "type": "text_input",
+                    "placeholder": "Describe the sense of sight..."
+                }
+            ]
+        }
     },
     "female": {
         "real_life_examples": [

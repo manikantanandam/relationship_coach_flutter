@@ -809,7 +809,91 @@
                     }
                 ]
             }
-        ]
+        ],
+        "diy": {
+            "title": "Do It Yourself",
+            "subtitle": "10 My Fault \"Love Chat\" messages",
+            "form_fields": [
+                {
+                    "id": 1,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 2,
+                    "label": "I said:",
+                    "prompt": "(admit, apologize, appreciation, commit-to-change, ask forgiveness)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 3,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 4,
+                    "label": "I said:",
+                    "prompt": "(clarification)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 5,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 6,
+                    "label": "I said:",
+                    "prompt": "(soothing cycle so-you-feel)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 7,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 8,
+                    "label": "I said:",
+                    "prompt": "(feel-felt finding out)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 9,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 10,
+                    "label": "I said:",
+                    "prompt": "(second appreciation)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 11,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 12,
+                    "label": "I said:",
+                    "prompt": "(reconnect)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                }
+            ]
+        }
     },
     "female": {
         "real_life_examples": [

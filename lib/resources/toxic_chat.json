@@ -876,7 +876,65 @@
                     }
                 ]
             }
-        ]
+        ],
+        "diy": {
+            "title": "Do It Yourself",
+            "subtitle": "10 Toxic Chat \"Love Chat\" messages",
+            "form_fields": [
+                {
+                    "id": 1,
+                    "label": "She said:",
+                    "type": "text_input",
+                    "placeholder": "Enter her response..."
+                },
+                {
+                    "id": 2,
+                    "label": "I said:",
+                    "prompt": "(admit, apologize, appreciation, commit-to-change, ask forgiveness)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 3,
+                    "label": "She said:",
+                    "type": "text_input",
+                    "placeholder": "Enter her response..."
+                },
+                {
+                    "id": 4,
+                    "label": "I said:",
+                    "prompt": "(heart feeling)",
+                    "type": "text_input",
+                    "placeholder": "Enter your heart feeling..."
+                },
+                {
+                    "id": 5,
+                    "label": "She said:",
+                    "type": "text_input",
+                    "placeholder": "Enter her response..."
+                },
+                {
+                    "id": 6,
+                    "label": "I said:",
+                    "prompt": "(body feeling, negative-self-feeling statement)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 7,
+                    "label": "She said:",
+                    "type": "text_input",
+                    "placeholder": "Enter her response..."
+                },
+                {
+                    "id": 8,
+                    "label": "I said:",
+                    "prompt": "(give permission, take your feelings for a walk)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                }
+            ]
+        }
     },
     "female": {
         "real_life_examples": [

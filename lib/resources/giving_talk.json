@@ -678,7 +678,143 @@
           }
         ]
       }
-    ]
+    ],
+    "diy": {
+      "title": "Do It Yourself",
+      "subtitle": "10 Giving Talk \"Love Chat\" messages",
+      "form_fields": [
+        {
+          "id": 1,
+          "label": "You and she get to the car door.",
+          "prompt": "(court her)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 2,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 3,
+          "label": "You see that she did something really brave at work that involved taking up for herself in front of her boss",
+          "prompt": "(respect her)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 4,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 5,
+          "label": "It's Tuesday, and you don't have any plans for the weekend.",
+          "prompt": "(make plans)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 6,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 7,
+          "label": "You have a choice to finish another project at work or be on time to pick her up.",
+          "prompt": "(be on time)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 8,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 9,
+          "label": "It's cold outside. She doesn't have a coat, but you do.",
+          "prompt": "(protect her)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 10,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 11,
+          "label": "You know she had a rough day and would like to make her smile",
+          "prompt": "(bring gifts)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 12,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 13,
+          "label": "You think she looks beautiful",
+          "prompt": "(complement her)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 14,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 15,
+          "label": "She has an interesting family and you'd like to meet them.",
+          "prompt": "(sincere interest in her family)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 16,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 17,
+          "label": "She has trouble with her back door not locking properly.",
+          "prompt": "(help around the house)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 18,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        },
+        {
+          "id": 19,
+          "label": "She is free all day Saturday, but you had planned to go to races with the guys.",
+          "prompt": "(spend time with her)",
+          "type": "text_input",
+          "placeholder": "Enter details..."
+        },
+        {
+          "id": 20,
+          "label": "I said:",
+          "type": "text_input",
+          "placeholder": "Enter your response..."
+        }
+      ]
+    }
   },
   "female": {}
 }
