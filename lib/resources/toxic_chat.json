@@ -1729,6 +1729,79 @@
                     }
                 ]
             }
-        ]
+        ],
+        "diy": {
+            "toxic_chat_screen": {
+                "title": "Do It Yourself",
+                "subtitle": "10 Toxic Chat \"Love Chat\" messages",
+                "form_fields": [
+                    {
+                        "id": 1,
+                        "label": "He said:",
+                        "type": "text_input",
+                        "placeholder": "Enter what he said..."
+                    },
+                    {
+                        "id": 2,
+                        "label": "I said:",
+                        "prompt": "(admit, apologize, appreciation, commit-to-change, ask forgiveness)",
+                        "type": "text_input",
+                        "placeholder": "Enter your response..."
+                    },
+                    {
+                        "id": 3,
+                        "label": "He said:",
+                        "type": "text_input",
+                        "placeholder": "Enter what he said..."
+                    },
+                    {
+                        "id": 4,
+                        "label": "I said:",
+                        "prompt": "(heart feeling)",
+                        "type": "text_input",
+                        "placeholder": "Enter your heart feeling..."
+                    },
+                    {
+                        "id": 5,
+                        "label": "He said:",
+                        "type": "text_input",
+                        "placeholder": "Enter what he said..."
+                    },
+                    {
+                        "id": 6,
+                        "label": "I said:",
+                        "prompt": "(heart feeling)",
+                        "type": "text_input",
+                        "placeholder": "Enter your heart feeling..."
+                    },
+                    {
+                        "id": 7,
+                        "label": "He said:",
+                        "type": "text_input",
+                        "placeholder": "Enter what he said..."
+                    },
+                    {
+                        "id": 8,
+                        "label": "I said:",
+                        "prompt": "(body feeling, negative-self-feeling statement)",
+                        "type": "text_input",
+                        "placeholder": "Enter your response..."
+                    },
+                    {
+                        "id": 9,
+                        "label": "He said:",
+                        "type": "text_input",
+                        "placeholder": "Enter what he said..."
+                    },
+                    {
+                        "id": 10,
+                        "label": "I said:",
+                        "prompt": "(give permission, take your feelings for a walk)",
+                        "type": "text_input",
+                        "placeholder": "Enter your final response..."
+                    }
+                ]
+            }
+        }
     }
 }

@@ -799,6 +799,90 @@
                     }
                 ]
             }
-        ]
+        ],
+        "diy": {
+            "title": "Do It Yourself",
+            "subtitle": "6 Receiving Talk \"Love Chat\" messages",
+            "form_fields": [
+                {
+                    "id": 1,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 2,
+                    "label": "I said:",
+                    "prompt": "(heart feeling)",
+                    "type": "text_input",
+                    "placeholder": "Enter your heart feeling..."
+                },
+                {
+                    "id": 3,
+                    "label": "He did:",
+                    "type": "text_input",
+                    "placeholder": "Describe what he did..."
+                },
+                {
+                    "id": 4,
+                    "label": "I said:",
+                    "prompt": "(body feeling)",
+                    "type": "text_input",
+                    "placeholder": "Enter your body feeling..."
+                },
+                {
+                    "id": 5,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 6,
+                    "label": "I said:",
+                    "prompt": "(thank you messages)",
+                    "type": "text_input",
+                    "placeholder": "Enter your thank you message..."
+                },
+                {
+                    "id": 7,
+                    "label": "He did:",
+                    "type": "text_input",
+                    "placeholder": "Describe what he did..."
+                },
+                {
+                    "id": 8,
+                    "label": "I said:",
+                    "prompt": "(appreciation messages)",
+                    "type": "text_input",
+                    "placeholder": "Enter your appreciation..."
+                },
+                {
+                    "id": 9,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 10,
+                    "label": "I said:",
+                    "prompt": "(admiration messages)",
+                    "type": "text_input",
+                    "placeholder": "Enter your admiration..."
+                },
+                {
+                    "id": 11,
+                    "label": "He did:",
+                    "type": "text_input",
+                    "placeholder": "Describe what he did..."
+                },
+                {
+                    "id": 12,
+                    "label": "I said:",
+                    "prompt": "(respect messages)",
+                    "type": "text_input",
+                    "placeholder": "Enter your respect message..."
+                }
+            ]
+        }
     }
 }

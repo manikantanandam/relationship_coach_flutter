@@ -1131,6 +1131,103 @@
                     }
                 ]
             }
-        ]
+        ],
+        "diy": {
+            "title": "Do It Yourself",
+            "subtitle": "7 Sweet Talk \"Love Chat\" messages",
+            "form_fields": [
+                {
+                    "id": 1,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 2,
+                    "label": "I said:",
+                    "prompt": "(heart feeling)",
+                    "type": "text_input",
+                    "placeholder": "Enter your heart feeling..."
+                },
+                {
+                    "id": 3,
+                    "label": "He did:",
+                    "type": "text_input",
+                    "placeholder": "Describe what he did..."
+                },
+                {
+                    "id": 4,
+                    "label": "I said:",
+                    "prompt": "(body feeling)",
+                    "type": "text_input",
+                    "placeholder": "Enter your body feeling..."
+                },
+                {
+                    "id": 5,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 6,
+                    "label": "I said:",
+                    "prompt": "(sense of touch)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 7,
+                    "label": "He did:",
+                    "type": "text_input",
+                    "placeholder": "Describe what he did..."
+                },
+                {
+                    "id": 8,
+                    "label": "I said:",
+                    "prompt": "(sense of taste)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 9,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 10,
+                    "label": "I said:",
+                    "prompt": "(sense of smell)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 11,
+                    "label": "He did:",
+                    "type": "text_input",
+                    "placeholder": "Describe what he did..."
+                },
+                {
+                    "id": 12,
+                    "label": "I said:",
+                    "prompt": "(sense of hearing)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                },
+                {
+                    "id": 13,
+                    "label": "He said:",
+                    "type": "text_input",
+                    "placeholder": "Enter what he said..."
+                },
+                {
+                    "id": 14,
+                    "label": "I said:",
+                    "prompt": "(sense of sight)",
+                    "type": "text_input",
+                    "placeholder": "Enter your response..."
+                }
+            ]
+        }
     }
 }
