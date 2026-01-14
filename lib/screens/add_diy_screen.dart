@@ -112,6 +112,8 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Do It Yourself'),
+        backgroundColor: widget.gender.color,
+        foregroundColor: Colors.white,
         // Adding the Right Bar Button we discussed
         actions: [
           TextButton(

@@ -51,7 +51,11 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Real Life Examples')),
+      appBar: AppBar(
+        title: Text('Real Life Examples'),
+        backgroundColor: widget.gender.color,
+        foregroundColor: Colors.white,
+      ),
       // 3. Handle the loading state so the user sees progress
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())

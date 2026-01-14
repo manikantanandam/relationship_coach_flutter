@@ -49,7 +49,11 @@ class _ConversationStartersScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Conversation Starters')),
+      appBar: AppBar(
+        title: Text('Conversation Starters'),
+        backgroundColor: widget.gender.color,
+        foregroundColor: Colors.white,
+      ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : conversationStartersWidget(),

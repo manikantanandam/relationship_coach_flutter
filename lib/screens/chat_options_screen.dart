@@ -35,7 +35,11 @@ class ChatOptionScreen extends StatelessWidget {
     final gender = Provider.of<UserSettingsProvider>(context).gender;
 
     return Scaffold(
-      appBar: AppBar(title: Text(option.title)),
+      appBar: AppBar(
+        title: Text(option.title),
+        backgroundColor: gender.color,
+        foregroundColor: Colors.white,
+      ),
       body: ListView.builder(
         itemCount: options.length,
         itemBuilder: (context, index) {

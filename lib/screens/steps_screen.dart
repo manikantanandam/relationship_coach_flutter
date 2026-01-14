@@ -45,7 +45,11 @@ class _StepsScreenState extends State<StepsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Steps')),
+      appBar: AppBar(
+        title: Text('Steps'),
+        backgroundColor: widget.gender.color,
+        foregroundColor: Colors.white,
+      ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(

@@ -45,7 +45,10 @@ class _AboutCoachScreenState extends State<AboutCoachScreen> {
     return _isLoading
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
-            appBar: AppBar(title: Text('About Coach')),
+            appBar: AppBar(
+              title: Text('About Coach'),
+              backgroundColor: gender.color,
+            ),
             body: ListView.builder(
               itemCount:
                   aboutCoach.statements.length, // Don't forget the itemCount!

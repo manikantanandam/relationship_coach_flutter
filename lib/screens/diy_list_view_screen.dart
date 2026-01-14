@@ -44,6 +44,8 @@ class _DiyListViewScreenState extends State<DiyListViewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Do It Yourself Add'),
+        backgroundColor: widget.gender.color,
+        foregroundColor: Colors.white,
         actions: [
           IconButton(
             onPressed: () => _navigateAndRefresh(null),

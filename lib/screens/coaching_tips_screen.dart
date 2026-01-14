@@ -49,7 +49,11 @@ class _CoachingTipsScreenState extends State<CoachingTipsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Real Life Examples')),
+      appBar: AppBar(
+        title: Text('Real Life Examples'),
+        backgroundColor: widget.gender.color,
+        foregroundColor: Colors.white,
+      ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : coachingTipsWidget(),
