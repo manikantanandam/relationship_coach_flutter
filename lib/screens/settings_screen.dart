@@ -20,8 +20,14 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Gender gender = Provider.of<UserSettingsProvider>(context).gender;
+
     return Scaffold(
-      appBar: AppBar(title: Text('Settings Option')),
+      appBar: AppBar(
+        title: Text('Settings Option'),
+        backgroundColor: gender.color,
+        foregroundColor: Colors.white,
+      ),
       body: ListView.builder(
         itemCount: sections.length,
         itemBuilder: (context, index) {

@@ -14,9 +14,9 @@ class GenderToggle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Styling constants
-    const double width = 300;
-    const double height = 60;
-    final Color activeColor = Colors.pinkAccent.shade200; // Matching your image
+    const double width = 150;
+    const double height = 40;
+    final Color activeColor = selectedGender.color; // Matching your image
 
     return Container(
       width: width,
@@ -65,8 +65,7 @@ class GenderToggle extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w400,
+              fontSize: 16,
               color: isSelected ? Colors.white : Colors.black,
             ),
           ),
