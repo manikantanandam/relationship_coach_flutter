@@ -28,7 +28,7 @@ class _DiyListViewScreenState extends State<DiyListViewScreen> {
   void initState() {
     super.initState();
     _storage = DIYStorage(widget.gender, widget.option);
-    _loadData();
+    // _loadData();
   }
 
   Future<void> _loadData() async {
