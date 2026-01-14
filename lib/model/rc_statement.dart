@@ -17,7 +17,7 @@ class RCStatement {
     );
   }
 
-  Widget richText(Gender gender, bool bulletPointNeeded) {
+  Widget richText(Gender gender, bool bulletPointNeeded, BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -31,7 +31,7 @@ class RCStatement {
                   height: 8,
                   width: 8,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.primary,
                     shape: BoxShape.circle,
                   ),
                 ),
@@ -44,12 +44,12 @@ class RCStatement {
                 TextSpan(
                   text: speaker.isEmpty ? '' : '$speaker Said: ',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.bold,
                     height: 1.5,
                   ),
                 ),
-                for (var part in statementParts) part.textSpan(gender),
+                for (var part in statementParts) part.textSpan(gender, context),
               ],
             ),
           ),

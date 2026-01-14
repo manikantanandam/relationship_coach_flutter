@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/components/gender_toggle.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
+import 'package:relationship_coach_flutter/constants.dart/constants.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 import 'package:relationship_coach_flutter/screens/about_coach_screen.dart';
@@ -61,7 +62,7 @@ class RCSettingSection extends StatelessWidget {
           width: double.infinity,
           height: 40,
           color: Colors.red,
-          child: Text(section.name),
+          child: Text(section.name, style: kLabelTextStyle(context)),
         ),
         for (var item in section.items)
           GestureDetector(
@@ -80,7 +81,9 @@ class RCSettingSection extends StatelessWidget {
             child: RCCard(
               cardWidget: Row(
                 children: [
-                  Expanded(child: Text(item.name)),
+                  Expanded(
+                    child: Text(item.name, style: kLabelTextStyle(context)),
+                  ),
                   rightWidget(item, context),
                 ],
               ),

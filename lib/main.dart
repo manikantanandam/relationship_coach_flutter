@@ -4,6 +4,8 @@ import 'package:relationship_coach_flutter/providers/user_settings_provider.dart
 import 'package:relationship_coach_flutter/screens/home_screen.dart';
 import 'package:relationship_coach_flutter/screens/settings_screen.dart';
 import 'package:relationship_coach_flutter/providers/iap_provider.dart';
+import 'package:relationship_coach_flutter/theme/dark_theme.dart';
+import 'package:relationship_coach_flutter/theme/light_theme.dart';
 
 void main() {
   runApp(
@@ -16,6 +18,9 @@ void main() {
         ChangeNotifierProvider(create: (_) => UserSettingsProvider()),
       ],
       child: MaterialApp(
+        theme: lightTheme,
+        darkTheme: darkTheme,
+        themeMode: ThemeMode.system,
         home: DefaultTabController(
           length: 2,
           child: Scaffold(

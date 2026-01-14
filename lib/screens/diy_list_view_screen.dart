@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
+import 'package:relationship_coach_flutter/constants.dart/constants.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/diy.dart';
@@ -56,8 +57,12 @@ class _DiyListViewScreenState extends State<DiyListViewScreen> {
 
   Widget get diysBody {
     if (diys.isEmpty) {
-      return Text(
-        'To /"DO IT YOURSELF/",,click the  button on the top right corner.',
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(
+          'To \"DO IT YOURSELF\", click the  button on the top right corner.',
+          style: kLabelTextStyle(context),
+        ),
       );
     } else {
       return ListView.builder(

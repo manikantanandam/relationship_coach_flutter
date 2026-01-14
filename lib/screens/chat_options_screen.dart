@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/components/rc_icon_widget.dart';
+import 'package:relationship_coach_flutter/constants.dart/constants.dart';
 import 'package:relationship_coach_flutter/enum/chat_option.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:provider/provider.dart';
@@ -57,8 +58,14 @@ class ChatOptionScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: .start,
                       children: [
-                        Text(options[index].title),
-                        Text(options[index].subTitle),
+                        Text(
+                          options[index].title,
+                          style: kTitleTextStyle(context),
+                        ),
+                        Text(
+                          options[index].subTitle,
+                          style: kSubTitleTextStyle(context),
+                        ),
                       ],
                     ),
                   ),

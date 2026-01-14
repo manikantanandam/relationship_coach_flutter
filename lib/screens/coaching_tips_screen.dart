@@ -68,7 +68,11 @@ class _CoachingTipsScreenState extends State<CoachingTipsScreen> {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(16.0),
-          child: coachingTips.statements[index].richText(widget.gender, false),
+          child: coachingTips.statements[index].richText(
+            widget.gender,
+            false,
+            context,
+          ),
         );
       },
     );

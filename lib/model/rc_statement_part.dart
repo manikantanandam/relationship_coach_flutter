@@ -14,9 +14,9 @@ class RCStatementPart {
     );
   }
 
-  Color color(Gender gender) {
+  Color color(Gender gender, BuildContext context) {
     if (type == 'text') {
-      return Colors.black;
+      return Theme.of(context).colorScheme.primary;
     } else {
       return gender.color;
     }
@@ -30,11 +30,11 @@ class RCStatementPart {
     }
   }
 
-  TextSpan textSpan(Gender gender) {
+  TextSpan textSpan(Gender gender, BuildContext context) {
     return TextSpan(
       text: formattedString,
       style: TextStyle(
-        color: color(gender),
+        color: color(gender, context),
         fontWeight: FontWeight.bold,
         height: 1.5,
       ),

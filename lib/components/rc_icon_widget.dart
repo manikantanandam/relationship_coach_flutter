@@ -21,11 +21,7 @@ class RCIconWidget extends StatelessWidget {
         ),
         boxShadow: [
           // Optional: adds a shadow
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
+          BoxShadow(color: Colors.black38, blurRadius: 5, offset: Offset(0, 3)),
         ],
       ),
       // Replace with your asset image or NetworkImage

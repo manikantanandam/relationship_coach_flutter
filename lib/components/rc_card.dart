@@ -12,16 +12,20 @@ class RCCard extends StatelessWidget {
       padding: EdgeInsets.all(8),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white, // Container background color
+        color: Theme.of(
+          context,
+        ).colorScheme.surface, // Container background color
         borderRadius: BorderRadius.circular(
           12,
         ), // Optional: for rounded corners
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3), // Shadow color with opacity
-            blurRadius: 10, // How soft the shadow should be
-            spreadRadius: 2, // How much the shadow should spread
-            offset: Offset(0, 5), // Shadow position (dx, dy)
+            color: Theme.of(
+              context,
+            ).colorScheme.shadow, // Shadow color with opacity
+            blurRadius: 1, // How soft the shadow should be
+            spreadRadius: 0.5, // How much the shadow should spread
+            offset: Offset(0, 1), // Shadow position (dx, dy)
           ),
         ],
       ),

@@ -52,7 +52,11 @@ class _AboutCoachScreenState extends State<AboutCoachScreen> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: aboutCoach.statements[index].richText(gender, false),
+                  child: aboutCoach.statements[index].richText(
+                    gender,
+                    false,
+                    context,
+                  ),
                 );
               },
             ),

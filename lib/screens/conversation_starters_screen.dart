@@ -106,7 +106,7 @@ class ConversationStarterWidget extends StatelessWidget {
           ],
         ),
         for (var starterItem in starter.statements)
-          RCCard(cardWidget: starterItem.richText(gender, false)),
+          RCCard(cardWidget: starterItem.richText(gender, false, context)),
         // RichText(text: TextSpan(children: [dialog.textSpan])),
       ],
     );

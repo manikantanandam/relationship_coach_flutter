@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/components/local_video_player_screen.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
+import 'package:relationship_coach_flutter/constants.dart/constants.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
@@ -55,6 +56,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Gender gender = Provider.of<UserSettingsProvider>(context).gender;
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         children: [
           LocalVideoPlayerScreen(height: 300),
@@ -87,7 +89,10 @@ class HomeScreen extends StatelessWidget {
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(gender.homeScreenOpions[index].title),
+                            child: Text(
+                              gender.homeScreenOpions[index].title,
+                              style: kLabelTextStyle(context),
+                            ),
                           ),
                         ),
                         Padding(

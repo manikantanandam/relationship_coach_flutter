@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:relationship_coach_flutter/constants.dart/constants.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/real_life_example.dart';
@@ -86,19 +87,13 @@ class RealLifeExampleWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: .start,
       children: [
-        Text(
-          example.title,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 24,
-            fontWeight: .bold,
-          ),
-        ),
+        Text(example.title, style: kLabelTextStyle(context)),
         Text(
           example.scenario,
           style: TextStyle(color: gender.color, fontWeight: .bold, height: 3),
         ),
-        for (var dialog in example.statements) dialog.richText(gender, true),
+        for (var dialog in example.statements)
+          dialog.richText(gender, true, context),
       ],
     );
   }
