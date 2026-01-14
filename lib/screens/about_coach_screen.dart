@@ -48,6 +48,7 @@ class _AboutCoachScreenState extends State<AboutCoachScreen> {
             appBar: AppBar(
               title: Text('About Coach'),
               backgroundColor: gender.color,
+              foregroundColor: Colors.white,
             ),
             body: ListView.builder(
               itemCount:
