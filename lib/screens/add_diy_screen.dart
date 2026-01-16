@@ -98,7 +98,7 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
       updatedAt: DateTime.now(),
     );
 
-    await _storage.addOrUpdateDIYItem(modelToSave);
+    // await _storage.addOrUpdateDIYItem(modelToSave);
 
     Navigator.pop(context);
 
