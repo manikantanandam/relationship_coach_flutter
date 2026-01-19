@@ -2,10 +2,10 @@
     "male": {
         "real_life_examples": [
             {
-                "id": 1,
+                "id": "1",
                 "title": "Real Life Example 1:",
                 "scenario": "She made fun of his haircut in front of his friends.",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [
@@ -112,10 +112,10 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "2",
                 "title": "Real Life Example 2:",
                 "scenario": "She left you out of the conversation at the company party:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [

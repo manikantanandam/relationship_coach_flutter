@@ -3,10 +3,10 @@
     "female": {
         "real_life_examples": [
             {
-                "id": 1,
+                "id": "1",
                 "title": "Real Life Example 1:",
                 "scenario": "He said he'd call, but didn't",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "She",
                         "parts": [
@@ -113,10 +113,10 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "2",
                 "title": "Real Life Example 2:",
                 "scenario": "He didn't invite you to the family reunion",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "She",
                         "parts": [

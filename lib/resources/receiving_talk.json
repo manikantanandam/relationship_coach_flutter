@@ -3,9 +3,9 @@
     "female": {
         "real_life_examples": [
             {
-                "id": 1,
+                "id": "1",
                 "title": "Real Life Example 1:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [
@@ -31,9 +31,9 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "2",
                 "title": "Real Life Example 2:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [

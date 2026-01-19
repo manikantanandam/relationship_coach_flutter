@@ -2,10 +2,10 @@
     "male": {
         "real_life_examples": [
             {
-                "id": 1,
+                "id": "1",
                 "title": "Real Life Example 1:",
                 "scenario": "She took care of you when you were sick.",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [
@@ -48,10 +48,10 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "2",
                 "title": "Real Life Example 2:",
                 "scenario": "She picked up your dry cleaning and gave you a hug.",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [
@@ -666,10 +666,10 @@
     "female": {
         "real_life_examples": [
             {
-                "id": 1,
+                "id": "1",
                 "title": "Real Life Example 1:",
                 "scenario": "He held her tight during the loud thunderstorm.",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "She",
                         "parts": [
@@ -724,10 +724,10 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "2",
                 "title": "Real Life Example 2:",
                 "scenario": "He picked her up in his new car.",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "She",
                         "parts": [
