@@ -8,7 +8,7 @@ import 'package:relationship_coach_flutter/enum/settings_section.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 
 class SettingsScreen extends StatelessWidget {
-  final List<SettingsSection> sections = [.user, .coach, .legal];
+  final List<SettingsSection> sections = [.user, .coach, .legal, .debug];
 
   SettingsScreen({super.key});
 
@@ -50,6 +50,7 @@ class RCSettingSection extends StatelessWidget {
       case SettingsSecionItem.coach:
       case SettingsSecionItem.privacyPolicy:
       case SettingsSecionItem.termsAndConditions:
+      case .featureFlags:
       case .admin:
         return userSettingsProvider.gender.arrowIcon;
     }
@@ -107,6 +108,8 @@ extension SettingsSectionItemsBuild on SettingsSection {
         return [.coach, .admin];
       case SettingsSection.legal:
         return [.privacyPolicy, .termsAndConditions];
+      case .debug:
+        return [.featureFlags];
     }
   }
 }

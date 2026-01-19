@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/screens/about_coach_screen.dart';
+import 'package:relationship_coach_flutter/screens/feature_flags_screen.dart';
 import 'package:relationship_coach_flutter/screens/master_data.dart';
 import 'package:relationship_coach_flutter/screens/privacy_policy_screen.dart';
 import 'package:relationship_coach_flutter/screens/terms_and_conditions..dart';
 
-enum SettingsSection { user, coach, legal }
+enum SettingsSection { user, coach, legal, debug }
 
 enum SettingsSecionItem {
   gender,
@@ -12,6 +13,7 @@ enum SettingsSecionItem {
   privacyPolicy,
   termsAndConditions,
   admin,
+  featureFlags,
 }
 
 extension SettingsSectionExtension on SettingsSection {
@@ -23,6 +25,8 @@ extension SettingsSectionExtension on SettingsSection {
         return 'Relationship Coach Camille';
       case SettingsSection.legal:
         return 'Legal Information';
+      case .debug:
+        return 'Debug';
     }
   }
 }
@@ -40,6 +44,8 @@ extension SettingsSectionItemExtension on SettingsSecionItem {
         return 'Terms and Conditions';
       case .admin:
         return 'Admin';
+      case .featureFlags:
+        return 'Feature Flags';
     }
   }
 
@@ -55,6 +61,8 @@ extension SettingsSectionItemExtension on SettingsSecionItem {
         return TermsAndConditionsScreen();
       case .admin:
         return MasterDataScreen();
+      case .featureFlags:
+        return LocalFeatureFlagScreen();
     }
   }
 }
