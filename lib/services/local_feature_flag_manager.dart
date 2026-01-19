@@ -30,14 +30,16 @@ class LocalFeatureFlagManager extends ChangeNotifier {
 
   /// Helper to convert String back to Enum
   T _getEnumFromString<T>(String name, FeatureKey feature) {
-    // Access the options we stored in the enum
-    final List<Enum> values = feature.options ?? [];
+    // We know this is only called for enum-backed feature flags.
+    // Cast the stored options list to the concrete enum type T so that
+    // `firstWhere` and its `orElse` callback all agree on the same type.
+    final List<T> values = (feature.options ?? []).cast<T>();
 
-    return values.firstWhere(
-          (e) => e.name == name,
-          orElse: () => feature.defaultValue as Enum,
-        )
-        as T;
+    return values
+        .firstWhere(
+          (e) => (e as Enum).name == name,
+          orElse: () => feature.defaultValue as T,
+        );
   }
 
   /// Type-safe setter
