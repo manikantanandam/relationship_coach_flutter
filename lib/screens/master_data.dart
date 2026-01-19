@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/chat_option.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
+import 'package:relationship_coach_flutter/screens/real_life_examples_screen.dart';
 
 class MasterDataScreen extends StatefulWidget {
   const MasterDataScreen({super.key});
@@ -71,8 +72,22 @@ class _MasterDataScreenState extends State<MasterDataScreen> {
               ],
             ),
           ),
+          getEditView(),
         ],
       ),
     );
+  }
+
+  Widget getEditView() {
+    switch (selectedChatOption) {
+      case .realLifeExamples:
+        return Text('Real Life Examples');
+      case .coachingTips:
+        return Text('Coaching Tips');
+      case .conversationStarters:
+        return Text('Conversation Starters');
+      default:
+        return Text('Invalid Selection');
+    }
   }
 }

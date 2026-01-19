@@ -1,7 +1,9 @@
+import 'package:relationship_coach_flutter/model/base_fire_store_model.dart';
 import 'package:relationship_coach_flutter/model/rc_statement.dart';
 
-class RealLifeExample {
-  final int id;
+class RealLifeExample extends BaseFirestoreModel {
+  @override
+  final String id;
   final String title;
   final String scenario;
   final List<RCStatement> statements;
@@ -24,6 +26,30 @@ class RealLifeExample {
       title: json['title'] ?? '',
       scenario: json['scenario'] ?? '',
       statements: (json['dialogue'] as List)
+          .map((item) => RCStatement.fromJson(item))
+          .toList(),
+    );
+  }
+
+  // Requirement: Implement toJson for Firestore write operations
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'scenario': scenario,
+      // Ensure nested objects are also converted to JSON
+      'statements': statements.map((e) => e.toJson()).toList(),
+    };
+  }
+
+  // Requirement: Factory for FirestoreService fromJson callback
+  factory RealLifeExample.fromFirestore(Map<String, dynamic> json, String id) {
+    return RealLifeExample(
+      id: id,
+      title: json['title'] ?? '',
+      scenario: json['scenario'] ?? '',
+      // Map 'statements' from the list in Firestore
+      statements: (json['statements'] as List? ?? [])
           .map((item) => RCStatement.fromJson(item))
           .toList(),
     );

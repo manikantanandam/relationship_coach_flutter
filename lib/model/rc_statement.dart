@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
+import 'package:relationship_coach_flutter/model/base_fire_store_model.dart';
 import 'package:relationship_coach_flutter/model/rc_statement_part.dart';
 
-class RCStatement {
+class RCStatement extends BaseFirestoreModel {
   final String speaker;
   final List<RCStatementPart> statementParts;
 
@@ -12,6 +13,26 @@ class RCStatement {
     return RCStatement(
       speaker: json['speaker'] ?? '',
       statementParts: (json['parts'] as List)
+          .map((item) => RCStatementPart.fromJson(item))
+          .toList(),
+    );
+  }
+
+  // Requirement: Convert object to Map for Firestore
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'speaker': speaker,
+      // Map the list of parts into JSON maps
+      'statementParts': statementParts.map((part) => part.toJson()).toList(),
+    };
+  }
+
+  // Requirement: Factory to create instance from Firestore data
+  factory RCStatement.fromFirestore(Map<String, dynamic> json, String id) {
+    return RCStatement(
+      speaker: json['speaker'] ?? '',
+      statementParts: (json['statementParts'] as List? ?? [])
           .map((item) => RCStatementPart.fromJson(item))
           .toList(),
     );

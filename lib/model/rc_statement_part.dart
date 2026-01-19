@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
+import 'package:relationship_coach_flutter/model/base_fire_store_model.dart';
 
-class RCStatementPart {
+class RCStatementPart extends BaseFirestoreModel {
   final String type; // "text" or "metadata"
   final String content;
 
   RCStatementPart({required this.type, required this.content});
 
   factory RCStatementPart.fromJson(Map<String, dynamic> json) {
+    return RCStatementPart(
+      type: json['type'] ?? 'text',
+      content: json['content'] ?? '',
+    );
+  }
+
+  // Requirement: Convert object to Map for Firestore writes
+  @override
+  Map<String, dynamic> toJson() {
+    return {'type': type, 'content': content};
+  }
+
+  // Requirement: Factory for FirestoreService fromJson callback
+  factory RCStatementPart.fromFirestore(Map<String, dynamic> json, String id) {
     return RCStatementPart(
       type: json['type'] ?? 'text',
       content: json['content'] ?? '',
