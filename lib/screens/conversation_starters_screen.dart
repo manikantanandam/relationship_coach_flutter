@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/enum/feature_flag_key.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/conversation_starter.dart';
+import 'package:relationship_coach_flutter/screens/add_conversation_starters_screen.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
+import 'package:relationship_coach_flutter/services/firestore_chat_service.dart';
+import 'package:relationship_coach_flutter/services/local_feature_flag_manager.dart';
 
 class ConversationStartersScreen extends StatefulWidget {
   const ConversationStartersScreen({
@@ -33,11 +37,26 @@ class _ConversationStartersScreenState
 
   Future<void> _loadData() async {
     try {
-      var localConversationStarters = await LocalChatService()
-          .getConversationStarters(widget.option, widget.gender);
+      List<ConversationStarter> loaded;
+      ChatServiceType provider =
+          LocalFeatureFlagManager().getValue<ChatServiceType>(
+        FeatureKey.chatProvider,
+      );
+
+      if (provider == ChatServiceType.firebase) {
+        debugPrint('Getting conversation starters from firebase');
+        loaded = await FirestoreChatService().getConversationStarters(
+          widget.option,
+          widget.gender,
+        );
+      } else {
+        debugPrint('Getting conversation starters from local');
+        loaded = await LocalChatService()
+            .getConversationStarters(widget.option, widget.gender);
+      }
 
       setState(() {
-        conversationStarters = localConversationStarters;
+        conversationStarters = loaded;
         _isLoading = false;
       });
     } catch (e) {
@@ -53,6 +72,23 @@ class _ConversationStartersScreenState
         title: Text('Conversation Starters'),
         backgroundColor: widget.gender.color,
         foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddConversationStartersScreen(
+                    type: widget.option,
+                    gender: widget.gender,
+                  ),
+                ),
+              );
+              if (mounted) _loadData();
+            },
+            icon: const Icon(Icons.add),
+          ),
+        ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
@@ -76,6 +112,7 @@ class _ConversationStartersScreenState
           child: ConversationStarterWidget(
             starter: currentConversationStarters[index],
             gender: widget.gender,
+            option: widget.option,
           ),
         );
       },
@@ -88,9 +125,11 @@ class ConversationStarterWidget extends StatelessWidget {
     super.key,
     required this.starter,
     required this.gender,
+    required this.option,
   });
   final ConversationStarter starter;
   final Gender gender;
+  final ChatType option;
 
   @override
   Widget build(BuildContext context) {
@@ -99,13 +138,31 @@ class ConversationStarterWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              starter.title,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: .bold,
+            Expanded(
+              child: Text(
+                starter.title,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 22,
+                  fontWeight: .bold,
+                ),
               ),
+            ),
+            IconButton(
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddConversationStartersScreen(
+                      type: option,
+                      gender: gender,
+                      starter: starter,
+                    ),
+                  ),
+                );
+                // Parent screen will reload on pop; no-op here.
+              },
+              icon: const Icon(Icons.edit),
             ),
           ],
         ),

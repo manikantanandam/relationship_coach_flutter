@@ -48,9 +48,15 @@ class FirestoreChatService {
     ChatType option,
     Gender gender,
   ) async {
-    var json = await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
-    var conversationStarters = json[gender.name]['conversation_starters'];
-    return ConversationStarter.fromList(conversationStarters);
+    final collectionPath =
+        "${option.name}/${gender.name}/conversation_starters";
+    final starterService = FirestoreService<ConversationStarter>(
+      collectionPath: collectionPath,
+      fromJson: ConversationStarter.fromFirestore,
+    );
+    final starters = await starterService.getAllOnce();
+    starters.sort((a, b) => a.stepId.compareTo(b.stepId));
+    return starters;
   }
 
   Future<CoachingTips> getCoachingTips(ChatType option, Gender gender) async {
