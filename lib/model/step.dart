@@ -10,6 +10,10 @@ class Steps {
       steps: (json['steps'] as List).map((i) => Step.fromJson(i)).toList(),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'title': title, 'steps': steps.map((s) => s.toJson()).toList()};
+  }
 }
 
 class Step {
@@ -20,5 +24,9 @@ class Step {
 
   factory Step.fromJson(Map<String, dynamic> json) {
     return Step(id: json['id'] as int, step: json['step'] as String);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {'id': id, 'step': step};
   }
 }

@@ -1,6 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:relationship_coach_flutter/enum/chat_option.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/coaching_tips.dart';
@@ -31,9 +30,18 @@ class FirestoreChatService {
   }
 
   Future<Steps> getSteps(ChatType option, Gender gender) async {
-    var json = await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
-    var steps = json[gender.name]['steps'];
-    return Steps.fromJson(steps);
+    final snap = await FirebaseFirestore.instance
+        .collection(option.name)
+        .doc(gender.name)
+        .collection('steps')
+        .doc('steps')
+        .get();
+
+    final data = snap.data();
+    if (data == null) {
+      throw StateError('No steps found in Firestore for $option/$gender');
+    }
+    return Steps.fromJson(data);
   }
 
   Future<List<ConversationStarter>> getConversationStarters(
