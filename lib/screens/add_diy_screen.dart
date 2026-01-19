@@ -50,7 +50,7 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
   // 2. Added setState to trigger a UI refresh
   Future<void> _loadData() async {
     try {
-      var diyModelResponse = await Chatservice().getDIYFormFields(
+      var diyModelResponse = await LocalChatService().getDIYFormFields(
         widget.option,
         widget.gender,
       );

@@ -28,7 +28,7 @@ class _StepsScreenState extends State<StepsScreen> {
   // 2. Added setState to trigger a UI refresh
   Future<void> _loadData() async {
     try {
-      var localSteps = await Chatservice().getSteps(
+      var localSteps = await LocalChatService().getSteps(
         widget.option,
         widget.gender,
       );

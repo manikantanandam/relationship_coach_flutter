@@ -33,7 +33,7 @@ class _ConversationStartersScreenState
 
   Future<void> _loadData() async {
     try {
-      var localConversationStarters = await Chatservice()
+      var localConversationStarters = await LocalChatService()
           .getConversationStarters(widget.option, widget.gender);
 
       setState(() {
