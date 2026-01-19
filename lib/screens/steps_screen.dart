@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/enum/feature_flag_key.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/step.dart';
+import 'package:relationship_coach_flutter/screens/add_steps_screen.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
+import 'package:relationship_coach_flutter/services/firestore_chat_service.dart';
+import 'package:relationship_coach_flutter/services/local_feature_flag_manager.dart';
 
 class StepsScreen extends StatefulWidget {
   const StepsScreen({super.key, required this.option, required this.gender});
@@ -28,12 +32,28 @@ class _StepsScreenState extends State<StepsScreen> {
   // 2. Added setState to trigger a UI refresh
   Future<void> _loadData() async {
     try {
-      var localSteps = await LocalChatService().getSteps(
-        widget.option,
-        widget.gender,
+      Steps loadedSteps;
+      ChatServiceType provider =
+          LocalFeatureFlagManager().getValue<ChatServiceType>(
+        FeatureKey.chatProvider,
       );
+
+      if (provider == ChatServiceType.firebase) {
+        debugPrint('Getting steps from firebase');
+        loadedSteps = await FirestoreChatService().getSteps(
+          widget.option,
+          widget.gender,
+        );
+      } else {
+        debugPrint('Getting steps from local');
+        loadedSteps = await LocalChatService().getSteps(
+          widget.option,
+          widget.gender,
+        );
+      }
+
       setState(() {
-        steps = localSteps;
+        steps = loadedSteps;
         _isLoading = false;
       });
     } catch (e) {
@@ -49,6 +69,24 @@ class _StepsScreenState extends State<StepsScreen> {
         title: Text('Steps'),
         backgroundColor: widget.gender.color,
         foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddStepsScreen(
+                    type: widget.option,
+                    gender: widget.gender,
+                    steps: steps,
+                  ),
+                ),
+              );
+              if (mounted) _loadData();
+            },
+            icon: const Icon(Icons.edit),
+          ),
+        ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
