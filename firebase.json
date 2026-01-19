@@ -1,16 +1,1 @@
-{
-  "hosting": {
-    "public": "build/web",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
-}
+{"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}]},"flutter":{"platforms":{"android":{"default":{"projectId":"relationship-coach-3b251","appId":"1:604018632610:android:1d00eea00f6ad7987e74fb","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"relationship-coach-3b251","appId":"1:604018632610:ios:395a03fad4e5f1437e74fb","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"macos":{"default":{"projectId":"relationship-coach-3b251","appId":"1:604018632610:ios:395a03fad4e5f1437e74fb","uploadDebugSymbols":false,"fileOutput":"macos/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"relationship-coach-3b251","configurations":{"android":"1:604018632610:android:1d00eea00f6ad7987e74fb","ios":"1:604018632610:ios:395a03fad4e5f1437e74fb","macos":"1:604018632610:ios:395a03fad4e5f1437e74fb","web":"1:604018632610:web:c897f1bbed4d4bd07e74fb","windows":"1:604018632610:web:db8f45786c98c1c67e74fb"}}}}}}

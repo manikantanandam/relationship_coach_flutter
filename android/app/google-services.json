@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "604018632610",
+    "project_id": "relationship-coach-3b251",
+    "storage_bucket": "relationship-coach-3b251.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604018632610:android:1d00eea00f6ad7987e74fb",
+        "android_client_info": {
+          "package_name": "com.example.relationship_coach_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlMqfR1LRMOxMZnX68uB9OHm28QRGVpJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
