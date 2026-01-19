@@ -24,7 +24,7 @@ class RCStatement extends BaseFirestoreModel {
     return {
       'speaker': speaker,
       // Map the list of parts into JSON maps
-      'statementParts': statementParts.map((part) => part.toJson()).toList(),
+      'parts': statementParts.map((part) => part.toJson()).toList(),
     };
   }
 
@@ -32,7 +32,7 @@ class RCStatement extends BaseFirestoreModel {
   factory RCStatement.fromFirestore(Map<String, dynamic> json, String id) {
     return RCStatement(
       speaker: json['speaker'] ?? '',
-      statementParts: (json['statementParts'] as List? ?? [])
+      statementParts: (json['parts'] as List? ?? [])
           .map((item) => RCStatementPart.fromJson(item))
           .toList(),
     );

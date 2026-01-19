@@ -42,4 +42,10 @@ class FirestoreService<T extends BaseFirestoreModel> {
   Future<void> delete(String id) async {
     await _db.doc(id).delete();
   }
+
+  // Inside class FirestoreService<T>
+  Future<List<T>> getAllOnce() async {
+    final snapshot = await _db.get(); // Use .get() for a one-time fetch
+    return snapshot.docs.map((doc) => doc.data()).toList();
+  }
 }

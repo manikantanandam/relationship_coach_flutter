@@ -7,6 +7,7 @@ import 'package:relationship_coach_flutter/model/real_life_example.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 import 'package:relationship_coach_flutter/screens/add_real_life_examples_screen.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
+import 'package:relationship_coach_flutter/services/firestore_chat_service.dart';
 
 class RealLifeExamplesScreen extends StatefulWidget {
   const RealLifeExamplesScreen({
@@ -34,12 +35,20 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
   // 2. Added setState to trigger a UI refresh
   Future<void> _loadData() async {
     try {
-      var realTimeExamples = await Chatservice().getRealTimeExamples(
+      // var realTimeExamples = await LocalChatService().getRealTimeExamples(
+      //   widget.option,
+      //   widget.gender,
+      // );
+
+      debugPrint('Getting real life examples');
+      var realTimeExamples = await FirestoreChatService().getRealTimeExamples(
         widget.option,
         widget.gender,
       );
+      debugPrint('Got real life examples');
 
       setState(() {
+        debugPrint('Setting state');
         _realTimeExamples = realTimeExamples;
         _isLoading = false;
       });

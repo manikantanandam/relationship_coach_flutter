@@ -25,7 +25,7 @@ class _CoachingTipsScreenState extends State<CoachingTipsScreen> {
   Future<void> _loadData() async {
     try {
       print('getting coaching tips');
-      var coachingTips = await Chatservice().getCoachingTips(
+      var coachingTips = await LocalChatService().getCoachingTips(
         widget.option,
         widget.gender,
       );

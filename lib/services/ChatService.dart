@@ -10,7 +10,7 @@ import 'package:relationship_coach_flutter/model/conversation_starter.dart';
 import 'package:relationship_coach_flutter/model/step.dart';
 import 'package:relationship_coach_flutter/utils/json_utils.dart';
 
-class Chatservice {
+class LocalChatService {
   Future<List<RealLifeExample>> getRealTimeExamples(
     ChatType option,
     Gender gender,
