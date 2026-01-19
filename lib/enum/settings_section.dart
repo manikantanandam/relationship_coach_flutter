@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/screens/about_coach_screen.dart';
+import 'package:relationship_coach_flutter/screens/master_data.dart';
 import 'package:relationship_coach_flutter/screens/privacy_policy_screen.dart';
 import 'package:relationship_coach_flutter/screens/terms_and_conditions..dart';
 
 enum SettingsSection { user, coach, legal }
 
-enum SettingsSecionItem { gender, coach, privacyPolicy, termsAndConditions }
+enum SettingsSecionItem {
+  gender,
+  coach,
+  privacyPolicy,
+  termsAndConditions,
+  admin,
+}
 
 extension SettingsSectionExtension on SettingsSection {
   String get title {
@@ -31,6 +38,8 @@ extension SettingsSectionItemExtension on SettingsSecionItem {
         return 'Privacy Policy';
       case SettingsSecionItem.termsAndConditions:
         return 'Terms and Conditions';
+      case .admin:
+        return 'Admin';
     }
   }
 
@@ -44,6 +53,8 @@ extension SettingsSectionItemExtension on SettingsSecionItem {
         return PrivacyPolicyScreen();
       case SettingsSecionItem.termsAndConditions:
         return TermsAndConditionsScreen();
+      case .admin:
+        return MasterDataScreen();
     }
   }
 }

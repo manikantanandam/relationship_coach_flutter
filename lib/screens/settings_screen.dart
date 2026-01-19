@@ -50,6 +50,7 @@ class RCSettingSection extends StatelessWidget {
       case SettingsSecionItem.coach:
       case SettingsSecionItem.privacyPolicy:
       case SettingsSecionItem.termsAndConditions:
+      case .admin:
         return userSettingsProvider.gender.arrowIcon;
     }
   }
@@ -103,7 +104,7 @@ extension SettingsSectionItemsBuild on SettingsSection {
       case SettingsSection.user:
         return [.gender];
       case SettingsSection.coach:
-        return [.coach];
+        return [.coach, .admin];
       case SettingsSection.legal:
         return [.privacyPolicy, .termsAndConditions];
     }
