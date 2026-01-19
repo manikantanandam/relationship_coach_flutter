@@ -71,14 +71,18 @@ class FirestoreChatService {
       final data = snap.data();
       if (data == null) {
         throw StateError(
-            'No coaching tips found in Firestore for $option/$gender');
+          'No coaching tips found in Firestore for $option/$gender',
+        );
       }
       return CoachingTips.fromFirestore(data, 'coaching_tips');
     } catch (e) {
       // Fallback to bundled JSON if Firestore doesn't have data (or offline)
-      debugPrint('Firestore coaching tips fetch failed, falling back to local: $e');
-      var json =
-          await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
+      debugPrint(
+        'Firestore coaching tips fetch failed, falling back to local: $e',
+      );
+      var json = await JSONUtils.loadJsonData(
+        'lib/resources/${option.key}.json',
+      );
       var coachingTips = json[gender.name]['coaching_tips'];
       return CoachingTips.fromJson(coachingTips);
     }
@@ -88,8 +92,17 @@ class FirestoreChatService {
     ChatType option,
     Gender gender,
   ) async {
-    var json = await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
-    var diyFormFields = json[gender.name]['diy'];
-    return DoItYourselfModel.fromJson(diyFormFields);
+    final snap = await FirebaseFirestore.instance
+        .collection(option.name)
+        .doc(gender.name)
+        .collection('diy')
+        .doc('diy')
+        .get();
+
+    final data = snap.data();
+    if (data == null) {
+      throw StateError('No DIY found in Firestore for $option/$gender');
+    }
+    return DoItYourselfModel.fromFirestore(data, 'diy');
   }
 }

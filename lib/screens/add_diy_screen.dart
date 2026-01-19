@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/enum/feature_flag_key.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/diy.dart';
+import 'package:relationship_coach_flutter/screens/add_do_it_yourself_screen.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
-import 'package:relationship_coach_flutter/services/diy_storage_service.dart';
+import 'package:relationship_coach_flutter/services/firestore_chat_service.dart';
+import 'package:relationship_coach_flutter/services/local_feature_flag_manager.dart';
 
 class AddDIYScreen extends StatefulWidget {
   const AddDIYScreen({
@@ -25,13 +28,11 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
   // Map to store controllers using the field ID as the key
   final Map<int, TextEditingController> _controllers = {};
   DoItYourselfModel? _diyModel;
-  late DIYStorage _storage;
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    _storage = DIYStorage(widget.gender, widget.option);
     if (widget.diyModel == null) {
       debugPrint('DIY model is not available. load data for empty form');
       _loadData();
@@ -50,10 +51,27 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
   // 2. Added setState to trigger a UI refresh
   Future<void> _loadData() async {
     try {
-      var diyModelResponse = await LocalChatService().getDIYFormFields(
-        widget.option,
-        widget.gender,
-      );
+      DoItYourselfModel diyModelResponse;
+      ChatServiceType provider = LocalFeatureFlagManager()
+          .getValue<ChatServiceType>(FeatureKey.chatProvider);
+
+      if (provider == ChatServiceType.firebase) {
+        debugPrint('Getting DIY template from firebase');
+        try {
+          diyModelResponse = await FirestoreChatService().getDIYFormFields(
+            widget.option,
+            widget.gender,
+          );
+        } catch (e) {
+          return;
+        }
+      } else {
+        debugPrint('Getting DIY template from local');
+        diyModelResponse = await LocalChatService().getDIYFormFields(
+          widget.option,
+          widget.gender,
+        );
+      }
 
       for (var field in diyModelResponse.formFields) {
         _controllers[field.id] = TextEditingController(text: field.response);
@@ -79,26 +97,9 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
   void _handleSubmit() async {
     if (_diyModel == null) return;
 
-    final updatedFields = _diyModel!.formFields.map((field) {
-      return DIYFormField(
-        id: field.id,
-        label: field.label,
-        prompt: field.prompt,
-        type: field.type,
-        placeholder: field.placeholder, // Keep original placeholder
-        response: _controllers[field.id]?.text ?? '', // Save actual input here
-      );
-    }).toList();
-
-    final modelToSave = DoItYourselfModel(
-      title: _diyModel!.title,
-      subtitle: _diyModel!.subtitle,
-      formFields: updatedFields,
-      createdAt: _diyModel!.createdAt,
-      updatedAt: DateTime.now(),
-    );
-
-    // await _storage.addOrUpdateDIYItem(modelToSave);
+    // If/when you want to persist DIY responses, build/save them here:
+    // final updatedFields = _diyModel!.formFields.map((field) { ... }).toList();
+    // (Previously this was intended to go into DIYStorage.)
 
     Navigator.pop(context);
 
@@ -116,6 +117,28 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
         foregroundColor: Colors.white,
         // Adding the Right Bar Button we discussed
         actions: [
+          IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: _diyModel == null
+                ? null
+                : () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return AddDoItYourselfScreen(
+                            type: widget.option,
+                            gender: widget.gender,
+                            diy: _diyModel,
+                          );
+                        },
+                      ),
+                    );
+                    // Reload data after returning from edit screen
+                    _loadData();
+                  },
+            tooltip: 'Edit Template',
+          ),
           TextButton(
             onPressed: _handleSubmit,
             child: const Text(
