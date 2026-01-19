@@ -13,11 +13,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class AddRealLifeExampleScreen extends StatefulWidget {
   final Gender gender;
   final ChatType type;
+  final RealLifeExample? example;
 
   const AddRealLifeExampleScreen({
     super.key,
     required this.type,
     required this.gender,
+    this.example,
   });
 
   @override
@@ -35,6 +37,34 @@ class _AddRealLifeExampleScreenState extends State<AddRealLifeExampleScreen> {
 
   // Nested controllers for Statements and their Parts
   List<StatementControllers> _statementControllers = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    // If we have initial data, populate the controllers
+    if (widget.example != null) {
+      _idController.text = widget.example!.id;
+      _titleController.text = widget.example!.title;
+      _scenarioController.text = widget.example!.scenario;
+
+      // Map existing statements to their controllers
+      _statementControllers = widget.example!.statements.map((statement) {
+        return StatementControllers(
+          speakerController: TextEditingController(text: statement.speaker),
+          parts: statement.statementParts.map((part) {
+            return PartControllers(
+              type: part.type, // "text" or "metadata"
+              contentController: TextEditingController(text: part.content),
+            );
+          }).toList(),
+        );
+      }).toList();
+    } else {
+      // Default state for a brand new entry
+      _addStatement();
+    }
+  }
 
   void _addStatement() {
     setState(() {

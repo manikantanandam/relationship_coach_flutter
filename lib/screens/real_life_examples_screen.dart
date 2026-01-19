@@ -86,6 +86,7 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
                   padding: const EdgeInsets.all(16.0),
                   child: RealLifeExampleWidget(
                     example: _realTimeExamples[index],
+                    option: widget.option,
                     gender: widget.gender,
                   ),
                 );
@@ -99,18 +100,44 @@ class RealLifeExampleWidget extends StatelessWidget {
   const RealLifeExampleWidget({
     super.key,
     required this.example,
+    required this.option,
     required this.gender,
   });
 
   final RealLifeExample example;
   final Gender gender;
+  final ChatType option;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: .start,
       children: [
-        Text(example.title, style: kLabelTextStyle(context)),
+        Row(
+          children: [
+            Expanded(
+              child: Text(example.title, style: kLabelTextStyle(context)),
+            ),
+
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return AddRealLifeExampleScreen(
+                        type: option,
+                        gender: gender,
+                        example: example,
+                      );
+                    },
+                  ),
+                );
+              },
+              icon: Icon(Icons.edit),
+            ),
+          ],
+        ),
         Text(
           example.scenario,
           style: TextStyle(color: gender.color, fontWeight: .bold, height: 3),
