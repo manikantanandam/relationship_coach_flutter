@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/constants.dart/constants.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/enum/feature_flag_key.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/real_life_example.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 import 'package:relationship_coach_flutter/screens/add_real_life_examples_screen.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
 import 'package:relationship_coach_flutter/services/firestore_chat_service.dart';
+import 'package:relationship_coach_flutter/services/local_feature_flag_manager.dart';
 
 class RealLifeExamplesScreen extends StatefulWidget {
   const RealLifeExamplesScreen({
@@ -35,17 +37,24 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
   // 2. Added setState to trigger a UI refresh
   Future<void> _loadData() async {
     try {
-      // var realTimeExamples = await LocalChatService().getRealTimeExamples(
-      //   widget.option,
-      //   widget.gender,
-      // );
+      List<RealLifeExample> realTimeExamples;
+      ChatServiceType provider = LocalFeatureFlagManager()
+          .getValue<ChatServiceType>(FeatureKey.chatProvider);
 
-      debugPrint('Getting real life examples');
-      var realTimeExamples = await FirestoreChatService().getRealTimeExamples(
-        widget.option,
-        widget.gender,
-      );
-      debugPrint('Got real life examples');
+      if (provider == .firebase) {
+        debugPrint('Getting real life examples from firebase');
+        realTimeExamples = await FirestoreChatService().getRealTimeExamples(
+          widget.option,
+          widget.gender,
+        );
+      } else {
+        debugPrint('Getting real life examples from local');
+
+        realTimeExamples = await LocalChatService().getRealTimeExamples(
+          widget.option,
+          widget.gender,
+        );
+      }
 
       setState(() {
         debugPrint('Setting state');
