@@ -60,9 +60,28 @@ class FirestoreChatService {
   }
 
   Future<CoachingTips> getCoachingTips(ChatType option, Gender gender) async {
-    var json = await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
-    var conversationStarters = json[gender.name]['coaching_tips'];
-    return CoachingTips.fromJson(conversationStarters);
+    try {
+      final snap = await FirebaseFirestore.instance
+          .collection(option.name)
+          .doc(gender.name)
+          .collection('coaching_tips')
+          .doc('coaching_tips')
+          .get();
+
+      final data = snap.data();
+      if (data == null) {
+        throw StateError(
+            'No coaching tips found in Firestore for $option/$gender');
+      }
+      return CoachingTips.fromFirestore(data, 'coaching_tips');
+    } catch (e) {
+      // Fallback to bundled JSON if Firestore doesn't have data (or offline)
+      debugPrint('Firestore coaching tips fetch failed, falling back to local: $e');
+      var json =
+          await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
+      var coachingTips = json[gender.name]['coaching_tips'];
+      return CoachingTips.fromJson(coachingTips);
+    }
   }
 
   Future<DoItYourselfModel> getDIYFormFields(

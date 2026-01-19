@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
+import 'package:relationship_coach_flutter/enum/feature_flag_key.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/coaching_tips.dart';
+import 'package:relationship_coach_flutter/screens/add_coaching_tips_screen.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
+import 'package:relationship_coach_flutter/services/firestore_chat_service.dart';
+import 'package:relationship_coach_flutter/services/local_feature_flag_manager.dart';
 
 class CoachingTipsScreen extends StatefulWidget {
   const CoachingTipsScreen({
@@ -24,11 +28,24 @@ class _CoachingTipsScreenState extends State<CoachingTipsScreen> {
 
   Future<void> _loadData() async {
     try {
-      print('getting coaching tips');
-      var coachingTips = await LocalChatService().getCoachingTips(
-        widget.option,
-        widget.gender,
-      );
+      debugPrint('getting coaching tips');
+      CoachingTips coachingTips;
+      ChatServiceType provider = LocalFeatureFlagManager()
+          .getValue<ChatServiceType>(FeatureKey.chatProvider);
+
+      if (provider == ChatServiceType.firebase) {
+        debugPrint('Getting coaching tips from firebase');
+        coachingTips = await FirestoreChatService().getCoachingTips(
+          widget.option,
+          widget.gender,
+        );
+      } else {
+        debugPrint('Getting coaching tips from local');
+        coachingTips = await LocalChatService().getCoachingTips(
+          widget.option,
+          widget.gender,
+        );
+      }
 
       setState(() {
         _coachingTips = coachingTips;
@@ -50,9 +67,30 @@ class _CoachingTipsScreenState extends State<CoachingTipsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Real Life Examples'),
+        title: const Text('Coaching Tips'),
         backgroundColor: widget.gender.color,
         foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return AddCoachingTipsScreen(
+                      type: widget.option,
+                      gender: widget.gender,
+                      coachingTips: _coachingTips,
+                    );
+                  },
+                ),
+              );
+              // Reload data after returning from edit screen
+              _loadData();
+            },
+            icon: const Icon(Icons.edit),
+          ),
+        ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
