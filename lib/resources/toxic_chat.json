@@ -2,9 +2,9 @@
     "male": {
         "real_life_examples": [
             {
-                "id": 1,
+                "id": "1",
                 "title": "Real Life Example 1:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "She",
                         "parts": [
@@ -144,9 +144,9 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "2",
                 "title": "Real Life Example 2:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "She",
                         "parts": [
@@ -942,7 +942,7 @@
                 "id": 1,
                 "title": "Real Life Example 1:",
                 "scenario": "You're never ready when I come to pick you up.",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "She",
                         "parts": [
@@ -1085,7 +1085,7 @@
                 "id": 2,
                 "title": "Real Life Example 2:",
                 "scenario": "You didn't call me back yesterday.",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "She",
                         "parts": [

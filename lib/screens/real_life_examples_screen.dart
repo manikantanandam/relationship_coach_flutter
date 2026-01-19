@@ -5,6 +5,7 @@ import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/real_life_example.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
+import 'package:relationship_coach_flutter/screens/add_real_life_examples_screen.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
 
 class RealLifeExamplesScreen extends StatefulWidget {
@@ -55,6 +56,24 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
         title: Text('Real Life Examples'),
         backgroundColor: widget.gender.color,
         foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return AddRealLifeExampleScreen(
+                      type: widget.option,
+                      gender: widget.gender,
+                    );
+                  },
+                ),
+              );
+            },
+            icon: Icon(Icons.add),
+          ),
+        ],
       ),
       // 3. Handle the loading state so the user sees progress
       body: _isLoading

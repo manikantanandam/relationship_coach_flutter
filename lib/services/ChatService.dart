@@ -17,6 +17,7 @@ class Chatservice {
   ) async {
     var json = await JSONUtils.loadJsonData('lib/resources/${option.key}.json');
     var realLifeExamplesJSON = json[gender.name]['real_life_examples'];
+    debugPrint('Real life example is json is loaded');
     return RealLifeExample.fromList(realLifeExamplesJSON);
   }
 

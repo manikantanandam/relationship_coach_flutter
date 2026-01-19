@@ -22,10 +22,10 @@ class RealLifeExample extends BaseFirestoreModel {
   // Factory to create an instance from JSON map
   factory RealLifeExample.fromJson(Map<String, dynamic> json) {
     return RealLifeExample(
-      id: json['id'] ?? 0,
+      id: json['id'] ?? '0',
       title: json['title'] ?? '',
       scenario: json['scenario'] ?? '',
-      statements: (json['dialogue'] as List)
+      statements: (json['statements'] as List)
           .map((item) => RCStatement.fromJson(item))
           .toList(),
     );
