@@ -902,7 +902,7 @@
                 "title": "Real Life Example 1:",
                 "statements": [
                     {
-                        "speaker": "She",
+                        "speaker": "He",
                         "parts": [
                             {
                                 "type": "text",
@@ -911,11 +911,11 @@
                         ]
                     },
                     {
-                        "speaker": "He",
+                        "speaker": "She",
                         "parts": [
                             {
                                 "type": "text",
-                                "content": "\"You're right. I didn't pay attention to you at the party "
+                                "content": "\"You're right. I didn't pay attention to you at the party. "
                             },
                             {
                                 "type": "metadata",
@@ -956,7 +956,7 @@
                         ]
                     },
                     {
-                        "speaker": "She",
+                        "speaker": "He",
                         "parts": [
                             {
                                 "type": "text",
@@ -965,7 +965,7 @@
                         ]
                     },
                     {
-                        "speaker": "He",
+                        "speaker": "She",
                         "parts": [
                             {
                                 "type": "text",
@@ -976,6 +976,148 @@
                                 "content": "clarification"
                             }
                         ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, yes. I also feel like you take your frustrations from work out on me.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"So you feel "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "soothing cycle so-you-feel"
+                            },
+                            {
+                                "type": "text",
+                                "content": " like you bear the brunt of my frustrations from work and would like for me to quit taking it out on you?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "no blame, shame, entitlement or defensiveness"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Yes, you treat me like one of your employees. I have employees too, and I don't treat you like I treat them.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"So you feel like I treat you like one of my employees and want me to treat you more special?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "soothing cycle so-you-feel"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Yes, that would feel great!\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Help me understand a little better.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "clarification"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, I feel like you take me for granted \""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Ok. Now I know how you must feel, I have felt that way before and what I'm finding out is that it is more painful to you than I realized. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "feel felt finding out"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I'm sorry. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "apologize again"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I would like to ask for your forgiveness and trust in me from here on out.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "ask forgiveness again"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Oh honey, I love you and I forgive you. Thank you for listening and understanding my point of view.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're welcome and thank you for sharing with me. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "second appreciation"
+                            },
+                            {
+                                "type": "text",
+                                "content": " Why don't you come over here and let me rub your back.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "reconnect"
+                            }
+                        ]
                     }
                 ]
             },
@@ -984,7 +1126,7 @@
                 "title": "Real Life Example 2:",
                 "statements": [
                     {
-                        "speaker": "She",
+                        "speaker": "He",
                         "parts": [
                             {
                                 "type": "text",
@@ -993,7 +1135,7 @@
                         ]
                     },
                     {
-                        "speaker": "He",
+                        "speaker": "She",
                         "parts": [
                             {
                                 "type": "text",
@@ -1015,6 +1157,15 @@
                     },
                     {
                         "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, I don't know how much longer I can put up with it.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
                         "parts": [
                             {
                                 "type": "text",
@@ -1043,11 +1194,120 @@
                         ]
                     },
                     {
-                        "speaker": "She",
+                        "speaker": "He",
                         "parts": [
                             {
                                 "type": "text",
                                 "content": "\"Yes, I forgive you.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Is there anything else bothering you?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "clarification"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Yes, I cannot get everything done at work by the deadline that's been set and I'm really stressing about it.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"So you feel under a lot of pressure at work to make your deadline and want me to help make it easier at home?\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "soothing cycle so-you-feel"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Yes, I'm worried that I might lose my job over this.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Tell me more.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "second clarification"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, I'm afraid we'd have to move if I lost my job.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I know how you must feel, I've felt pressure at work before, but what I'm finding out "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "feel felt finding out"
+                            },
+                            {
+                                "type": "text",
+                                "content": " is that you are a smart and dependable man and I know you can do it. Thank you for working so hard. I appreciate you.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "second appreciation"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Thank you honey.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're welcome. Please sit on the couch with me so I can give you a big hug.\" "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "reconnect"
                             }
                         ]
                     }
