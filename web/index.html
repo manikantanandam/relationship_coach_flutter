@@ -19,6 +19,21 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
+  
+  <!-- 
+    CUSTOM MODIFICATION: Content Security Policy
+    ============================================
+    This CSP meta tag was added to fix console warnings about eval() being blocked.
+    IMPORTANT: flutter build web does NOT regenerate this file, so this change is safe.
+    However, if you run "flutter create ." to regenerate project files, this may be overwritten.
+    If that happens, restore this CSP meta tag from git history.
+    
+    - unsafe-eval: Required for Flutter web's dynamic code loading mechanism
+    - unsafe-inline: Allows inline scripts (needed for Flutter bootstrap)
+    - data: blob:: Allows Flutter's dynamic asset loading
+    - The unload event listener warning is from Flutter's internal code and cannot be fixed
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-eval' 'unsafe-inline' https: data: blob:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: https:; connect-src 'self' https: wss:; worker-src 'self' blob:; object-src 'none'; base-uri 'self';">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -33,6 +48,11 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+  <!-- Firebase JS SDKs: Required for FlutterFire on web. -->
+  <!-- Include only the SDKs you need. Using compat libraries for compatibility. -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  
+  <script src="flutter_bootstrap.js"></script>
 </body>
 </html>
