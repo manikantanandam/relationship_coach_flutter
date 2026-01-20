@@ -59,9 +59,9 @@
                 ]
             },
             {
-                "id": 3,
+                "id": "3",
                 "title": "Real Life Example 3:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [
@@ -87,9 +87,9 @@
                 ]
             },
             {
-                "id": 4,
+                "id": "4",
                 "title": "Real Life Example 4:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [
@@ -115,9 +115,9 @@
                 ]
             },
             {
-                "id": 5,
+                "id": "5",
                 "title": "Real Life Example 5:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [
@@ -143,9 +143,9 @@
                 ]
             },
             {
-                "id": 6,
+                "id": "6",
                 "title": "Real Life Example 6:",
-                "dialogue": [
+                "statements": [
                     {
                         "speaker": "He",
                         "parts": [
