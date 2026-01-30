@@ -1139,6 +1139,74 @@
                                 "content": "ask forgiveness"
                             }
                         ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I don't think you deserve forgiveness. You're just a loser and can't remember anything."
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "I feel angry hearing that."
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            }
+                        ]
+                    },
+                     {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "You're always angry. That's what's wrong with you. In fact, there's so much wrong with you that I'm disgusted with you!"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "My body is shaking"
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": "This anger and shaking feel terrible."
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "negative self-feeling statement"
+                            },
+                            {
+                                "type": "text",
+                                "content": "you are free to talk to me any way you want"
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "give permission"
+                            },
+                            {
+                                "type": "text",
+                                "content": "I'm happy to talk when it's nice but untill that changes I need to leave."
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "take your feelings for a walk"
+                            }
+                        ]
                     }
                 ]
             }
