@@ -5,8 +5,10 @@ import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/diy.dart';
 import 'package:relationship_coach_flutter/screens/add_do_it_yourself_screen.dart';
 import 'package:relationship_coach_flutter/services/ChatService.dart';
+import 'package:relationship_coach_flutter/services/diy_storage_service.dart';
 import 'package:relationship_coach_flutter/services/firestore_chat_service.dart';
 import 'package:relationship_coach_flutter/services/local_feature_flag_manager.dart';
+import 'dart:convert';
 
 class AddDIYScreen extends StatefulWidget {
   const AddDIYScreen({
@@ -28,11 +30,15 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
   // Map to store controllers using the field ID as the key
   final Map<int, TextEditingController> _controllers = {};
   DoItYourselfModel? _diyModel;
+  late DIYStorage _storage;
+
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
+
+    _storage = DIYStorage(widget.gender, widget.option);
     if (widget.diyModel == null) {
       debugPrint('DIY model is not available. load data for empty form');
       _loadData();
@@ -97,15 +103,25 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
   void _handleSubmit() async {
     if (_diyModel == null) return;
 
-    // If/when you want to persist DIY responses, build/save them here:
-    // final updatedFields = _diyModel!.formFields.map((field) { ... }).toList();
-    // (Previously this was intended to go into DIYStorage.)
+    // ROOT CAUSE FIX: Update the model with the controller values
+    for (var field in _diyModel!.formFields) {
+      final controller = _controllers[field.id];
+      if (controller != null) {
+        field.response = controller.text; // Sync UI text to Model
+      }
+    }
 
-    Navigator.pop(context);
+    // Now the model contains your typed input
+    debugPrint('Saving: ${jsonEncode(_diyModel!.toJson())}');
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Form Submitted Successfully!')),
-    );
+    await _storage.addOrUpdateDIYItem(_diyModel!);
+
+    if (mounted) {
+      Navigator.pop(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Form Submitted Successfully!')),
+      );
+    }
   }
 
   @override
