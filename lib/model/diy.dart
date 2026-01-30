@@ -6,7 +6,7 @@ class DIYFormField {
   final String? prompt; // Nullable because not all fields have a prompt
   final String type;
   final String placeholder;
-  final String response;
+  String response;
 
   DIYFormField({
     required this.id,
@@ -84,7 +84,10 @@ class DoItYourselfModel extends BaseFirestoreModel {
     };
   }
 
-  factory DoItYourselfModel.fromFirestore(Map<String, dynamic> json, String id) {
+  factory DoItYourselfModel.fromFirestore(
+    Map<String, dynamic> json,
+    String id,
+  ) {
     return DoItYourselfModel(
       id: id,
       title: json['title'] ?? '',

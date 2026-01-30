@@ -59,6 +59,18 @@ class DIYStorage {
     await saveDIYList(list);
   }
 
+  // --- ADD SINGLE ITEM TO EXISTING LIST ---
+  Future<void> addDIYItem(DoItYourselfModel newItem) async {
+    // 1. Fetch the existing list
+    List<DoItYourselfModel> currentList = await getDIYList();
+
+    // 2. Add the new item to the local list
+    currentList.add(newItem);
+
+    // 3. Save the updated list back to SharedPreferences
+    await saveDIYList(currentList);
+  }
+
   // --- CLEAR ALL ---
   Future<void> clearData() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();

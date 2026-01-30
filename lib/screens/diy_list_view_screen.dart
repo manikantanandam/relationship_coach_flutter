@@ -29,11 +29,12 @@ class _DiyListViewScreenState extends State<DiyListViewScreen> {
   void initState() {
     super.initState();
     _storage = DIYStorage(widget.gender, widget.option);
-    // _loadData();
+    _loadData();
   }
 
   Future<void> _loadData() async {
     var fetchedDiys = await _storage.getDIYList();
+    debugPrint('Fetched DIYs: ${fetchedDiys.toList().toString()}');
     setState(() {
       diys = fetchedDiys;
     });
@@ -98,6 +99,8 @@ class _DiyListViewScreenState extends State<DiyListViewScreen> {
   // In your Main/List Screen
   void _navigateAndRefresh(DoItYourselfModel? model) async {
     // Execution stops here until AddDIYScreen is popped
+
+    debugPrint("Navigating to AddDIYScreen with model: $model");
     await Navigator.push(
       context,
       MaterialPageRoute(
