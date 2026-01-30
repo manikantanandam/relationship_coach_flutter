@@ -228,6 +228,66 @@
                                 "content": "ask forgiveness"
                             }
                         ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"Well, you can't seem to do anything right anyway. I'm the only one around here who gets things done.\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"I feel bad to hear that.\""
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "heart feeling"
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "She",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"You're just lazy and I can't stand you anymore!\""
+                            }
+                        ]
+                    },
+                    {
+                        "speaker": "He",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "content": "\"My chest feels tight when I hear that. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "body feeling"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I don't like this feeling. "
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "negative self-feeling statement"
+                            },
+                            {
+                                "type": "text",
+                                "content": " I'm happy to talk when it's nice, but untill that changes, I need to leave.\""
+                            },
+                            {
+                                "type": "metadata",
+                                "content": "take your feelings for a walk"
+                            }
+                        ]
                     }
                 ]
             }
@@ -1162,7 +1222,7 @@
                             }
                         ]
                     },
-                     {
+                    {
                         "speaker": "She",
                         "parts": [
                             {
