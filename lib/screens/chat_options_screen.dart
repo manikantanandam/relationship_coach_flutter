@@ -63,17 +63,17 @@ class ChatOptionScreen extends StatelessWidget {
             onTap: () {
               final subscribed = !iapProvider.purchases.isEmpty;
 
-              if (!subscribed) {
-                _showFullScreenModal(context);
-                return;
-              }
+              // if (!subscribed) {
+              //   _showFullScreenModal(context);
+              //   return;
+              // }
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    if (!subscribed) {
-                      return PurchaseWallScreen();
-                    }
+                    // if (!subscribed) {
+                    //   return PurchaseWallScreen();
+                    // }
                     final option = options[index];
                     return option.chatDetailsScreen(this.option, gender);
                   },
@@ -98,10 +98,7 @@ class ChatOptionScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  chatOptionStatusWidget(
-                    !iapProvider.purchases.isEmpty,
-                    gender,
-                  ),
+                  chatOptionStatusWidget(iapProvider.purchases.isEmpty, gender),
                   // RCIconWidget(iconImage: Icon(Icons.lock)),
                   // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
                 ],
