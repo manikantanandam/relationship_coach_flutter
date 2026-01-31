@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/iap_provider.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
+import 'package:relationship_coach_flutter/screens/purchase_wall_screen.dart';
 
 class ChatOptionScreen extends StatelessWidget {
   ChatOptionScreen({super.key, required this.option});
@@ -29,6 +30,21 @@ class ChatOptionScreen extends StatelessWidget {
     }
   }
 
+  void _showFullScreenModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true, // Key for full-screen height
+      useSafeArea: true, // Ensures it stays below the status bar
+      builder: (context) {
+        return Container(
+          height: MediaQuery.of(context).size.height,
+          color: Colors.white,
+          child: PurchaseWallScreen(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final iapProvider = Provider.of<IAPProvider>(context);
@@ -45,10 +61,19 @@ class ChatOptionScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
+              final subscribed = !iapProvider.purchases.isEmpty;
+
+              if (!subscribed) {
+                _showFullScreenModal(context);
+                return;
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
+                    if (!subscribed) {
+                      return PurchaseWallScreen();
+                    }
                     final option = options[index];
                     return option.chatDetailsScreen(this.option, gender);
                   },
@@ -73,7 +98,10 @@ class ChatOptionScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  chatOptionStatusWidget(iapProvider.purchases.isEmpty, gender),
+                  chatOptionStatusWidget(
+                    !iapProvider.purchases.isEmpty,
+                    gender,
+                  ),
                   // RCIconWidget(iconImage: Icon(Icons.lock)),
                   // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
                 ],
