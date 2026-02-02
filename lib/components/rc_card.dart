@@ -8,7 +8,7 @@ class RCCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8),
+      margin: EdgeInsets.all(4),
       padding: EdgeInsets.all(8),
       width: double.infinity,
       decoration: BoxDecoration(
