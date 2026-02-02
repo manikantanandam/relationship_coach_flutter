@@ -98,7 +98,7 @@ extension HomeScreenOptionExtension on ChatType {
         );
       case .instagram:
       case .share:
-        return Image.asset(icon, width: 24, height: 24);
+        return Image.asset(icon, width: 40, height: 40);
     }
   }
 }
