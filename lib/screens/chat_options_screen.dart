@@ -80,28 +80,37 @@ class ChatOptionScreen extends StatelessWidget {
                 ),
               );
             },
-            child: RCCard(
-              cardWidget: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: .start,
-                      children: [
-                        Text(
-                          options[index].title,
-                          style: kTitleTextStyle(context),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RCCard(
+                cardWidget: Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: .start,
+                          children: [
+                            Text(
+                              options[index].title,
+                              style: kTitleTextStyle(gender),
+                            ),
+                            Text(
+                              options[index].subTitle,
+                              style: kSubTitleTextStyle(context),
+                            ),
+                          ],
                         ),
-                        Text(
-                          options[index].subTitle,
-                          style: kSubTitleTextStyle(context),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                  chatOptionStatusWidget(iapProvider.purchases.isEmpty, gender),
-                  // RCIconWidget(iconImage: Icon(Icons.lock)),
-                  // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
-                ],
+                    chatOptionStatusWidget(
+                      iapProvider.purchases.isEmpty,
+                      gender,
+                    ),
+                    // RCIconWidget(iconImage: Icon(Icons.lock)),
+                    // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
+                  ],
+                ),
               ),
             ),
           );
