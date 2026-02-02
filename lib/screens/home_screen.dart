@@ -52,6 +52,24 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  void onTap(int index, BuildContext context, Gender gender) {
+    final option = gender.homeScreenOpions[index];
+    switch (option) {
+      case ChatType.hisFault:
+      case ChatType.myFault:
+      case ChatType.toxicChat:
+      case ChatType.receivingTalk:
+      case ChatType.sweetTalk:
+      case ChatType.givingTalk:
+      case ChatType.herFault:
+        goToChatOptionsScreen(option, context);
+      case ChatType.instagram:
+        openInstagram('relationshipcoachcamille');
+      case ChatType.share:
+        shareApp(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Gender gender = Provider.of<UserSettingsProvider>(context).gender;
@@ -66,21 +84,7 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    final option = gender.homeScreenOpions[index];
-                    switch (option) {
-                      case ChatType.hisFault:
-                      case ChatType.myFault:
-                      case ChatType.toxicChat:
-                      case ChatType.receivingTalk:
-                      case ChatType.sweetTalk:
-                      case ChatType.givingTalk:
-                      case ChatType.herFault:
-                        goToChatOptionsScreen(option, context);
-                      case ChatType.instagram:
-                        openInstagram('relationshipcoachcamille');
-                      case ChatType.share:
-                        shareApp(context);
-                    }
+                    onTap(index, context, gender);
                   },
                   child: RCCard(
                     cardWidget: Row(
