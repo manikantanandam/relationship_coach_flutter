@@ -39,7 +39,7 @@ class ChatOptionScreen extends StatelessWidget {
         return Container(
           height: MediaQuery.of(context).size.height,
           color: Colors.white,
-          child: PurchaseWallScreen(),
+          child: RelationshipCoachPremium(),
         );
       },
     );
@@ -63,10 +63,10 @@ class ChatOptionScreen extends StatelessWidget {
             onTap: () {
               final subscribed = !iapProvider.purchases.isEmpty;
 
-              // if (!subscribed) {
-              //   _showFullScreenModal(context);
-              //   return;
-              // }
+              if (!subscribed) {
+                _showFullScreenModal(context);
+                return;
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(
