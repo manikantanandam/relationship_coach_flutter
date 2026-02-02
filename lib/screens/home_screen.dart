@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/components/local_video_player_screen.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/constants.dart/constants.dart';
+import 'package:relationship_coach_flutter/enum/chat_option.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
@@ -52,8 +53,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  void onTap(int index, BuildContext context, Gender gender) {
-    final option = gender.homeScreenOpions[index];
+  void onTap(ChatType option, BuildContext context, Gender gender) {
     switch (option) {
       case ChatType.hisFault:
       case ChatType.myFault:
@@ -75,42 +75,38 @@ class HomeScreen extends StatelessWidget {
     Gender gender = Provider.of<UserSettingsProvider>(context).gender;
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: Column(
-        children: [
-          LocalVideoPlayerScreen(height: 300),
-          Expanded(
-            child: ListView.builder(
-              itemCount: gender.homeScreenOpions.length,
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () {
-                    onTap(index, context, gender);
-                  },
-                  child: RCCard(
-                    cardWidget: Row(
-                      children: [
-                        gender.homeScreenOpions[index].iconWiget(gender),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              gender.homeScreenOpions[index].title,
-                              style: kLabelTextStyle(context),
-                            ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            LocalVideoPlayerScreen(height: 250),
+            for (var option in gender.homeScreenOpions)
+              GestureDetector(
+                onTap: () {
+                  onTap(option, context, gender);
+                },
+                child: RCCard(
+                  cardWidget: Row(
+                    children: [
+                      option.iconWiget(gender),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            option.title,
+                            style: kLabelTextStyle(context),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: gender.arrowIcon,
-                        ),
-                      ],
-                    ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: gender.arrowIcon,
+                      ),
+                    ],
                   ),
-                );
-              },
-            ),
-          ),
-        ],
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
