@@ -158,7 +158,7 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
           TextButton(
             onPressed: _handleSubmit,
             child: const Text(
-              'SUBMIT',
+              'Save',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
