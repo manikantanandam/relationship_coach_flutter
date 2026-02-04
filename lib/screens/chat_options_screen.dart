@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/iap_provider.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
-import 'package:relationship_coach_flutter/screens/purchase_wall_screen.dart';
+import 'package:relationship_coach_flutter/screens/relationship_coach_premium.dart';
 
 class ChatOptionScreen extends StatelessWidget {
   ChatOptionScreen({super.key, required this.option});
@@ -63,10 +63,10 @@ class ChatOptionScreen extends StatelessWidget {
             onTap: () {
               final subscribed = !iapProvider.purchases.isEmpty;
 
-              if (!subscribed) {
-                _showFullScreenModal(context);
-                return;
-              }
+              // if (!subscribed) {
+              //   _showFullScreenModal(context);
+              //   return;
+              // }
               Navigator.push(
                 context,
                 MaterialPageRoute(

@@ -71,10 +71,9 @@ class RelationshipCoachPremium extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(25),
           ),
-          child: const Icon(
-            Icons.favorite_outline,
-            color: Color(0xFFFF4061),
-            size: 80,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Image.asset('lib/assets/rc_logo.png'),
           ),
           // Placeholder for your heart/infinity logo
         ),
@@ -115,14 +114,20 @@ class RelationshipCoachPremium extends StatelessWidget {
   Widget _buildImageComparison() {
     return Row(
       children: [
-        _buildImageItem("End Arguments Now"),
+        _buildImageItem(
+          "End Arguments Now",
+          "lib/assets/promotionalImages/after_rc.png",
+        ),
         const SizedBox(width: 10),
-        _buildImageItem("Bring back the love"),
+        _buildImageItem(
+          "Bring back the love",
+          "lib/assets/promotionalImages/before_rc.png",
+        ),
       ],
     );
   }
 
-  Widget _buildImageItem(String label) {
+  Widget _buildImageItem(String label, String imagePath) {
     return Expanded(
       child: Column(
         children: [
@@ -135,10 +140,8 @@ class RelationshipCoachPremium extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               border: Border.all(color: Colors.white, width: 2),
-              image: const DecorationImage(
-                image: NetworkImage(
-                  'https://via.placeholder.com/150',
-                ), // Replace with your assets
+              image: DecorationImage(
+                image: AssetImage(imagePath),
                 fit: BoxFit.cover,
               ),
             ),
