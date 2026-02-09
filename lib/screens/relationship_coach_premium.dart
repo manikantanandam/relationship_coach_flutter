@@ -18,10 +18,18 @@ class RelationshipCoachPremium extends StatelessWidget {
     if (product != null) {
       print('buying subscription with product id: ${product.id}');
       await iapProvider.buySubscription(product);
+      Navigator.of(context).pop(); // Close the modal after purchase
       print('buy subscription is completed');
     } else {
       print("Product not found");
     }
+  }
+
+  void restorePurchases(BuildContext context) async {
+    final iapProvider = Provider.of<IAPProvider>(context, listen: false);
+
+    await iapProvider.restorePurchases();
+    Navigator.of(context).pop(); // Close the modal after restoring
   }
 
   @override
@@ -37,7 +45,7 @@ class RelationshipCoachPremium extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                _buildHeader(),
+                _buildHeader(context),
                 const SizedBox(height: 30),
                 _buildLogoSection(),
                 const SizedBox(height: 40),
@@ -58,16 +66,20 @@ class RelationshipCoachPremium extends StatelessWidget {
   }
 
   // Top navigation bar (X and Restore)
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
           icon: const Icon(Icons.close, color: Colors.white, size: 30),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            restorePurchases(context);
+          },
           child: const Text(
             'Restore',
             style: TextStyle(color: Colors.white, fontSize: 18),

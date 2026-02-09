@@ -28,7 +28,7 @@ class IAPProvider extends ChangeNotifier {
   IAPProvider() {
     print('IAPProvider Initialized');
     final Stream<List<PurchaseDetails>> purchaseUpdated = _iap.purchaseStream;
-    testStreamConnection();
+    restorePurchases();
     _subscription = purchaseUpdated.listen(
       (purchaseDetailsList) {
         print('purchase details updated: $purchaseDetailsList');
@@ -55,7 +55,7 @@ class IAPProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> testStreamConnection() async {
+  Future<void> restorePurchases() async {
     print('Manually poking the stream...');
     // This forces StoreKit to check for past transactions.
     // It SHOULD trigger your "purchase details updated" print.
