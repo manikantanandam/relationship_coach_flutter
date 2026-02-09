@@ -11,6 +11,8 @@ class IAPProvider extends ChangeNotifier {
   List<PurchaseDetails> _purchases = [];
   bool _isAvailable = false;
   bool _isLoading = true;
+  bool _isPurchasing = false;
+  bool get isPurchasing => _isPurchasing;
 
   // Getters for UI
   List<ProductDetails> get products => _products;
@@ -19,9 +21,12 @@ class IAPProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   IAPProvider() {
+    print('IAPProvider Initialized');
     final Stream<List<PurchaseDetails>> purchaseUpdated = _iap.purchaseStream;
+    testStreamConnection();
     _subscription = purchaseUpdated.listen(
       (purchaseDetailsList) {
+        print('purchase details updated: $purchaseDetailsList');
         _listenToPurchaseUpdated(purchaseDetailsList);
       },
       onDone: () {
@@ -45,11 +50,18 @@ class IAPProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> testStreamConnection() async {
+    print('Manually poking the stream...');
+    // This forces StoreKit to check for past transactions.
+    // It SHOULD trigger your "purchase details updated" print.
+    await _iap.restorePurchases();
+  }
+
   Future<void> fetchProducts() async {
-    const Set<String> _kIds = {
+    final Set<String> _kIds = {
       'premium_subscription_monthly',
       'yearly_pro',
-      kMonthlySubscription,
+      IAPConstants.monthlySubscriptionId,
     };
     final ProductDetailsResponse response = await _iap.queryProductDetails(
       _kIds,
@@ -64,22 +76,27 @@ class IAPProvider extends ChangeNotifier {
   }
 
   void _listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) {
+    print('listen to purchase update called');
     for (var purchase in purchaseDetailsList) {
       if (purchase.status == PurchaseStatus.pending) {
-        // Show loading indicator in UI
-      } else if (purchase.status == PurchaseStatus.error) {
-        // Show error message
-      } else if (purchase.status == PurchaseStatus.purchased ||
-          purchase.status == PurchaseStatus.restored) {
-        // 1. Verify purchase with your backend here
-        // 2. Deliver the content
+        print('purchase pending...');
+        // Still waiting...
+      } else {
+        // The purchase finished, failed, or was restored.
+        _isPurchasing = false;
+
+        if (purchase.status == PurchaseStatus.error) {
+          print('Error: ${purchase.error}');
+        } else if (purchase.status == PurchaseStatus.purchased) {
+          // Unlock content
+          print('purchase successful!');
+        }
 
         if (purchase.pendingCompletePurchase) {
           _iap.completePurchase(purchase);
         }
       }
     }
-    _purchases = purchaseDetailsList;
     notifyListeners();
   }
 
@@ -97,23 +114,17 @@ class IAPProvider extends ChangeNotifier {
   // }
 
   Future<void> buySubscription(ProductDetails product) async {
+    _isPurchasing = true;
+    notifyListeners(); // Show a spinner in your UI
+
     final PurchaseParam purchaseParam = PurchaseParam(productDetails: product);
-
-    // Check if the store is actually reachable first
-    if (!await _iap.isAvailable()) {
-      print(
-        "The store is not available. Check network or device restrictions.",
-      );
-      return;
-    }
-
     try {
-      // This triggers the native Apple overlay
-      bool success = await _iap.buyNonConsumable(purchaseParam: purchaseParam);
-      print("Purchase initiated successfully: $success");
+      await _iap.buyNonConsumable(purchaseParam: purchaseParam);
+      // Do NOT set _isPurchasing = false here.
+      // Wait for the stream to return a status (Error or Success).
     } catch (e) {
-      // This will catch specific StoreKit errors
-      print('Detailed Error: $e');
+      _isPurchasing = false;
+      notifyListeners();
     }
   }
 
