@@ -20,6 +20,11 @@ class IAPProvider extends ChangeNotifier {
   bool get isAvailable => _isAvailable;
   bool get isLoading => _isLoading;
 
+  bool _isSubscribed = false;
+
+  /// Returns true if the user has an active subscription.
+  bool get isSubscribed => _isSubscribed;
+
   IAPProvider() {
     print('IAPProvider Initialized');
     final Stream<List<PurchaseDetails>> purchaseUpdated = _iap.purchaseStream;
@@ -58,11 +63,7 @@ class IAPProvider extends ChangeNotifier {
   }
 
   Future<void> fetchProducts() async {
-    final Set<String> _kIds = {
-      'premium_subscription_monthly',
-      'yearly_pro',
-      IAPConstants.monthlySubscriptionId,
-    };
+    final Set<String> _kIds = {IAPConstants.monthlySubscriptionId};
     final ProductDetailsResponse response = await _iap.queryProductDetails(
       _kIds,
     );
@@ -71,7 +72,6 @@ class IAPProvider extends ChangeNotifier {
       // Handle missing IDs
     }
     _products = response.productDetails;
-    print('product empty is ${_products.isEmpty}');
     notifyListeners();
   }
 
@@ -80,16 +80,21 @@ class IAPProvider extends ChangeNotifier {
     for (var purchase in purchaseDetailsList) {
       if (purchase.status == PurchaseStatus.pending) {
         print('purchase pending...');
+        _isPurchasing = true;
         // Still waiting...
       } else {
         // The purchase finished, failed, or was restored.
         _isPurchasing = false;
+        print('purchase is not pending anymore ${purchase.status}');
 
         if (purchase.status == PurchaseStatus.error) {
           print('Error: ${purchase.error}');
-        } else if (purchase.status == PurchaseStatus.purchased) {
+          _isSubscribed = false;
+        } else if (purchase.status == PurchaseStatus.purchased ||
+            purchase.status == PurchaseStatus.restored) {
           // Unlock content
           print('purchase successful!');
+          _isSubscribed = true;
         }
 
         if (purchase.pendingCompletePurchase) {
