@@ -23,10 +23,10 @@ class ChatOptionScreen extends StatelessWidget {
   ];
 
   Widget chatOptionStatusWidget(bool subscribed, Gender gender) {
-    if (!subscribed) {
-      return RCIconWidget(iconImage: Icon(Icons.lock), gender: gender);
-    } else {
+    if (subscribed) {
       return gender.arrowIcon;
+    } else {
+      return RCIconWidget(iconImage: Icon(Icons.lock), gender: gender);
     }
   }
 
@@ -61,9 +61,7 @@ class ChatOptionScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              final subscribed = !iapProvider.purchases.isEmpty;
-
-              if (!subscribed) {
+              if (!iapProvider.isSubscribed) {
                 _showFullScreenModal(context);
                 return;
               }
@@ -71,9 +69,6 @@ class ChatOptionScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    // if (!subscribed) {
-                    //   return PurchaseWallScreen();
-                    // }
                     final option = options[index];
                     return option.chatDetailsScreen(this.option, gender);
                   },
@@ -103,12 +98,7 @@ class ChatOptionScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    chatOptionStatusWidget(
-                      iapProvider.purchases.isEmpty,
-                      gender,
-                    ),
-                    RCIconWidget(iconImage: Icon(Icons.lock), gender: gender),
-                    // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
+                    chatOptionStatusWidget(iapProvider.isSubscribed, gender),
                   ],
                 ),
               ),
