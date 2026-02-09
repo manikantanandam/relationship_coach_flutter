@@ -197,7 +197,9 @@ class RelationshipCoachPremium extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            print('try for free pressed');
+          },
           child: Column(
             children: const [
               Text(

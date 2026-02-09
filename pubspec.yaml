@@ -32,4 +32,4 @@ flutter:
   assets:
     - lib/assets/
     - lib/resources/
-    - lib/promotionalImages/
+    - lib/assets/promotionalImages/

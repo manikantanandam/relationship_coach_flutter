@@ -63,10 +63,10 @@ class ChatOptionScreen extends StatelessWidget {
             onTap: () {
               final subscribed = !iapProvider.purchases.isEmpty;
 
-              // if (!subscribed) {
-              //   _showFullScreenModal(context);
-              //   return;
-              // }
+              if (!subscribed) {
+                _showFullScreenModal(context);
+                return;
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -107,7 +107,7 @@ class ChatOptionScreen extends StatelessWidget {
                       iapProvider.purchases.isEmpty,
                       gender,
                     ),
-                    // RCIconWidget(iconImage: Icon(Icons.lock)),
+                    RCIconWidget(iconImage: Icon(Icons.lock), gender: gender),
                     // Image.asset(height: 40, 'lib/assets/ic_arrow_female.png'),
                   ],
                 ),
