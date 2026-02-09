@@ -1,2 +1,4 @@
-const kMonthlySubscription =
-    'com.relationshipcoach.RelationshipCoachCamille.premiumsubscription';
+class IAPConstants {
+  static String monthlySubscriptionId =
+      'com.relationshipcoach.RelationshipCoachCamille.premiumsubscription';
+}

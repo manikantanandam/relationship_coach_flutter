@@ -7,6 +7,23 @@ import 'package:flutter/material.dart';
 class RelationshipCoachPremium extends StatelessWidget {
   const RelationshipCoachPremium({super.key});
 
+  void purchaseSubscription(BuildContext context) async {
+    final iapProvider = Provider.of<IAPProvider>(context, listen: false);
+
+    // FIX: Use .where().firstOrNull
+    final product = iapProvider.products
+        .where((prod) => prod.id == IAPConstants.monthlySubscriptionId)
+        .firstOrNull;
+
+    if (product != null) {
+      print('buying subscription with product id: ${product.id}');
+      await iapProvider.buySubscription(product);
+      print('buy subscription is completed');
+    } else {
+      print("Product not found");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +45,7 @@ class RelationshipCoachPremium extends StatelessWidget {
                 const SizedBox(height: 30),
                 _buildChecklist(),
                 const SizedBox(height: 40),
-                _buildSubscriptionButton(),
+                _buildSubscriptionButton(context),
                 const SizedBox(height: 20),
                 _buildFooterLinks(),
                 const SizedBox(height: 20),
@@ -185,7 +202,7 @@ class RelationshipCoachPremium extends StatelessWidget {
   }
 
   // Main CTA Button
-  Widget _buildSubscriptionButton() {
+  Widget _buildSubscriptionButton(BuildContext context) {
     return Column(
       children: [
         ElevatedButton(
@@ -198,7 +215,7 @@ class RelationshipCoachPremium extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            print('try for free pressed');
+            purchaseSubscription(context);
           },
           child: Column(
             children: const [
