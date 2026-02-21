@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/components/rc_icon_widget.dart';
@@ -23,7 +24,7 @@ class ChatOptionScreen extends StatelessWidget {
   ];
 
   Widget chatOptionStatusWidget(bool subscribed, Gender gender) {
-    if (subscribed) {
+    if (subscribed || kIsWeb) {
       return gender.arrowIcon;
     } else {
       return RCIconWidget(iconImage: Icon(Icons.lock), gender: gender);
@@ -61,7 +62,7 @@ class ChatOptionScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              if (!iapProvider.isSubscribed) {
+              if (!iapProvider.isSubscribed && !kIsWeb) {
                 _showFullScreenModal(context);
                 return;
               }
