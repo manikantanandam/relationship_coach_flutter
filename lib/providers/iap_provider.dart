@@ -54,6 +54,7 @@ class IAPProvider extends ChangeNotifier {
     }
     _isLoading = false;
     notifyListeners();
+    await restorePurchases(); // Optionally restore purchases on app start to sync state
   }
 
   Future<void> restorePurchases() async {
