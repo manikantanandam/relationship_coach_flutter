@@ -18,7 +18,7 @@ class RelationshipCoachPremium extends StatelessWidget {
     if (product != null) {
       print('buying subscription with product id: ${product.id}');
       await iapProvider.buySubscription(product);
-      Navigator.of(context).pop(); // Close the modal after purchase
+      // Navigator.of(context).pop(); // Close the modal after purchase
       print('buy subscription is completed');
     } else {
       print("Product not found");

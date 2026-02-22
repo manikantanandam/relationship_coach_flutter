@@ -21,14 +21,13 @@ class IAPProvider extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   bool _isSubscribed = false;
-
-  /// Returns true if the user has an active subscription.
   bool get isSubscribed => _isSubscribed;
 
   IAPProvider() {
     print('IAPProvider Initialized');
+
+    // 1. Set up the listener FIRST to catch any ghost transactions immediately
     final Stream<List<PurchaseDetails>> purchaseUpdated = _iap.purchaseStream;
-    restorePurchases();
     _subscription = purchaseUpdated.listen(
       (purchaseDetailsList) {
         print('purchase details updated: $purchaseDetailsList');
@@ -38,11 +37,13 @@ class IAPProvider extends ChangeNotifier {
         _subscription.cancel();
       },
       onError: (error) {
-        // Handle error here
-        print('error in IAP Provider');
+        print('error in IAP Provider: $error');
       },
     );
 
+    // 2. REMOVED restorePurchases() from here. Only trigger it via user action.
+
+    // 3. Initialize products
     initialize();
   }
 
@@ -56,9 +57,7 @@ class IAPProvider extends ChangeNotifier {
   }
 
   Future<void> restorePurchases() async {
-    print('Manually poking the stream...');
-    // This forces StoreKit to check for past transactions.
-    // It SHOULD trigger your "purchase details updated" print.
+    print('User initiated restore purchases...');
     await _iap.restorePurchases();
   }
 
@@ -69,21 +68,22 @@ class IAPProvider extends ChangeNotifier {
     );
 
     if (response.notFoundIDs.isNotEmpty) {
-      // Handle missing IDs
+      print('Products not found: ${response.notFoundIDs}');
     }
     _products = response.productDetails;
     notifyListeners();
   }
 
-  void _listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) {
+  // Changed to async to await completePurchase
+  Future<void> _listenToPurchaseUpdated(
+    List<PurchaseDetails> purchaseDetailsList,
+  ) async {
     print('listen to purchase update called');
     for (var purchase in purchaseDetailsList) {
       if (purchase.status == PurchaseStatus.pending) {
         print('purchase pending...');
         _isPurchasing = true;
-        // Still waiting...
       } else {
-        // The purchase finished, failed, or was restored.
         _isPurchasing = false;
         print('purchase is not pending anymore ${purchase.status}');
 
@@ -92,42 +92,30 @@ class IAPProvider extends ChangeNotifier {
           _isSubscribed = false;
         } else if (purchase.status == PurchaseStatus.purchased ||
             purchase.status == PurchaseStatus.restored) {
-          // Unlock content
           print('purchase successful!');
           _isSubscribed = true;
         }
 
+        // CRITICAL: Await the completion so StoreKit clears it from the queue
         if (purchase.pendingCompletePurchase) {
-          _iap.completePurchase(purchase);
+          await _iap.completePurchase(purchase);
+          print('Purchase marked as complete in StoreKit');
         }
       }
     }
     notifyListeners();
   }
 
-  // Future<void> buySubscription(ProductDetails product) async {
-  //   // 1. Create the purchase parameter
-  //   final PurchaseParam purchaseParam = PurchaseParam(productDetails: product);
-
-  //   try {
-  //     // 2. For subscriptions and permanent upgrades, use buyNonConsumable
-  //     // Note: On iOS, this will automatically handle the App Store purchase flow.
-  //     await _iap.buyNonConsumable(purchaseParam: purchaseParam);
-  //   } catch (e) {
-  //     print('Failed to initiate purchase: $e');
-  //   }
-  // }
-
   Future<void> buySubscription(ProductDetails product) async {
     _isPurchasing = true;
-    notifyListeners(); // Show a spinner in your UI
+    notifyListeners();
 
     final PurchaseParam purchaseParam = PurchaseParam(productDetails: product);
     try {
       await _iap.buyNonConsumable(purchaseParam: purchaseParam);
-      // Do NOT set _isPurchasing = false here.
-      // Wait for the stream to return a status (Error or Success).
+      // Let the stream handle setting _isPurchasing to false
     } catch (e) {
+      print('Failed to initiate purchase: $e');
       _isPurchasing = false;
       notifyListeners();
     }
