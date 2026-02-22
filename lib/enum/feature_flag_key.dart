@@ -1,6 +1,10 @@
 enum FeatureKey {
   // theme('app_theme', AppThemeMode.system, AppThemeMode.values),
-  chatProvider('chat_provider', ChatServiceType.local, ChatServiceType.values);
+  chatProvider(
+    'chat_provider',
+    ChatServiceType.firebase,
+    ChatServiceType.values,
+  );
   // enableBeta('enable_beta', false, null); // Null for non-enum types
 
   final String key;
