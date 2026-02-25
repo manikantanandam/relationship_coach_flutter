@@ -12,7 +12,11 @@ class RelationshipCoachPremium extends StatelessWidget {
 
     // FIX: Use .where().firstOrNull
     final product = iapProvider.products
-        .where((prod) => prod.id == IAPConstants.monthlySubscriptionId)
+        .where(
+          (prod) =>
+              prod.id == IAPConstants.iosSubscriptionId ||
+              prod.id == IAPConstants.androidSubscriptionId,
+        )
         .firstOrNull;
 
     if (product != null) {

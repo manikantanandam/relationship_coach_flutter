@@ -63,7 +63,10 @@ class IAPProvider extends ChangeNotifier {
   }
 
   Future<void> fetchProducts() async {
-    final Set<String> _kIds = {IAPConstants.monthlySubscriptionId};
+    final Set<String> _kIds = {
+      IAPConstants.iosSubscriptionId,
+      IAPConstants.androidSubscriptionId,
+    };
     final ProductDetailsResponse response = await _iap.queryProductDetails(
       _kIds,
     );
