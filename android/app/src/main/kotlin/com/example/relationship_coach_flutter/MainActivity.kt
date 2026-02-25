@@ -1,4 +1,4 @@
-package com.example.relationship_coach_flutter
+package com.relationshipcoachcamille.app
 
 import io.flutter.embedding.android.FlutterActivity
 
