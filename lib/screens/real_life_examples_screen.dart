@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/constants.dart/constants.dart';
@@ -136,24 +137,24 @@ class RealLifeExampleWidget extends StatelessWidget {
             Expanded(
               child: Text(example.title, style: kLabelTextStyle(context)),
             ),
-
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return AddRealLifeExampleScreen(
-                        type: option,
-                        gender: gender,
-                        example: example,
-                      );
-                    },
-                  ),
-                );
-              },
-              icon: Icon(Icons.edit),
-            ),
+            if (kIsWeb)
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return AddRealLifeExampleScreen(
+                          type: option,
+                          gender: gender,
+                          example: example,
+                        );
+                      },
+                    ),
+                  );
+                },
+                icon: Icon(Icons.edit),
+              ),
           ],
         ),
         Text(

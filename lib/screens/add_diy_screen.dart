@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/feature_flag_key.dart';
@@ -133,28 +134,29 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
         foregroundColor: Colors.white,
         // Adding the Right Bar Button we discussed
         actions: [
-          IconButton(
-            icon: const Icon(Icons.edit),
-            onPressed: _diyModel == null
-                ? null
-                : () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return AddDoItYourselfScreen(
-                            type: widget.option,
-                            gender: widget.gender,
-                            diy: _diyModel,
-                          );
-                        },
-                      ),
-                    );
-                    // Reload data after returning from edit screen
-                    _loadData();
-                  },
-            tooltip: 'Edit Template',
-          ),
+          if (kIsWeb)
+            IconButton(
+              icon: const Icon(Icons.edit),
+              onPressed: _diyModel == null
+                  ? null
+                  : () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return AddDoItYourselfScreen(
+                              type: widget.option,
+                              gender: widget.gender,
+                              diy: _diyModel,
+                            );
+                          },
+                        ),
+                      );
+                      // Reload data after returning from edit screen
+                      _loadData();
+                    },
+              tooltip: 'Edit Template',
+            ),
           TextButton(
             onPressed: _handleSubmit,
             child: const Text(
