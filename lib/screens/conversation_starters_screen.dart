@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
@@ -38,10 +39,8 @@ class _ConversationStartersScreenState
   Future<void> _loadData() async {
     try {
       List<ConversationStarter> loaded;
-      ChatServiceType provider =
-          LocalFeatureFlagManager().getValue<ChatServiceType>(
-        FeatureKey.chatProvider,
-      );
+      ChatServiceType provider = LocalFeatureFlagManager()
+          .getValue<ChatServiceType>(FeatureKey.chatProvider);
 
       if (provider == ChatServiceType.firebase) {
         debugPrint('Getting conversation starters from firebase');
@@ -51,8 +50,10 @@ class _ConversationStartersScreenState
         );
       } else {
         debugPrint('Getting conversation starters from local');
-        loaded = await LocalChatService()
-            .getConversationStarters(widget.option, widget.gender);
+        loaded = await LocalChatService().getConversationStarters(
+          widget.option,
+          widget.gender,
+        );
       }
 
       setState(() {
@@ -148,22 +149,23 @@ class ConversationStarterWidget extends StatelessWidget {
                 ),
               ),
             ),
-            IconButton(
-              onPressed: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AddConversationStartersScreen(
-                      type: option,
-                      gender: gender,
-                      starter: starter,
+            if (kIsWeb)
+              IconButton(
+                onPressed: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddConversationStartersScreen(
+                        type: option,
+                        gender: gender,
+                        starter: starter,
+                      ),
                     ),
-                  ),
-                );
-                // Parent screen will reload on pop; no-op here.
-              },
-              icon: const Icon(Icons.edit),
-            ),
+                  );
+                  // Parent screen will reload on pop; no-op here.
+                },
+                icon: const Icon(Icons.edit),
+              ),
           ],
         ),
         for (var starterItem in starter.statements)

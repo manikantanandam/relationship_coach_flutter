@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/feature_flag_key.dart';
@@ -71,25 +72,26 @@ class _CoachingTipsScreenState extends State<CoachingTipsScreen> {
         backgroundColor: widget.gender.color,
         foregroundColor: Colors.white,
         actions: [
-          IconButton(
-            onPressed: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return AddCoachingTipsScreen(
-                      type: widget.option,
-                      gender: widget.gender,
-                      coachingTips: _coachingTips,
-                    );
-                  },
-                ),
-              );
-              // Reload data after returning from edit screen
-              _loadData();
-            },
-            icon: const Icon(Icons.edit),
-          ),
+          if (kIsWeb)
+            IconButton(
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return AddCoachingTipsScreen(
+                        type: widget.option,
+                        gender: widget.gender,
+                        coachingTips: _coachingTips,
+                      );
+                    },
+                  ),
+                );
+                // Reload data after returning from edit screen
+                _loadData();
+              },
+              icon: const Icon(Icons.edit),
+            ),
         ],
       ),
       body: _isLoading

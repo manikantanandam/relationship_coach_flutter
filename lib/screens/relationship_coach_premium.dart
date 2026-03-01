@@ -148,12 +148,12 @@ class RelationshipCoachPremium extends StatelessWidget {
     return Row(
       children: [
         _buildImageItem(
-          "End Arguments Now",
+          "End Arguments",
           "lib/assets/promotionalImages/after_rc.png",
         ),
         const SizedBox(width: 10),
         _buildImageItem(
-          "Bring back the love",
+          "Bring back love",
           "lib/assets/promotionalImages/before_rc.png",
         ),
       ],

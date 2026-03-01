@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/enum/chat_type.dart';
@@ -33,10 +34,8 @@ class _StepsScreenState extends State<StepsScreen> {
   Future<void> _loadData() async {
     try {
       Steps loadedSteps;
-      ChatServiceType provider =
-          LocalFeatureFlagManager().getValue<ChatServiceType>(
-        FeatureKey.chatProvider,
-      );
+      ChatServiceType provider = LocalFeatureFlagManager()
+          .getValue<ChatServiceType>(FeatureKey.chatProvider);
 
       if (provider == ChatServiceType.firebase) {
         debugPrint('Getting steps from firebase');
@@ -70,22 +69,23 @@ class _StepsScreenState extends State<StepsScreen> {
         backgroundColor: widget.gender.color,
         foregroundColor: Colors.white,
         actions: [
-          IconButton(
-            onPressed: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddStepsScreen(
-                    type: widget.option,
-                    gender: widget.gender,
-                    steps: steps,
+          if (kIsWeb)
+            IconButton(
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddStepsScreen(
+                      type: widget.option,
+                      gender: widget.gender,
+                      steps: steps,
+                    ),
                   ),
-                ),
-              );
-              if (mounted) _loadData();
-            },
-            icon: const Icon(Icons.edit),
-          ),
+                );
+                if (mounted) _loadData();
+              },
+              icon: const Icon(Icons.edit),
+            ),
         ],
       ),
       body: _isLoading
