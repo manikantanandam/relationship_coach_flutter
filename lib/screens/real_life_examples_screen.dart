@@ -157,9 +157,12 @@ class RealLifeExampleWidget extends StatelessWidget {
               ),
           ],
         ),
-        Text(
-          example.scenario,
-          style: TextStyle(color: gender.color, fontWeight: .bold, height: 3),
+        Padding(
+          padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+          child: Text(
+            example.scenario,
+            style: TextStyle(color: gender.color, fontWeight: .bold),
+          ),
         ),
         for (var dialog in example.statements)
           dialog.richText(gender, true, context),

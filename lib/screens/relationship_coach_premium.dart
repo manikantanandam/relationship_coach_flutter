@@ -178,8 +178,8 @@ class RelationshipCoachPremium extends StatelessWidget {
           // Placeholder for your heart/infinity logo
         ),
         const SizedBox(height: 15),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Wrap(
+          alignment: .center,
           children: [
             const Text(
               "Relationship Coach",
