@@ -66,6 +66,7 @@ class IAPProvider extends ChangeNotifier {
     final Set<String> _kIds = {
       IAPConstants.iosSubscriptionId,
       IAPConstants.androidSubscriptionId,
+      IAPConstants.yearlySubscriptionId,
     };
     final ProductDetailsResponse response = await _iap.queryProductDetails(
       _kIds,

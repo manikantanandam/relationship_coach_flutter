@@ -24,6 +24,7 @@ class ChatOptionScreen extends StatelessWidget {
   ];
 
   Widget chatOptionStatusWidget(bool subscribed, Gender gender) {
+    print('Subscribed: $subscribed');
     if (subscribed || kIsWeb) {
       return gender.arrowIcon;
     } else {
