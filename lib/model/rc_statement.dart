@@ -59,8 +59,9 @@ class RCStatement extends BaseFirestoreModel {
               )
             : const SizedBox.shrink(),
         Expanded(
-          child: RichText(
-            text: TextSpan(
+          // FIX: Changed RichText to Text.rich
+          child: Text.rich(
+            TextSpan(
               children: [
                 TextSpan(
                   text: speaker.isEmpty ? '' : '$speaker Said: ',
@@ -79,3 +80,5 @@ class RCStatement extends BaseFirestoreModel {
     );
   }
 }
+
+// }
