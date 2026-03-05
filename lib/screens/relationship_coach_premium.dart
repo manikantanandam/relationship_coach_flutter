@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/constants.dart/iap_constants.dart';
+import 'package:relationship_coach_flutter/enum/subscription_type.dart';
 import 'package:relationship_coach_flutter/providers/iap_provider.dart';
-import 'package:flutter/material.dart';
+import 'package:relationship_coach_flutter/screens/terms_and_conditions..dart';
 
 class RelationshipCoachPremium extends StatelessWidget {
   const RelationshipCoachPremium({super.key});
@@ -22,7 +24,26 @@ class RelationshipCoachPremium extends StatelessWidget {
     if (product != null) {
       print('buying subscription with product id: ${product.id}');
       await iapProvider.buySubscription(product);
-      // Navigator.of(context).pop(); // Close the modal after purchase
+      Navigator.of(context).pop(); // Close the modal after purchase
+      print('buy subscription is completed');
+    } else {
+      print("Product not found");
+    }
+  }
+
+  void purchaseYearlySubscription(BuildContext context) async {
+    final iapProvider = Provider.of<IAPProvider>(context, listen: false);
+
+    // FIX: Use .where().firstOrNull
+    final product = iapProvider.products
+        .where((prod) => prod.id == IAPConstants.yearlySubscriptionId)
+        .firstOrNull;
+
+    if (product != null) {
+      print('IAP Productid is ${IAPConstants.yearlySubscriptionId}');
+      print('buying subscription with product id: ${product.id}');
+      await iapProvider.buySubscription(product);
+      Navigator.of(context).pop(); // Close the modal after purchase
       print('buy subscription is completed');
     } else {
       print("Product not found");
@@ -43,27 +64,73 @@ class RelationshipCoachPremium extends StatelessWidget {
         0xFFFF4061,
       ), // The vibrant pink from the screenshot
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                _buildHeader(context),
-                const SizedBox(height: 30),
-                _buildLogoSection(),
-                const SizedBox(height: 40),
-                _buildImageComparison(),
-                const SizedBox(height: 30),
-                _buildChecklist(),
-                const SizedBox(height: 40),
-                _buildSubscriptionButton(context),
-                const SizedBox(height: 20),
-                _buildFooterLinks(),
-                const SizedBox(height: 20),
-              ],
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      _buildHeader(context),
+                      const SizedBox(height: 15),
+                      _buildLogoSection(),
+                      const SizedBox(height: 20),
+                      _buildImageComparison(),
+                      const SizedBox(height: 15),
+                      _buildChecklist(),
+                    ],
+                  ),
+                ),
+              ),
             ),
-          ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end, // Fixed syntax
+                crossAxisAlignment: CrossAxisAlignment.center, // Fixed syntax
+                children: [
+                  // Text('TRY FOR FREE', style: TextStyle(fontSize: 25)),
+                  Row(
+                    // Removed the Expanded wrapper from here
+                    children: [
+                      // Wrap the cards in Expanded so they take up 50% of the row width each
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () => purchaseSubscription(context),
+                          child: _buildSubscriptionButtonCardType(
+                            context,
+                            SubscriptionType.monthly,
+                          ),
+                        ), // Fixed syntax
+                      ),
+
+                      const SizedBox(
+                        width: 10,
+                      ), // Changed height to width for a Row
+
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () => purchaseYearlySubscription(context),
+                          child: _buildSubscriptionButtonCardType(
+                            context,
+                            SubscriptionType.yearly,
+                          ),
+                        ), // Fixed syntax
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  _buildFooterLinks(context),
+                  const SizedBox(
+                    height: 20,
+                  ), // Added a little extra padding for the bottom of the screen
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -98,8 +165,8 @@ class RelationshipCoachPremium extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 120,
-          width: 120,
+          height: 80,
+          width: 80,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(25),
@@ -149,12 +216,12 @@ class RelationshipCoachPremium extends StatelessWidget {
       children: [
         _buildImageItem(
           "End Arguments",
-          "lib/assets/promotionalImages/after_rc.png",
+          "lib/assets/promotionalImages/before_rc.png",
         ),
         const SizedBox(width: 10),
         _buildImageItem(
           "Bring back love",
-          "lib/assets/promotionalImages/before_rc.png",
+          "lib/assets/promotionalImages/after_rc.png",
         ),
       ],
     );
@@ -217,8 +284,47 @@ class RelationshipCoachPremium extends StatelessWidget {
     );
   }
 
+  Widget _buildSubscriptionButtonCardType(
+    BuildContext context,
+    SubscriptionType type,
+  ) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white, // Container background color
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Text(
+                type.displayName,
+                style: TextStyle(color: Colors.black54, fontSize: 12),
+              ),
+              SizedBox(height: 4),
+              Text(
+                type.amount,
+                style: TextStyle(
+                  color: Color(0xFFFF4061), // Use the pink color for the price
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 4),
+              Text(
+                type.perMonth,
+                style: TextStyle(color: Colors.black54, fontSize: 12),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   // Main CTA Button
-  Widget _buildSubscriptionButton(BuildContext context) {
+  Widget _buildSubscriptionButton(BuildContext context, SubscriptionType type) {
     return Column(
       children: [
         ElevatedButton(
@@ -231,17 +337,22 @@ class RelationshipCoachPremium extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            purchaseSubscription(context);
+            switch (type) {
+              case SubscriptionType.monthly:
+                purchaseSubscription(context);
+                break;
+              case SubscriptionType.yearly:
+                purchaseYearlySubscription(context);
+                break;
+            }
           },
           child: Column(
-            children: const [
+            children: [
               Text(
-                "TRY FOR FREE",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                "3 days trial, then \$9.99 per month",
-                style: TextStyle(fontSize: 12),
+                type == SubscriptionType.monthly
+                    ? "3 days trial, then \$9.99 per month"
+                    : "3 days trial, then \$59.99 per year",
+                style: const TextStyle(fontSize: 12),
               ),
             ],
           ),
@@ -251,20 +362,31 @@ class RelationshipCoachPremium extends StatelessWidget {
   }
 
   // Legal footers
-  Widget _buildFooterLinks() {
+  Widget _buildFooterLinks(BuildContext context) {
     return Column(
-      children: const [
-        Text(
+      children: [
+        const Text(
           "You can cancel at anytime",
           style: TextStyle(color: Colors.white70, fontSize: 12),
         ),
-        SizedBox(height: 5),
-        Text(
-          "Terms & Conditions",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
-            decoration: TextDecoration.underline,
+        const SizedBox(height: 5),
+        GestureDetector(
+          onTap: () {
+            // Handle Terms & Conditions tap
+            print('tap recognizer is working');
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => TermsAndConditionsScreen(),
+              ),
+            );
+          },
+          child: const Text(
+            "Terms & Conditions",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              decoration: TextDecoration.underline,
+            ),
           ),
         ),
       ],
