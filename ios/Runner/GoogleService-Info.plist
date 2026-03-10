@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.relationshipCoachFlutter</string>
+	<string>com.relationshipcoach.RelationshipCoachCamille</string>
 	<key>PROJECT_ID</key>
 	<string>relationship-coach-3b251</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:604018632610:ios:395a03fad4e5f1437e74fb</string>
+	<string>1:604018632610:ios:60e9895f0a35a6097e74fb</string>
 </dict>
 </plist>
