@@ -74,21 +74,22 @@ class _ConversationStartersScreenState
         backgroundColor: widget.gender.color,
         foregroundColor: Colors.white,
         actions: [
-          IconButton(
-            onPressed: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddConversationStartersScreen(
-                    type: widget.option,
-                    gender: widget.gender,
+          if (kIsWeb)
+            IconButton(
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddConversationStartersScreen(
+                      type: widget.option,
+                      gender: widget.gender,
+                    ),
                   ),
-                ),
-              );
-              if (mounted) _loadData();
-            },
-            icon: const Icon(Icons.add),
-          ),
+                );
+                if (mounted) _loadData();
+              },
+              icon: const Icon(Icons.add),
+            ),
         ],
       ),
       body: _isLoading

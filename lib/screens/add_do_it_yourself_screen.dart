@@ -107,8 +107,7 @@ class _AddDoItYourselfScreenState extends State<AddDoItYourselfScreen> {
         placeholder: c.placeholderController.text.trim(),
         response: '',
       );
-    }).toList()
-      ..sort((a, b) => a.id.compareTo(b.id));
+    }).toList()..sort((a, b) => a.id.compareTo(b.id));
 
     final now = DateTime.now();
     return DoItYourselfModel(
@@ -132,15 +131,15 @@ class _AddDoItYourselfScreenState extends State<AddDoItYourselfScreen> {
           .set(model.toJson());
 
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Saved successfully!')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Saved successfully!')));
       Navigator.pop(context);
     } catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Error: $e')));
     }
   }
 
@@ -202,8 +201,9 @@ class _AddDoItYourselfScreenState extends State<AddDoItYourselfScreen> {
                 Expanded(child: Text('Field ${idx + 1}')),
                 IconButton(
                   tooltip: 'Remove',
-                  onPressed:
-                      _fieldControllers.length <= 1 ? null : () => _removeFieldAt(idx),
+                  onPressed: _fieldControllers.length <= 1
+                      ? null
+                      : () => _removeFieldAt(idx),
                   icon: const Icon(Icons.delete),
                 ),
               ],
@@ -250,9 +250,8 @@ class _AddDoItYourselfScreenState extends State<AddDoItYourselfScreen> {
             TextFormField(
               controller: c.placeholderController,
               decoration: const InputDecoration(labelText: 'Placeholder'),
-              validator: (v) => (v ?? '').trim().isEmpty
-                  ? 'Placeholder is required'
-                  : null,
+              validator: (v) =>
+                  (v ?? '').trim().isEmpty ? 'Placeholder is required' : null,
             ),
           ],
         ),
@@ -284,4 +283,3 @@ class _DIYFieldControllers {
     placeholderController.dispose();
   }
 }
-
