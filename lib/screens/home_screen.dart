@@ -8,6 +8,7 @@ import 'package:relationship_coach_flutter/enum/chat_type.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
 import 'package:relationship_coach_flutter/screens/chat_options_screen.dart';
+import 'package:relationship_coach_flutter/services/app_logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -73,6 +74,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Gender gender = Provider.of<UserSettingsProvider>(context).gender;
+    AppLogger.logInfo("HomeScreen is seen");
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: SingleChildScrollView(

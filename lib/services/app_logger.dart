@@ -4,6 +4,8 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 class AppLogger {
   // Use this for tracking steps (e.g., "User tapped monthly subscription")
   static void logInfo(String message) {
+    FirebaseCrashlytics.instance.log(message);
+
     if (kDebugMode) {
       print('🔵 INFO: $message');
     } else {

@@ -375,11 +375,6 @@ class RelationshipCoachPremium extends StatelessWidget {
       return "";
     }
 
-    // 2. Monthly calculation
-    if (type == SubscriptionType.monthly) {
-      return "${getDisplayPrice(product)} / month";
-    }
-
     // 3. Yearly Breakdown Calculation
     double monthlyAmount = 0;
 
@@ -390,18 +385,21 @@ class RelationshipCoachPremium extends StatelessWidget {
         if (pricingPhases.isNotEmpty) {
           final lastPhase = pricingPhases.last;
           // Calculate the monthly breakdown from the annual micros
-          monthlyAmount = lastPhase.priceAmountMicros / (12 * 1000000);
+          monthlyAmount =
+              lastPhase.priceAmountMicros /
+              ((type == SubscriptionType.monthly ? 1 : 12) * 1000000);
           // Notice we are NO LONGER setting the symbol here!
         }
       }
     } else {
       // iOS / Generic fallback
-      monthlyAmount = product.rawPrice / 12.0;
+      monthlyAmount =
+          product.rawPrice / (type == SubscriptionType.monthly ? 1 : 12);
     }
 
     if (monthlyAmount == 0) return "";
 
-    return "${product.currencyCode}${monthlyAmount.toStringAsFixed(2)} / month";
+    return "${product.currencyCode} ${monthlyAmount.toStringAsFixed(2)} / month";
   }
 
   // Main CTA Button
