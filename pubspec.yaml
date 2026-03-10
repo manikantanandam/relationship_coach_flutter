@@ -19,6 +19,7 @@ dependencies:
   shared_preferences: ^2.5.4
   firebase_core: ^4.3.0
   cloud_firestore: ^6.1.1
+  flutter_launcher_icons: ^0.14.4
 
 
 
@@ -33,3 +34,8 @@ flutter:
     - lib/assets/
     - lib/resources/
     - lib/assets/promotionalImages/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/assets/icon/app_icon.png"
