@@ -1,7 +1,7 @@
 name: relationship_coach_flutter
 description: "A new Flutter project."
 publish_to: 'none'
-version: 3.0.0+35
+version: 3.0.0+36
 
 environment:
   sdk: ^3.10.3
