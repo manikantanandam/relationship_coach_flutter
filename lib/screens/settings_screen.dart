@@ -6,9 +6,15 @@ import 'package:relationship_coach_flutter/constants.dart/constants.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/enum/settings_section.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
+import 'package:flutter/foundation.dart';
 
 class SettingsScreen extends StatelessWidget {
-  final List<SettingsSection> sections = [.user, .coach, .legal, .debug];
+  final List<SettingsSection> sections = [
+    .user,
+    .coach,
+    .legal,
+    if (kDebugMode) .debug,
+  ];
 
   SettingsScreen({super.key});
 
@@ -105,10 +111,10 @@ extension SettingsSectionItemsBuild on SettingsSection {
       case SettingsSection.user:
         return [.gender];
       case SettingsSection.coach:
-        return [.coach, .admin];
+        return [.coach, if (kDebugMode) .admin];
       case SettingsSection.legal:
         return [.privacyPolicy, .termsAndConditions];
-      case .debug:
+      case SettingsSection.debug:
         return [.featureFlags];
     }
   }

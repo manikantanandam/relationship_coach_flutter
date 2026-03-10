@@ -46,8 +46,8 @@ class GenderToggle extends StatelessWidget {
           // The Text Labels
           Row(
             children: [
-              _buildOption("Male", Gender.male),
-              _buildOption("Female", Gender.female),
+              _buildOption("Male", Gender.male, context),
+              _buildOption("Female", Gender.female, context),
             ],
           ),
         ],
@@ -55,7 +55,7 @@ class GenderToggle extends StatelessWidget {
     );
   }
 
-  Widget _buildOption(String label, Gender value) {
+  Widget _buildOption(String label, Gender value, BuildContext context) {
     final bool isSelected = selectedGender == value;
     return Expanded(
       child: GestureDetector(
@@ -66,7 +66,9 @@ class GenderToggle extends StatelessWidget {
             label,
             style: TextStyle(
               fontSize: 16,
-              color: isSelected ? Colors.white : Colors.black,
+              color: isSelected
+                  ? Colors.white
+                  : Theme.of(context).colorScheme.onSurface,
             ),
           ),
         ),
