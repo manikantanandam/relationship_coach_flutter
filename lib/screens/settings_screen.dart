@@ -1,3 +1,4 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/components/gender_toggle.dart';
@@ -59,6 +60,8 @@ class RCSettingSection extends StatelessWidget {
       case .featureFlags:
       case .admin:
         return userSettingsProvider.gender.arrowIcon;
+      case .testCrash:
+        return Icon(Icons.bug_report, color: Colors.red);
     }
   }
 
@@ -78,6 +81,11 @@ class RCSettingSection extends StatelessWidget {
         for (var item in section.items)
           GestureDetector(
             onTap: () {
+              if (item == .testCrash) {
+                FirebaseCrashlytics.instance.crash();
+                return;
+              }
+
               if (item.screen != null) {
                 Navigator.push(
                   context,
@@ -115,7 +123,7 @@ extension SettingsSectionItemsBuild on SettingsSection {
       case SettingsSection.legal:
         return [.privacyPolicy, .termsAndConditions];
       case SettingsSection.debug:
-        return [.featureFlags];
+        return [.featureFlags, .testCrash];
     }
   }
 }

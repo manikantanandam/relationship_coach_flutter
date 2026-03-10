@@ -60,11 +60,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAPDutFiIp7UinlDt4X5PlkrdEtZGrjQkw',
-    appId: '1:604018632610:ios:395a03fad4e5f1437e74fb',
+    appId: '1:604018632610:ios:60e9895f0a35a6097e74fb',
     messagingSenderId: '604018632610',
     projectId: 'relationship-coach-3b251',
     storageBucket: 'relationship-coach-3b251.firebasestorage.app',
-    iosBundleId: 'com.example.relationshipCoachFlutter',
+    iosBundleId: 'com.relationshipcoach.RelationshipCoachCamille',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'relationship-coach-3b251.firebasestorage.app',
     measurementId: 'G-WBQT5GBXPM',
   );
-
 }

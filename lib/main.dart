@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,53 +7,100 @@ import 'package:relationship_coach_flutter/screens/home_screen.dart';
 import 'package:relationship_coach_flutter/screens/settings_screen.dart';
 import 'package:relationship_coach_flutter/providers/iap_provider.dart';
 import 'package:relationship_coach_flutter/services/local_feature_flag_manager.dart';
+import 'package:relationship_coach_flutter/services/push_notifications.dart';
 import 'package:relationship_coach_flutter/theme/dark_theme.dart';
 import 'package:relationship_coach_flutter/theme/light_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'firebase_options.dart'; // Generated file
+import 'firebase_options.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase but DON'T request permissions here yet
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await LocalFeatureFlagManager().init();
 
+  // Setup Crashlytics
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-
   PlatformDispatcher.instance.onError = (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
 
+  // Background messaging must be a top-level function
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  await LocalFeatureFlagManager().init();
+
   runApp(
     MultiProvider(
       providers: [
-        // 1. In-App Purchase Provider
         ChangeNotifierProvider(create: (_) => IAPProvider()),
-
-        // 2. User Settings Provider
         ChangeNotifierProvider(create: (_) => UserSettingsProvider()),
       ],
-      child: MaterialApp(
-        theme: lightTheme,
-        darkTheme: darkTheme,
-        themeMode: ThemeMode.system,
-        home: DefaultTabController(
-          length: 2,
-          child: Scaffold(
-            bottomNavigationBar: BottomAppBar(
-              child: TabBar(
-                dividerColor: Colors.transparent,
-                tabs: [
-                  Tab(icon: Icon(Icons.home)),
-                  Tab(icon: Icon(Icons.settings)),
-                ],
-              ),
-            ),
-            body: TabBarView(children: [const HomeScreen(), SettingsScreen()]),
-          ),
-        ),
-      ),
+      child: const MainApp(),
     ),
   );
+}
+
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  final GlobalKey<ScaffoldMessengerState> snackbarKey =
+      GlobalKey<ScaffoldMessengerState>();
+
+  @override
+  void initState() {
+    super.initState();
+    // This executes AFTER the first frame is drawn, preventing the iOS crash
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _initServices();
+    });
+  }
+
+  Future<void> _initServices() async {
+    // 1. Initialize Notifications via your Service
+    await PushNotificationService().setupNotifications();
+
+    // 2. If your IAPProvider needs initialization, do it here
+    // Provider.of<IAPProvider>(context, listen: false).initialize();
+
+    if (mounted) {
+      await Provider.of<IAPProvider>(context, listen: false).initialize();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      scaffoldMessengerKey: snackbarKey,
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.system,
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          bottomNavigationBar: BottomAppBar(
+            child: TabBar(
+              dividerColor: Colors.transparent,
+              tabs: const [
+                Tab(icon: Icon(Icons.home)),
+                Tab(icon: Icon(Icons.settings)),
+              ],
+            ),
+          ),
+          body: TabBarView(children: [const HomeScreen(), SettingsScreen()]),
+        ),
+      ),
+    );
+  }
+}
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  print("Handling a background message: ${message.messageId}");
 }
