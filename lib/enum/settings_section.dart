@@ -14,6 +14,7 @@ enum SettingsSecionItem {
   termsAndConditions,
   admin,
   featureFlags,
+  testCrash,
 }
 
 extension SettingsSectionExtension on SettingsSection {
@@ -46,12 +47,15 @@ extension SettingsSectionItemExtension on SettingsSecionItem {
         return 'Admin';
       case .featureFlags:
         return 'Feature Flags';
+      case .testCrash:
+        return 'Test Crash Logging';
     }
   }
 
   Widget? get screen {
     switch (this) {
       case SettingsSecionItem.gender:
+      case SettingsSecionItem.testCrash:
         return null;
       case SettingsSecionItem.coach:
         return AboutCoachScreen();
