@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/components/rc_card.dart';
 import 'package:relationship_coach_flutter/constants.dart/iap_constants.dart';
 import 'package:relationship_coach_flutter/enum/subscription_type.dart';
 import 'package:relationship_coach_flutter/providers/iap_provider.dart';
 import 'package:relationship_coach_flutter/screens/terms_and_conditions..dart';
+import 'dart:io';
+import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 
 class RelationshipCoachPremium extends StatelessWidget {
   const RelationshipCoachPremium({super.key});
@@ -288,6 +291,20 @@ class RelationshipCoachPremium extends StatelessWidget {
     BuildContext context,
     SubscriptionType type,
   ) {
+    final iapProvider = Provider.of<IAPProvider>(context, listen: false);
+    String productId;
+
+    if (type == .monthly) {
+      productId = Platform.isIOS
+          ? IAPConstants.iosSubscriptionId
+          : IAPConstants.androidSubscriptionId;
+    } else {
+      productId = IAPConstants.yearlySubscriptionId;
+    }
+    ProductDetails? currentProduct = iapProvider.products
+        .where((prod) => prod.id == productId)
+        .firstOrNull;
+
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
@@ -304,7 +321,7 @@ class RelationshipCoachPremium extends StatelessWidget {
               ),
               SizedBox(height: 4),
               Text(
-                type.amount,
+                getDisplayPrice(currentProduct),
                 style: TextStyle(
                   color: Color(0xFFFF4061), // Use the pink color for the price
                   fontSize: 24,
@@ -313,7 +330,7 @@ class RelationshipCoachPremium extends StatelessWidget {
               ),
               SizedBox(height: 4),
               Text(
-                type.perMonth,
+                getPerMonthDisplayPrice(currentProduct, type),
                 style: TextStyle(color: Colors.black54, fontSize: 12),
               ),
             ],
@@ -321,6 +338,69 @@ class RelationshipCoachPremium extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String getDisplayPrice(ProductDetails? product) {
+    if (product == null)
+      return "ID Error"; // Shows this instead of an empty box
+
+    if (Platform.isAndroid && product is GooglePlayProductDetails) {
+      final offerDetails = product.productDetails.subscriptionOfferDetails;
+      if (offerDetails != null && offerDetails.isNotEmpty) {
+        final pricingPhases = offerDetails.first.pricingPhases;
+        if (pricingPhases.isNotEmpty) {
+          // Grab the LAST phase (the paid recurring price, after any free trials)
+          return pricingPhases.last.formattedPrice;
+        }
+      }
+    }
+
+    // Fallback for iOS
+    return product.price;
+  }
+
+  String getPerMonthDisplayPrice(
+    ProductDetails? product,
+    SubscriptionType type,
+  ) {
+    if (product == null) return "";
+
+    // 1. Universal Symbol Extraction
+    // Take the base formatted price (e.g., "₹1,200.00") and strip out numbers and punctuation.
+    String symbol = product.price.replaceAll(RegExp(r'[0-9.,\s]'), '');
+
+    // Safety catch: Sometimes the store backend stubbornly returns the text code
+    // inside the formatted string instead of the symbol.
+    if (symbol.toUpperCase().contains('INR')) symbol = '₹';
+    if (symbol.toUpperCase().contains('USD')) symbol = '\$';
+
+    // 2. Monthly calculation
+    if (type == SubscriptionType.monthly) {
+      return "${getDisplayPrice(product)} / month";
+    }
+
+    // 3. Yearly Breakdown Calculation
+    double monthlyAmount = 0;
+
+    if (Platform.isAndroid && product is GooglePlayProductDetails) {
+      final offerDetails = product.productDetails.subscriptionOfferDetails;
+      if (offerDetails != null && offerDetails.isNotEmpty) {
+        final pricingPhases = offerDetails.first.pricingPhases;
+        if (pricingPhases.isNotEmpty) {
+          final lastPhase = pricingPhases.last;
+          // Calculate the monthly breakdown from the annual micros
+          monthlyAmount = lastPhase.priceAmountMicros / (12 * 1000000);
+          // Notice we are NO LONGER setting the symbol here!
+        }
+      }
+    } else {
+      // iOS / Generic fallback
+      monthlyAmount = product.rawPrice / 12.0;
+    }
+
+    if (monthlyAmount == 0) return "";
+
+    return "$symbol${monthlyAmount.toStringAsFixed(2)} / month";
   }
 
   // Main CTA Button

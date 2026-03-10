@@ -23,9 +23,12 @@ class ChatOptionScreen extends StatelessWidget {
     .doItYourself,
   ];
 
-  Widget chatOptionStatusWidget(bool subscribed, Gender gender) {
-    print('Subscribed: $subscribed');
-    if (subscribed || kIsWeb) {
+  Widget chatOptionStatusWidget(
+    bool subscribed,
+    Gender gender,
+    ChatOptionType option,
+  ) {
+    if (subscribed || kIsWeb || option == ChatOptionType.realLifeExamples) {
       return gender.arrowIcon;
     } else {
       return RCIconWidget(iconImage: Icon(Icons.lock), gender: gender);
@@ -63,7 +66,9 @@ class ChatOptionScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              if (!iapProvider.isSubscribed && !kIsWeb) {
+              if (!iapProvider.isSubscribed &&
+                  !kIsWeb &&
+                  options[index] != ChatOptionType.realLifeExamples) {
                 _showFullScreenModal(context);
                 return;
               }
@@ -100,7 +105,11 @@ class ChatOptionScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    chatOptionStatusWidget(iapProvider.isSubscribed, gender),
+                    chatOptionStatusWidget(
+                      iapProvider.isSubscribed,
+                      gender,
+                      options[index],
+                    ),
                   ],
                 ),
               ),

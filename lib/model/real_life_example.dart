@@ -45,7 +45,6 @@ class RealLifeExample extends BaseFirestoreModel {
 
   // Requirement: Factory for FirestoreService fromJson callback
   factory RealLifeExample.fromFirestore(Map<String, dynamic> json, String id) {
-    debugPrint('decoding json $json');
     return RealLifeExample(
       id: id,
       title: json['title'] ?? '',
