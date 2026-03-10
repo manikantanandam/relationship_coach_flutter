@@ -305,36 +305,34 @@ class RelationshipCoachPremium extends StatelessWidget {
         .where((prod) => prod.id == productId)
         .firstOrNull;
 
-    return Expanded(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white, // Container background color
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Text(
-                type.displayName,
-                style: TextStyle(color: Colors.black54, fontSize: 12),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white, // Container background color
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text(
+              type.displayName,
+              style: TextStyle(color: Colors.black54, fontSize: 12),
+            ),
+            SizedBox(height: 4),
+            Text(
+              getDisplayPrice(currentProduct),
+              style: TextStyle(
+                color: Color(0xFFFF4061), // Use the pink color for the price
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 4),
-              Text(
-                getDisplayPrice(currentProduct),
-                style: TextStyle(
-                  color: Color(0xFFFF4061), // Use the pink color for the price
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 4),
-              Text(
-                getPerMonthDisplayPrice(currentProduct, type),
-                style: TextStyle(color: Colors.black54, fontSize: 12),
-              ),
-            ],
-          ),
+            ),
+            SizedBox(height: 4),
+            Text(
+              getPerMonthDisplayPrice(currentProduct, type),
+              style: TextStyle(color: Colors.black54, fontSize: 12),
+            ),
+          ],
         ),
       ),
     );
