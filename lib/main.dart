@@ -33,6 +33,7 @@ void main() async {
           child: Scaffold(
             bottomNavigationBar: BottomAppBar(
               child: TabBar(
+                dividerColor: Colors.transparent,
                 tabs: [
                   Tab(icon: Icon(Icons.home)),
                   Tab(icon: Icon(Icons.settings)),
