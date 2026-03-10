@@ -113,15 +113,15 @@ class _AddStepsScreenState extends State<AddStepsScreen> {
           .set(model.toJson());
 
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Saved successfully!')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Saved successfully!')));
       Navigator.pop(context);
     } catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Error: $e')));
     }
   }
 
@@ -148,10 +148,7 @@ class _AddStepsScreenState extends State<AddStepsScreen> {
               },
             ),
             const Divider(height: 40),
-            Text(
-              'Steps',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
+            Text('Steps', style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 8),
             ..._stepControllers.asMap().entries.map(
               (entry) => _buildStepFields(entry.key, entry.value),
@@ -177,9 +174,7 @@ class _AddStepsScreenState extends State<AddStepsScreen> {
           children: [
             Row(
               children: [
-                Expanded(
-                  child: Text('Step ${idx + 1}'),
-                ),
+                Expanded(child: Text('Step ${idx + 1}')),
                 IconButton(
                   tooltip: 'Remove',
                   onPressed: _stepControllers.length <= 1
@@ -230,4 +225,3 @@ class _StepControllers {
   TextEditingController stepController;
   _StepControllers({required this.idController, required this.stepController});
 }
-

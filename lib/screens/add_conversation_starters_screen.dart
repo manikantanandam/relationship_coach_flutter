@@ -92,10 +92,16 @@ class _AddConversationStartersScreenState
     final statements = _statementControllers.map((s) {
       final parts = s.parts
           .map(
-            (p) => RCStatementPart(type: p.type, content: p.contentController.text),
+            (p) => RCStatementPart(
+              type: p.type,
+              content: p.contentController.text,
+            ),
           )
           .toList();
-      return RCStatement(speaker: s.speakerController.text, statementParts: parts);
+      return RCStatement(
+        speaker: s.speakerController.text,
+        statementParts: parts,
+      );
     }).toList();
 
     final starter = ConversationStarter(
@@ -113,15 +119,15 @@ class _AddConversationStartersScreenState
           .set(starter.toJson());
 
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Saved successfully!')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Saved successfully!')));
       Navigator.pop(context);
     } catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Error: $e')));
     }
   }
 
@@ -159,10 +165,7 @@ class _AddConversationStartersScreenState
               },
             ),
             const Divider(height: 40),
-            Text(
-              'Starters',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
+            Text('Starters', style: Theme.of(context).textTheme.headlineSmall),
             ..._statementControllers.asMap().entries.map(
               (entry) => _buildStatementFields(entry.key, entry.value),
             ),
@@ -186,7 +189,9 @@ class _AddConversationStartersScreenState
           children: [
             TextFormField(
               controller: sCont.speakerController,
-              decoration: const InputDecoration(labelText: 'Speaker (optional)'),
+              decoration: const InputDecoration(
+                labelText: 'Speaker (optional)',
+              ),
             ),
             ...sCont.parts.asMap().entries.map(
               (pEntry) => Row(
@@ -198,7 +203,8 @@ class _AddConversationStartersScreenState
                         labelText: 'Part Content (${pEntry.value.type})',
                       ),
                       validator: (v) {
-                        if ((v ?? '').trim().isEmpty) return 'Content is required';
+                        if ((v ?? '').trim().isEmpty)
+                          return 'Content is required';
                         return null;
                       },
                     ),
@@ -206,8 +212,9 @@ class _AddConversationStartersScreenState
                   IconButton(
                     icon: const Icon(Icons.swap_horiz),
                     onPressed: () => setState(
-                      () => pEntry.value.type =
-                          pEntry.value.type == 'text' ? 'metadata' : 'text',
+                      () => pEntry.value.type = pEntry.value.type == 'text'
+                          ? 'metadata'
+                          : 'text',
                     ),
                   ),
                 ],
@@ -232,13 +239,12 @@ class _AddConversationStartersScreenState
                   onPressed: _statementControllers.length <= 1
                       ? null
                       : () => setState(() {
-                            final removed =
-                                _statementControllers.removeAt(sIdx);
-                            removed.speakerController.dispose();
-                            for (final p in removed.parts) {
-                              p.contentController.dispose();
-                            }
-                          }),
+                          final removed = _statementControllers.removeAt(sIdx);
+                          removed.speakerController.dispose();
+                          for (final p in removed.parts) {
+                            p.contentController.dispose();
+                          }
+                        }),
                   icon: const Icon(Icons.delete),
                 ),
               ],
@@ -261,4 +267,3 @@ class _PartControllers {
   TextEditingController contentController;
   _PartControllers({required this.type, required this.contentController});
 }
-

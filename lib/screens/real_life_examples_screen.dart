@@ -76,22 +76,23 @@ class _RealLifeExamplesScreenState extends State<RealLifeExamplesScreen> {
         backgroundColor: widget.gender.color,
         foregroundColor: Colors.white,
         actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return AddRealLifeExampleScreen(
-                      type: widget.option,
-                      gender: widget.gender,
-                    );
-                  },
-                ),
-              );
-            },
-            icon: Icon(Icons.add),
-          ),
+          if (kIsWeb)
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return AddRealLifeExampleScreen(
+                        type: widget.option,
+                        gender: widget.gender,
+                      );
+                    },
+                  ),
+                );
+              },
+              icon: Icon(Icons.add),
+            ),
         ],
       ),
       // 3. Handle the loading state so the user sees progress

@@ -229,6 +229,9 @@ class _AddDIYScreenState extends State<AddDIYScreen> {
             maxLines: field.type == 'text_input'
                 ? 3
                 : 1, // Larger for descriptions
+            style: TextStyle(
+              color: Colors.black, // Sets the input text color
+            ),
           ),
         ],
       ),
