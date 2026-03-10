@@ -64,14 +64,16 @@ class _MainAppState extends State<MainApp> {
   }
 
   Future<void> _initServices() async {
-    // 1. Initialize Notifications via your Service
+    print('🎬 _initServices triggered'); // Add this!
+
     await PushNotificationService().setupNotifications();
 
-    // 2. If your IAPProvider needs initialization, do it here
-    // Provider.of<IAPProvider>(context, listen: false).initialize();
-
     if (mounted) {
-      await Provider.of<IAPProvider>(context, listen: false).initialize();
+      final iap = Provider.of<IAPProvider>(context, listen: false);
+      print('🛠 Calling iap.initialize()...');
+      await iap.initialize();
+    } else {
+      print('⚠️ MainApp not mounted, skipping IAP init');
     }
   }
 
