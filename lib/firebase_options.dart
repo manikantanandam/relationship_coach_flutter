@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'relationship-coach-3b251.firebasestorage.app',
     measurementId: 'G-WBQT5GBXPM',
   );
+
 }
