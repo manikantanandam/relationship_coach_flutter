@@ -8,6 +8,7 @@ import 'package:relationship_coach_flutter/providers/iap_provider.dart';
 import 'package:relationship_coach_flutter/screens/terms_and_conditions..dart';
 import 'dart:io';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
+import 'package:relationship_coach_flutter/services/app_logger.dart';
 
 class RelationshipCoachPremium extends StatelessWidget {
   const RelationshipCoachPremium({super.key});
@@ -25,12 +26,14 @@ class RelationshipCoachPremium extends StatelessWidget {
         .firstOrNull;
 
     if (product != null) {
-      print('buying subscription with product id: ${product.id}');
+      AppLogger.logInfo('buying subscription with product id: ${product.id}');
       await iapProvider.buySubscription(product);
+      AppLogger.logInfo('buy subscription is completed');
       Navigator.of(context).pop(); // Close the modal after purchase
-      print('buy subscription is completed');
     } else {
-      print("Product not found");
+      AppLogger.logError(
+        "Product not found for id: ${IAPConstants.iosSubscriptionId} or ${IAPConstants.androidSubscriptionId}",
+      );
     }
   }
 
@@ -43,13 +46,17 @@ class RelationshipCoachPremium extends StatelessWidget {
         .firstOrNull;
 
     if (product != null) {
-      print('IAP Productid is ${IAPConstants.yearlySubscriptionId}');
-      print('buying subscription with product id: ${product.id}');
+      AppLogger.logInfo(
+        'IAP Productid is ${IAPConstants.yearlySubscriptionId}',
+      );
+      AppLogger.logInfo('buying subscription with product id: ${product.id}');
       await iapProvider.buySubscription(product);
       Navigator.of(context).pop(); // Close the modal after purchase
-      print('buy subscription is completed');
+      AppLogger.logInfo('buy subscription is completed');
     } else {
-      print("Product not found");
+      AppLogger.logError(
+        "Product not found for id: ${IAPConstants.yearlySubscriptionId}",
+      );
     }
   }
 
@@ -361,16 +368,12 @@ class RelationshipCoachPremium extends StatelessWidget {
     ProductDetails? product,
     SubscriptionType type,
   ) {
-    if (product == null) return "";
-
-    // 1. Universal Symbol Extraction
-    // Take the base formatted price (e.g., "₹1,200.00") and strip out numbers and punctuation.
-    String symbol = product.price.replaceAll(RegExp(r'[0-9.,\s]'), '');
-
-    // Safety catch: Sometimes the store backend stubbornly returns the text code
-    // inside the formatted string instead of the symbol.
-    if (symbol.toUpperCase().contains('INR')) symbol = '₹';
-    if (symbol.toUpperCase().contains('USD')) symbol = '\$';
+    if (product == null) {
+      AppLogger.logError(
+        "Product is null in getPerMonthDisplayPrice for type: $type",
+      );
+      return "";
+    }
 
     // 2. Monthly calculation
     if (type == SubscriptionType.monthly) {
@@ -398,7 +401,7 @@ class RelationshipCoachPremium extends StatelessWidget {
 
     if (monthlyAmount == 0) return "";
 
-    return "$symbol${monthlyAmount.toStringAsFixed(2)} / month";
+    return "${product.currencyCode}${monthlyAmount.toStringAsFixed(2)} / month";
   }
 
   // Main CTA Button
