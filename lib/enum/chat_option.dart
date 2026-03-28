@@ -35,15 +35,15 @@ extension ChatOptionTypeExtention on ChatOptionType {
   String get subTitle {
     switch (this) {
       case ChatOptionType.realLifeExamples:
-        return 'Real life examples you can use.';
+        return 'Love scripts that work';
       case ChatOptionType.steps:
-        return 'The six steps you can follow.';
+        return 'Steps you can follow';
       case ChatOptionType.conversationStarters:
-        return 'More examples of each step.';
+        return 'What to say in real life better';
       case ChatOptionType.coachingTips:
         return 'Helpful tips from the expert';
       case ChatOptionType.doItYourself:
-        return 'Practice the steps yourself!';
+        return 'We guide you and do it yourself';
     }
   }
 
