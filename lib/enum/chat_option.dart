@@ -37,7 +37,7 @@ extension ChatOptionTypeExtention on ChatOptionType {
       case ChatOptionType.realLifeExamples:
         return 'Real life examples you can use.';
       case ChatOptionType.steps:
-        return 'The siz steps you can follow.';
+        return 'The six steps you can follow.';
       case ChatOptionType.conversationStarters:
         return 'More examples of each step.';
       case ChatOptionType.coachingTips:
