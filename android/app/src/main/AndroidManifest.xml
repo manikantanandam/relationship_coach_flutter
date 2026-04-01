@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="relationship_coach_flutter"
+        android:label="Relationship Coach Camille"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
