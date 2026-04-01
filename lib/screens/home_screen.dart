@@ -50,7 +50,10 @@ class HomeScreen extends StatelessWidget {
 
   void shareApp(BuildContext context) {
     SharePlus.instance.share(
-      ShareParams(text: 'check out my website https://example.com'),
+      ShareParams(
+        text:
+            'Check out Relationship Coach Camille! Get DIY guided scripts and advice. Download for Android or iOS here: https://relationshipcoachcamille.com/',
+      ),
     );
   }
 
