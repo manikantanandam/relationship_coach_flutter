@@ -10,31 +10,51 @@ class LocalVideoPlayerScreen extends StatefulWidget {
   _LocalVideoPlayerScreenState createState() => _LocalVideoPlayerScreenState();
 }
 
-class _LocalVideoPlayerScreenState extends State<LocalVideoPlayerScreen> {
+// 1. Add WidgetsBindingObserver mixin
+class _LocalVideoPlayerScreenState extends State<LocalVideoPlayerScreen>
+    with WidgetsBindingObserver {
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
 
   @override
   void initState() {
     super.initState();
-    // Initialize the controller with the local asset path
+    // 2. Register the observer
+    WidgetsBinding.instance.addObserver(this);
+
     _controller = VideoPlayerController.asset('lib/assets/homevideo.mp4');
 
     _initializeVideoPlayerFuture = _controller.initialize().then((_) {
-      // Ensure the first frame is shown after the video is initialized
-
-      // setState(() {});
       _controller.setVolume(0);
       _controller.setLooping(true);
       _controller.play();
+      if (mounted) setState(() {});
     });
   }
 
   @override
   void dispose() {
-    // Ensure the controller is disposed of to free up resources
+    // 3. Remove the observer to avoid memory leaks
+    WidgetsBinding.instance.removeObserver(this);
     _controller.dispose();
     super.dispose();
+  }
+
+  // 4. Handle App Lifecycle changes
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    if (state == AppLifecycleState.resumed) {
+      // App malli focus loki vachinappudu (Permission dialog tarvatha)
+      if (_controller.value.isInitialized) {
+        _controller.play();
+      }
+    } else if (state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.paused) {
+      // Optional: App background ki vellinappudu pause cheyali ante ikkada rayochu
+      // _controller.pause();
+    }
   }
 
   @override
@@ -43,17 +63,11 @@ class _LocalVideoPlayerScreenState extends State<LocalVideoPlayerScreen> {
       future: _initializeVideoPlayerFuture,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          // If the VideoPlayerController has finished initialization, use
-          // the data it provides to limit the aspect ratio of the video.
           return Container(
-            height:
-                widget.height, // 1. FIX HEIGHT: Set your desired height here
-            width: double.infinity, // 2. FILL WIDTH: Takes all available width
-            color: Colors.red,
+            height: widget.height,
+            width: double.infinity,
             child: FittedBox(
-              // fit: BoxFit.fill, // Use this if you want to STRETCH the video (distorts image)
-              fit: BoxFit
-                  .cover, // Use this if you want to ZOOM/CROP to fill the space (keeps aspect ratio)
+              fit: BoxFit.cover,
               child: SizedBox(
                 width: _controller.value.size.width,
                 height: _controller.value.size.height,
@@ -62,8 +76,6 @@ class _LocalVideoPlayerScreenState extends State<LocalVideoPlayerScreen> {
             ),
           );
         } else {
-          // If the VideoPlayerController is still initializing, show a
-          // loading spinner.
           return Center(child: CircularProgressIndicator());
         }
       },
