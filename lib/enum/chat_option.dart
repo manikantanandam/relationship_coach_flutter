@@ -37,13 +37,13 @@ extension ChatOptionTypeExtention on ChatOptionType {
       case ChatOptionType.realLifeExamples:
         return 'Love scripts that work';
       case ChatOptionType.steps:
-        return 'Steps you can follow';
+        return 'Steps that get results';
       case ChatOptionType.conversationStarters:
-        return 'What to say in real life better';
+        return 'Phrases that build connection';
       case ChatOptionType.coachingTips:
-        return 'Helpful tips from the expert';
+        return 'Tips from Coach Camille';
       case ChatOptionType.doItYourself:
-        return 'We guide you and do it yourself';
+        return 'DIY Guided scrpits';
     }
   }
 
