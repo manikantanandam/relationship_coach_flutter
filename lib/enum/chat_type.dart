@@ -50,7 +50,7 @@ extension HomeScreenOptionExtension on ChatType {
       case ChatType.sweetTalk:
         return 'Sweet Talk';
       case .instagram:
-        return 'Instagram';
+        return 'See How It Works';
       case .share:
         return 'Share';
       case ChatType.herFault:

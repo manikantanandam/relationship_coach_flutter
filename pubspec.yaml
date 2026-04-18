@@ -1,7 +1,7 @@
 name: relationship_coach_flutter
 description: "A comprehensive relationship coaching app providing DIY guided scripts and expert tools to resolve conflicts and strengthen emotional bonds."
 publish_to: 'none'
-version: 3.0.1+41
+version: 3.0.2+42
 
 environment:
   sdk: ^3.10.3
@@ -38,9 +38,7 @@ flutter:
   assets:
     - lib/assets/
     - lib/resources/
-    - lib/assets/promotionalImages/
-
-flutter_launcher_icons:
+    - lib/assets/promotionalImages/flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "lib/assets/icon/app_icon.png"
