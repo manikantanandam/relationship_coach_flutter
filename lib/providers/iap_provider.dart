@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 import 'package:relationship_coach_flutter/constants.dart/iap_constants.dart';
+import 'package:relationship_coach_flutter/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IAPProvider extends ChangeNotifier {
   final InAppPurchase _iap = InAppPurchase.instance;
@@ -47,7 +49,7 @@ class IAPProvider extends ChangeNotifier {
 
       if (_isAvailable) {
         // Don't 'await' these so they don't block each other
-        fetchProducts().catchError(
+        await fetchProducts().catchError(
           (e) => print('❌ IAP: fetchProducts error: $e'),
         );
 
@@ -125,13 +127,31 @@ class IAPProvider extends ChangeNotifier {
         '🔍 IAP: Processing ${purchase.productID} | Status: ${purchase.status}',
       );
 
-      if (purchase.status == PurchaseStatus.purchased ||
-          purchase.status == PurchaseStatus.restored) {
-        // Update the state
+      if (purchase.status == PurchaseStatus.purchased) {
+        // ✅ CORRECT ANDROID INSERT AFFILIATE LOGIC
+        if (Platform.isAndroid && purchase is GooglePlayPurchaseDetails) {
+          final purchaseToken = purchase.billingClientPurchase.purchaseToken;
+          if (purchaseToken.isNotEmpty) {
+            await insertAffiliateSdk.storeExpectedStoreTransaction(
+              purchaseToken,
+            );
+          }
+        }
+
         _isSubscribed = true;
-        print('✅ IAP: User is SUBSCRIBED to ${purchase.productID}');
+        print('✅ IAP: Purchase successful for ${purchase.productID}');
+
+        // (Optional: Save _isSubscribed to SharedPreferences here)
       }
 
+      if (purchase.status == PurchaseStatus.restored) {
+        _isSubscribed = true;
+        print('✅ IAP: User is SUBSCRIBED to ${purchase.productID}');
+
+        // (Optional: Save _isSubscribed to SharedPreferences here)
+      }
+
+      // ✅ THIS SAFELY COMPLETES THE PURCHASE FOR BOTH IOS AND ANDROID
       if (purchase.pendingCompletePurchase) {
         await _iap.completePurchase(purchase);
         print('📦 IAP: Transaction completed');
@@ -142,10 +162,19 @@ class IAPProvider extends ChangeNotifier {
   }
 
   Future<void> buySubscription(ProductDetails product) async {
+    String? appAccountToken;
+    if (Platform.isIOS) {
+      appAccountToken = await insertAffiliateSdk
+          .returnUserAccountTokenAndStoreExpectedTransaction();
+    }
+
     _isPurchasing = true;
     notifyListeners();
 
-    final PurchaseParam purchaseParam = PurchaseParam(productDetails: product);
+    final PurchaseParam purchaseParam = PurchaseParam(
+      productDetails: product,
+      applicationUserName: appAccountToken,
+    );
     try {
       await _iap.buyNonConsumable(purchaseParam: purchaseParam);
       // Let the stream handle setting _isPurchasing to false
