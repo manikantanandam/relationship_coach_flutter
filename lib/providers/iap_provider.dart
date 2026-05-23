@@ -166,6 +166,7 @@ class IAPProvider extends ChangeNotifier {
     if (Platform.isIOS) {
       appAccountToken = await insertAffiliateSdk
           .returnUserAccountTokenAndStoreExpectedTransaction();
+      print('appAccountToken for iOS purchase: $appAccountToken');
     }
 
     _isPurchasing = true;

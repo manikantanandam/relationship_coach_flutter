@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/terms_and_conditions.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
-import 'package:relationship_coach_flutter/utils/json_utils.dart'; // Required for rootBundle
+import 'package:relationship_coach_flutter/services/json_utils.dart'; // Required for rootBundle
 
 // ================= UI SCREEN =================
 

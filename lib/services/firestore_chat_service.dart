@@ -8,7 +8,7 @@ import 'package:relationship_coach_flutter/model/real_life_example.dart';
 import 'package:relationship_coach_flutter/model/conversation_starter.dart';
 import 'package:relationship_coach_flutter/model/step.dart';
 import 'package:relationship_coach_flutter/services/firestore_service.dart';
-import 'package:relationship_coach_flutter/utils/json_utils.dart';
+import 'package:relationship_coach_flutter/services/json_utils.dart';
 
 class FirestoreChatService {
   Future<List<RealLifeExample>> getRealTimeExamples(
