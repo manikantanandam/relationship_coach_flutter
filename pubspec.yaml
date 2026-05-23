@@ -1,7 +1,7 @@
 name: relationship_coach_flutter
 description: "A comprehensive relationship coaching app providing DIY guided scripts and expert tools to resolve conflicts and strengthen emotional bonds."
 publish_to: 'none'
-version: 3.0.2+43
+version: 3.0.3+45
 
 environment:
   sdk: ^3.10.3
@@ -24,9 +24,9 @@ dependencies:
   firebase_crashlytics: ^5.0.8
   firebase_messaging: ^16.1.2
   flutter_local_notifications: ^21.0.0
-
-
-
+  insert_affiliate_flutter_sdk: ^1.9.0
+  http: ^1.6.0
+  app_links: ^7.0.0
 
 dev_dependencies:
   flutter_test:

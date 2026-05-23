@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:relationship_coach_flutter/enum/gender.dart';
 import 'package:relationship_coach_flutter/model/about_coach.dart';
 import 'package:relationship_coach_flutter/providers/user_settings_provider.dart';
-import 'package:relationship_coach_flutter/utils/json_utils.dart';
+import 'package:relationship_coach_flutter/services/json_utils.dart';
 
 class AboutCoachScreen extends StatefulWidget {
   const AboutCoachScreen({super.key});
