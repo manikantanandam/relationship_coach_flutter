@@ -40,9 +40,7 @@ void main() async {
   // Initialize Insert Affiliate SDK
   insertAffiliateSdk = InsertAffiliateFlutterSDK(
     companyCode: "swUuyveMlUcwPgRIgJajA7uCdRy2",
-    verboseLogging: true,
     insertLinksEnabled: true,
-    insertLinksClipboardEnabled: true,
   );
 
   // Set up callback for affiliate identifier changes
