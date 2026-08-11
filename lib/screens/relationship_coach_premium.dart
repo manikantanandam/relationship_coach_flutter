@@ -9,6 +9,7 @@ import 'package:relationship_coach_flutter/screens/terms_and_conditions..dart';
 import 'dart:io';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 import 'package:relationship_coach_flutter/services/app_logger.dart';
+import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
 
 class RelationshipCoachPremium extends StatelessWidget {
   const RelationshipCoachPremium({super.key});
@@ -132,8 +133,14 @@ class RelationshipCoachPremium extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  if (Platform.isIOS)
+                    const SizedBox(height: 15), // Spacing below cards
+                  // NEW PROMO CODE BUTTON HERE
                   _buildFooterLinks(context),
+
+                  const SizedBox(height: 10), // Spacing above footer links
+                  // const SizedBox(height: 10),
+                  _buildPromoCodeButton(context),
                   const SizedBox(
                     height: 20,
                   ), // Added a little extra padding for the bottom of the screen
@@ -470,5 +477,45 @@ class RelationshipCoachPremium extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget _buildPromoCodeButton(BuildContext context) {
+    return GestureDetector(
+      onTap: () => _presentPromoCodeSheet(context),
+      child: const Text(
+        "Have an Offer Code?",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 10,
+          fontWeight: FontWeight.normal,
+          decoration: TextDecoration.none,
+          decorationColor: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  Future<void> _presentPromoCodeSheet(BuildContext context) async {
+    if (Platform.isIOS) {
+      final InAppPurchase iap = InAppPurchase.instance;
+      if (await iap.isAvailable()) {
+        final iosPlatformAddition = iap
+            .getPlatformAddition<InAppPurchaseStoreKitPlatformAddition>();
+        await iosPlatformAddition.presentCodeRedemptionSheet();
+      } else {
+        AppLogger.logError("Store is not available to redeem code.");
+      }
+    } else if (Platform.isAndroid) {
+      // Android users enter promo codes directly inside the Google Play
+      // purchase dialog when they try to buy a normal subscription.
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "Tap a subscription above to enter your promo code at checkout.",
+          ),
+          duration: Duration(seconds: 4),
+        ),
+      );
+    }
   }
 }
