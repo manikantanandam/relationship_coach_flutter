@@ -5,6 +5,16 @@ on:
     branches: [main]
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      deploy_android:
+        description: 'Deploy Android to Play Store internal testing'
+        type: boolean
+        default: true
+      deploy_ios:
+        description: 'Deploy iOS to TestFlight'
+        type: boolean
+        default: true
 
 jobs:
   analyze-and-test:
@@ -20,3 +30,123 @@ jobs:
       - run: flutter pub get
 
       - run: flutter analyze --no-fatal-infos --no-fatal-warnings
+
+  deploy-android:
+    name: Deploy Android (Internal testing)
+    needs: analyze-and-test
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_android == 'true')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.8'
+          channel: 'stable'
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: false
+
+      - run: gem install fastlane -N
+
+      - run: flutter pub get
+
+      - name: Reconstruct keystore + key.properties
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/relationship-coach-release-key.jks
+          cat > android/key.properties <<EOF
+          storePassword=${{ secrets.ANDROID_STORE_PASSWORD }}
+          keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
+          keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}
+          storeFile=relationship-coach-release-key.jks
+          EOF
+
+      - name: Write Play service account key
+        run: echo '${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}' > android/fastlane/play-store-credentials.json
+
+      - name: Compute next version code
+        id: version
+        working-directory: android
+        run: |
+          LATEST=$(fastlane run google_play_track_version_codes track:internal json_key:fastlane/play-store-credentials.json package_name:com.relationshipcoachcamille.app 2>/dev/null | grep -Eo '[0-9]+' | tail -1 || echo 0)
+          PUBSPEC_BUILD=$(grep '^version:' ../pubspec.yaml | sed -E 's/.*\+([0-9]+)/\1/')
+          NEXT=$(( (LATEST > PUBSPEC_BUILD ? LATEST : PUBSPEC_BUILD) + 1 ))
+          echo "build_number=$NEXT" >> "$GITHUB_OUTPUT"
+
+      - name: Build AAB
+        run: flutter build appbundle --release --build-number=${{ steps.version.outputs.build_number }}
+
+      - name: Upload to Play Console internal track
+        working-directory: android
+        env:
+          AAB_PATH: ../build/app/outputs/bundle/release/app-release.aab
+        run: fastlane android upload_internal
+
+      - name: Clean up secrets on disk
+        if: always()
+        run: rm -f android/app/relationship-coach-release-key.jks android/key.properties android/fastlane/play-store-credentials.json
+
+  deploy-ios:
+    name: Deploy iOS (TestFlight)
+    needs: analyze-and-test
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_ios == 'true')
+    runs-on: macos-14
+    env:
+      APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+      APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+      APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+      MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+      MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+      MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      FASTLANE_TEAM_ID: ${{ secrets.FASTLANE_TEAM_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.8'
+          channel: 'stable'
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: false
+
+      - run: gem install fastlane -N
+
+      - run: flutter pub get
+
+      - run: cd ios && pod install
+
+      - name: Fetch signing via match
+        working-directory: ios
+        run: fastlane signing
+
+      - name: Compute next build number
+        id: version
+        working-directory: ios
+        run: |
+          LATEST=$(fastlane run latest_testflight_build_number app_identifier:com.relationshipcoach.RelationshipCoachCamille 2>/dev/null | grep -Eo '[0-9]+' | tail -1 || echo 0)
+          PUBSPEC_BUILD=$(grep '^version:' ../pubspec.yaml | sed -E 's/.*\+([0-9]+)/\1/')
+          NEXT=$(( (LATEST > PUBSPEC_BUILD ? LATEST : PUBSPEC_BUILD) + 1 ))
+          echo "build_number=$NEXT" >> "$GITHUB_OUTPUT"
+
+      - name: Build IPA
+        run: flutter build ipa --release --build-number=${{ steps.version.outputs.build_number }} --export-options-plist=ios/ExportOptions.plist
+
+      - name: Upload to TestFlight
+        working-directory: ios
+        env:
+          IPA_PATH: ../build/ios/ipa/relationship_coach_flutter.ipa
+        run: fastlane upload_testflight
+
+      - name: Clean up signing artifacts
+        if: always()
+        run: rm -rf ~/Library/MobileDevice/Provisioning\ Profiles ~/.fastlane

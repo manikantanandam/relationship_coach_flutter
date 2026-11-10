@@ -24,29 +24,6 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
-            <!-- ============================================== -->
-            <!-- ADDED: Insert Affiliate Intent Filters         -->
-            <!-- ============================================== -->
-            
-            <!-- 1. Custom URL Scheme -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <!-- MUST REPLACE: Change this to match the Android Bundle Identifier in your Insert Affiliate Settings -->
-                <data android:scheme="com.relationshipcoachcamille.app" />
-            </intent-filter>
-
-            <!-- 2. Android App Links (Recommended) -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" android:host="insertaffiliate.link" />
-            </intent-filter>
-            
-            <!-- ============================================== -->
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->

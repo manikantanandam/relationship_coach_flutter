@@ -1,0 +1,22 @@
+default_platform(:android)
+
+platform :android do
+  desc "Upload an already-built AAB to the Internal Testing track"
+  lane :upload_internal do
+    upload_to_play_store(
+      track: "internal",
+      aab: ENV["AAB_PATH"],
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      release_status: "completed"
+    )
+  end
+
+  desc "Print latest internal-track version code (for version bump calc)"
+  lane :next_version_code do
+    codes = google_play_track_version_codes(track: "internal")
+    UI.message("NEXT_VERSION_CODE=#{(codes.max || 0) + 1}")
+  end
+end
