@@ -11,12 +11,6 @@ platform :ios do
     )
   end
 
-  desc "Print latest TestFlight build number (for version bump calc)"
-  lane :next_build_number do
-    latest = latest_testflight_build_number(app_identifier: "com.relationshipcoach.RelationshipCoachCamille")
-    UI.message("NEXT_BUILD_NUMBER=#{latest + 1}")
-  end
-
   desc "Upload an already-built IPA to TestFlight (internal group only)"
   lane :upload_testflight do
     pilot(

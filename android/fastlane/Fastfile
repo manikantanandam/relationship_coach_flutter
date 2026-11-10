@@ -13,10 +13,4 @@ platform :android do
       release_status: "completed"
     )
   end
-
-  desc "Print latest internal-track version code (for version bump calc)"
-  lane :next_version_code do
-    codes = google_play_track_version_codes(track: "internal")
-    UI.message("NEXT_VERSION_CODE=#{(codes.max || 0) + 1}")
-  end
 end

@@ -31,9 +31,75 @@ jobs:
 
       - run: flutter analyze --no-fatal-infos --no-fatal-warnings
 
+  bump-version:
+    name: Bump version (patch + build number)
+    needs: analyze-and-test
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && (github.event.inputs.deploy_android == 'true' || github.event.inputs.deploy_ios == 'true'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      version_name: ${{ steps.bump.outputs.version_name }}
+      build_number: ${{ steps.bump.outputs.build_number }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.MAIN_PUSH_PAT }}
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: false
+
+      - run: gem install fastlane -N
+
+      - name: Write Play service account key
+        run: echo '${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}' > android/fastlane/play-store-credentials.json
+
+      - name: Compute bumped version
+        id: bump
+        env:
+          APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+          APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
+          APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+        run: |
+          CURRENT=$(grep '^version:' pubspec.yaml | sed -E 's/^version:\s*//')
+          CURRENT_NAME=${CURRENT%+*}
+          CURRENT_BUILD=${CURRENT#*+}
+          MAJOR=$(echo "$CURRENT_NAME" | cut -d. -f1)
+          MINOR=$(echo "$CURRENT_NAME" | cut -d. -f2)
+          PATCH=$(echo "$CURRENT_NAME" | cut -d. -f3)
+          NEXT_VERSION_NAME="$MAJOR.$MINOR.$((PATCH + 1))"
+
+          PLAY_LATEST=$(fastlane run google_play_track_version_codes track:internal json_key:android/fastlane/play-store-credentials.json package_name:com.relationshipcoachcamille.app 2>/dev/null | grep -Eo '[0-9]+' | tail -1 || echo 0)
+          TESTFLIGHT_LATEST=$(fastlane run latest_testflight_build_number app_identifier:com.relationshipcoach.RelationshipCoachCamille 2>/dev/null | grep -Eo '[0-9]+' | tail -1 || echo 0)
+
+          NEXT_BUILD=$CURRENT_BUILD
+          for N in "$PLAY_LATEST" "$TESTFLIGHT_LATEST"; do
+            if [ "$N" -gt "$NEXT_BUILD" ]; then NEXT_BUILD=$N; fi
+          done
+          NEXT_BUILD=$((NEXT_BUILD + 1))
+
+          sed -i -E "s/^version:.*/version: ${NEXT_VERSION_NAME}+${NEXT_BUILD}/" pubspec.yaml
+
+          echo "version_name=$NEXT_VERSION_NAME" >> "$GITHUB_OUTPUT"
+          echo "build_number=$NEXT_BUILD" >> "$GITHUB_OUTPUT"
+
+      - name: Clean up credentials
+        if: always()
+        run: rm -f android/fastlane/play-store-credentials.json
+
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pubspec.yaml
+          git commit -m "ci: bump version to ${{ steps.bump.outputs.version_name }}+${{ steps.bump.outputs.build_number }}"
+          git push origin HEAD:main
+
   deploy-android:
     name: Deploy Android (Internal testing)
-    needs: analyze-and-test
+    needs: [analyze-and-test, bump-version]
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_android == 'true')
     runs-on: ubuntu-latest
     steps:
@@ -71,17 +137,8 @@ jobs:
       - name: Write Play service account key
         run: echo '${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}' > android/fastlane/play-store-credentials.json
 
-      - name: Compute next version code
-        id: version
-        working-directory: android
-        run: |
-          LATEST=$(fastlane run google_play_track_version_codes track:internal json_key:fastlane/play-store-credentials.json package_name:com.relationshipcoachcamille.app 2>/dev/null | grep -Eo '[0-9]+' | tail -1 || echo 0)
-          PUBSPEC_BUILD=$(grep '^version:' ../pubspec.yaml | sed -E 's/.*\+([0-9]+)/\1/')
-          NEXT=$(( (LATEST > PUBSPEC_BUILD ? LATEST : PUBSPEC_BUILD) + 1 ))
-          echo "build_number=$NEXT" >> "$GITHUB_OUTPUT"
-
       - name: Build AAB
-        run: flutter build appbundle --release --build-number=${{ steps.version.outputs.build_number }}
+        run: flutter build appbundle --release --build-name=${{ needs.bump-version.outputs.version_name }} --build-number=${{ needs.bump-version.outputs.build_number }}
 
       - name: Upload to Play Console internal track
         working-directory: android
@@ -95,7 +152,7 @@ jobs:
 
   deploy-ios:
     name: Deploy iOS (TestFlight)
-    needs: analyze-and-test
+    needs: [analyze-and-test, bump-version]
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && github.event.inputs.deploy_ios == 'true')
     runs-on: macos-14
     env:
@@ -137,17 +194,8 @@ jobs:
           echo "${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}" | base64 --decode > ~/Library/MobileDevice/Provisioning\ Profiles/profile.mobileprovision
           rm -f cert.p12
 
-      - name: Compute next build number
-        id: version
-        working-directory: ios
-        run: |
-          LATEST=$(fastlane run latest_testflight_build_number app_identifier:com.relationshipcoach.RelationshipCoachCamille 2>/dev/null | grep -Eo '[0-9]+' | tail -1 || echo 0)
-          PUBSPEC_BUILD=$(grep '^version:' ../pubspec.yaml | sed -E 's/.*\+([0-9]+)/\1/')
-          NEXT=$(( (LATEST > PUBSPEC_BUILD ? LATEST : PUBSPEC_BUILD) + 1 ))
-          echo "build_number=$NEXT" >> "$GITHUB_OUTPUT"
-
       - name: Build IPA
-        run: flutter build ipa --release --build-number=${{ steps.version.outputs.build_number }} --export-options-plist=ios/ExportOptions.plist
+        run: flutter build ipa --release --build-name=${{ needs.bump-version.outputs.version_name }} --build-number=${{ needs.bump-version.outputs.build_number }} --export-options-plist=ios/ExportOptions.plist
 
       - name: Upload to TestFlight
         working-directory: ios
