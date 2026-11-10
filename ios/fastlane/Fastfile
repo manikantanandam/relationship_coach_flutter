@@ -11,11 +11,6 @@ platform :ios do
     )
   end
 
-  desc "Fetch App Store distribution signing via match (CI, readonly)"
-  lane :signing do
-    match(type: "appstore", readonly: true)
-  end
-
   desc "Print latest TestFlight build number (for version bump calc)"
   lane :next_build_number do
     latest = latest_testflight_build_number(app_identifier: "com.relationshipcoach.RelationshipCoachCamille")

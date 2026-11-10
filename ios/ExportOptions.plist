@@ -11,7 +11,7 @@
   <key>provisioningProfiles</key>
   <dict>
     <key>com.relationshipcoach.RelationshipCoachCamille</key>
-    <string>match AppStore com.relationshipcoach.RelationshipCoachCamille</string>
+    <string>RelationshipCoach AppStore</string>
   </dict>
   <key>uploadSymbols</key>
   <true/>
